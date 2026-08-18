@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suman Kumar Raj | GenAI & Machine Learning Engineer</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Ambient Background Glows -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-indigo-600/20 blur-[130px] rounded-full"></div>
+    <div class="absolute top-1/3 -left-40 w-[550px] h-[550px] bg-cyan-600/15 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-10 right-0 w-[550px] h-[450px] bg-purple-600/15 blur-[120px] rounded-full"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold tracking-tight text-white flex items-center gap-2.5 shrink-0">
+        <span class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-mono text-sm font-bold shadow-lg shadow-indigo-500/30">SK</span>
+        <span>Suman Kumar Raj</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
+        <a href="#skills" class="hover:text-indigo-400 transition-colors">Skills</a>
+        <a href="#featured-projects" class="hover:text-indigo-400 transition-colors">Featured Projects</a>
+        <a href="#github-repos" class="hover:text-indigo-400 transition-colors">All Repositories</a>
+        <a href="#experience" class="hover:text-indigo-400 transition-colors">Experience</a>
+        <a href="#education" class="hover:text-indigo-400 transition-colors">Education & Honors</a>
+      </div>
+
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="#contact" class="px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-all shadow-md shadow-indigo-600/25 flex items-center gap-1.5">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          <span>Get in Touch</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6">
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 md:pt-28 md:pb-24">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        IIT Kharagpur &bull; GATE AIR 64 &bull; GenAI & Machine Learning Engineer
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.12] mb-6">
+        Architecting <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400">Agentic AI Workflows</span> & Production Deep Learning.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-slate-400 max-w-3xl leading-relaxed mb-8">
+        Dual Degree graduate from <strong class="text-slate-200">IIT Kharagpur</strong>. Specializing in Multi-Agent orchestration with <strong class="text-slate-200">LangGraph</strong>, stateful memory systems, deep learning computer vision, credit risk modeling, and open-source profiling tools.
+      </p>
+
+      <!-- Quick Action Buttons & Socials -->
+      <div class="flex flex-wrap items-center gap-3.5">
+        <a href="#featured-projects" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/30">
+          <span>Explore Projects</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="suman_resume_1_3.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl border border-indigo-500/40 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 text-sm font-medium flex items-center gap-2 transition-all">
+          <i data-lucide="eye" class="w-4 h-4"></i>
+          <span>View Resume</span>
+        </a>
+        <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+          <i data-lucide="github" class="w-4 h-4 text-purple-400"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+          <i data-lucide="linkedin" class="w-4 h-4 text-cyan-400"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+          <i data-lucide="code" class="w-4 h-4 text-amber-400"></i>
+          <span>LeetCode</span>
+        </a>
+        <a href="mailto:sumanraj4176@gmail.com" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+          <i data-lucide="mail" class="w-4 h-4 text-indigo-400"></i>
+          <span>Email</span>
+        </a>
+        <a href="tel:+919798196180" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+          <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+          <span>+91-9798196180</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 border-t border-slate-900">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-white mb-2">About Me</h2>
+          <p class="text-xs text-indigo-400 font-mono">Background & Focus</p>
+        </div>
+        <div class="md:col-span-2 space-y-4 text-slate-300 leading-relaxed text-sm">
+          <p>
+            I am a Dual Degree graduate from <strong class="text-white">IIT Kharagpur</strong> with a strong focus on Generative AI, Multi-Agent Systems, and Applied Deep Learning. I specialize in designing autonomous workflows using <strong class="text-indigo-400">LangGraph</strong>, stateful agents with structured long-term memory, and robust computer vision models.
+          </p>
+          <p>
+            I have mentored over 500 students in Data Structures & Algorithms, published open-source developer tooling on PyPI (CodeBeat), and secured an All India Rank of 64 in GATE 2024.
+          </p>
+
+          <!-- Social Profiles Highlight in About -->
+          <div class="pt-3 flex flex-wrap items-center gap-3">
+            <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300 hover:border-cyan-500/50 hover:bg-slate-800/80 transition-all">
+              <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
+              <span>linkedin.com/in/sumanraj11</span>
+            </a>
+            <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-purple-300 hover:border-purple-500/50 hover:bg-slate-800/80 transition-all">
+              <i data-lucide="github" class="w-3.5 h-3.5"></i>
+              <span>github.com/SKR18156592</span>
+            </a>
+            <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-amber-300 hover:border-amber-500/50 hover:bg-slate-800/80 transition-all">
+              <i data-lucide="code" class="w-3.5 h-3.5"></i>
+              <span>leetcode.com/sumanraj112002</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Arsenal / Skills -->
+    <section id="skills" class="py-16 border-t border-slate-900">
+      <div class="mb-10">
+        <h2 class="text-3xl font-bold tracking-tight text-white mb-2">Technical Arsenal</h2>
+        <p class="text-slate-400 text-sm">Full-stack capabilities across AI agent orchestration, machine learning pipelines, and software engineering.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Generative AI & Agents -->
+        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/40 transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="bot" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-white mb-3">Generative AI & Agents</h3>
+          <ul class="space-y-1.5 text-xs font-mono text-slate-300">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i> LangGraph & LangChain</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i> Multi-Agent Systems & Routing</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i> Stateful Memory & Human-in-the-Loop</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i> RAG, VectorDB & GraphDB</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i> Prompt Engineering & Tool Calling</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i> LangSmith & Agent Evaluation</li>
+          </ul>
+        </div>
+
+        <!-- Machine Learning & Deep Learning -->
+        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-cyan-500/40 transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-white mb-3">Machine Learning & CV</h3>
+          <ul class="space-y-1.5 text-xs font-mono text-slate-300">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0"></i> Deep Neural Networks (TensorFlow/Keras)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0"></i> Computer Vision & MobileNetV3</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0"></i> Presentation Attack Detection (PAD)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0"></i> Predictive Risk Modeling & Classification</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0"></i> EDA, NLP & Statistical Analysis</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0"></i> APCER, BPCER, ACER, EER Metrics</li>
+          </ul>
+        </div>
+
+        <!-- Core CS & Frameworks -->
+        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-purple-500/40 transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="layers" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-white mb-3">Languages & Engineering</h3>
+          <ul class="space-y-1.5 text-xs font-mono text-slate-300">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 shrink-0"></i> Python & SQL</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 shrink-0"></i> Scikit-Learn, Pandas, NumPy, OpenCV</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 shrink-0"></i> Data Structures & Algorithms</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 shrink-0"></i> DBMS, OOP & System Architecture</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 shrink-0"></i> PyPI Package Development & MLOps</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400 shrink-0"></i> Git, GitHub, VS Code, Jupyter</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="featured-projects" class="py-16 border-t border-slate-900">
+      <div class="mb-10">
+        <h2 class="text-3xl font-bold tracking-tight text-white mb-2">Featured Projects</h2>
+        <p class="text-slate-400 text-sm">Deep-dive implementations in Agentic AI, Computer Vision, Deep Learning, and Open-Source Software.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- 1. Multi-Agent Research Assistant -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-indigo-500/50 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">LangGraph &bull; Multi-Agent</span>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-4 h-4"></i></a>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Multi-Agent Research Assistant</h3>
+            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed mb-4 list-disc list-inside">
+              <li>Built a multi-agent research system in LangGraph that decomposes complex topics into specialized analyst perspectives with human-in-the-loop refinement.</li>
+              <li>Implemented parallel information retrieval using Tavily and Wikipedia to synthesize context across diverse domains.</li>
+              <li>Designed a map-reduce workflow to parallelize analyst interviews and aggregate insights into structured research reports.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">LangGraph</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">LangChain</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">OpenAI</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Tavily</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">LangSmith</span>
+          </div>
+        </div>
+
+        <!-- 2. MyTaskManager -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-cyan-500/50 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Stateful Memory &bull; Routing</span>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-4 h-4"></i></a>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">MyTaskManager</h3>
+            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed mb-4 list-disc list-inside">
+              <li>Engineered a stateful task-management AI agent in LangGraph maintaining short-term conversational context and structured long-term memory.</li>
+              <li>Architected distinct Profile, To-Do, and Instruction memories using Pydantic schemas for precise extraction and adaptive execution.</li>
+              <li>Implemented cyclic workflows and dynamic routing to manage memory updates before safely returning control to the primary agent.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">LangGraph</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Pydantic</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Trustcall</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">OpenAI</span>
+          </div>
+        </div>
+
+        <!-- 3. Fingerprint Liveness Detection -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-purple-500/50 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">Computer Vision &bull; PAD</span>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-4 h-4"></i></a>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Fingerprint Liveness Detection (PAD)</h3>
+            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed mb-4 list-disc list-inside">
+              <li>Created a Presentation Attack Detection (PAD) biometric verification pipeline using MobileNetV3-Small transfer learning.</li>
+              <li>Developed an end-to-end processing pipeline: 70/15/15 split, image augmentation, ImageNet normalization, and single-image inference.</li>
+              <li>Calibrated decision thresholds against a target 3% BPCER; evaluated with APCER, BPCER, ACER, EER, and ROC-AUC metrics.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">MobileNetV3</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">TensorFlow</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Keras</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">OpenCV</span>
+          </div>
+        </div>
+
+        <!-- 4. LendingClub Risk Prediction -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Deep Learning &bull; 0.93 F1-Score</span>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-4 h-4"></i></a>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">LendingClub Risk Prediction</h3>
+            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed mb-4 list-disc list-inside">
+              <li>Built an end-to-end credit risk classification system on 396K+ loan records with missing value handling, categorical encoding, and MinMax scaling.</li>
+              <li>Trained a deep neural network with ReLU activations, dropout regularization, and sigmoid output to classify loan default risk.</li>
+              <li>Attained a 0.93 F1-score on the test set while effectively resolving severe class imbalance.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">TensorFlow</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Scikit-learn</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Pandas</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">NumPy</span>
+          </div>
+        </div>
+
+        <!-- 5. CodeBeat (Open Source Package) -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-amber-500/50 transition-all md:col-span-2">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-mono px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">Open-Source Python Package &bull; PyPI</span>
+                <h3 class="text-lg font-bold text-white">CodeBeat</h3>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Created and published an open-source Python profiling package for line-by-line function tracing and runtime statistics across repeated runs to identify latency bottlenecks.
+              </p>
+            </div>
+            <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="self-start md:self-center px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono text-white flex items-center gap-2 shrink-0 transition-all">
+              <i data-lucide="package" class="w-4 h-4 text-amber-400"></i>
+              <span>View on PyPI / GitHub</span>
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Python</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Performance Profiling</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">PyPI Distribution</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Runtime Telemetry</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live All Repositories (GitHub API) -->
+    <section id="github-repos" class="py-16 border-t border-slate-900">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-1">
+            <h2 class="text-3xl font-bold tracking-tight text-white">All GitHub Repositories</h2>
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono">Live API</span>
+          </div>
+          <p class="text-slate-400 text-sm">Dynamically synchronized with <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">@SKR18156592</a>.</p>
+        </div>
+        <a href="https://github.com/SKR18156592?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white text-xs font-mono flex items-center gap-2 w-fit transition-all">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+
+      <!-- Live Repos Grid -->
+      <div id="repos-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="p-6 rounded-2xl bg-slate-900/30 border border-slate-800/80 animate-pulse col-span-full text-center py-12">
+          <i data-lucide="loader-2" class="w-6 h-6 animate-spin text-indigo-400 mx-auto mb-2"></i>
+          <p class="text-xs font-mono text-slate-400">Loading repositories from GitHub API...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 border-t border-slate-900">
+      <div class="mb-10">
+        <h2 class="text-3xl font-bold tracking-tight text-white mb-2">Experience & Mentorship</h2>
+        <p class="text-slate-400 text-sm">Academic roles, leadership, and teaching experience.</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- AlgoZenith -->
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col md:flex-row md:items-start justify-between gap-4">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 shrink-0 mt-1">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">DSA Mentor &bull; AlgoZenith</h3>
+              <p class="text-xs text-indigo-400 font-mono mb-2">Oct 2022 – May 2024</p>
+              <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                <li>Mentored 500+ students in Data Structures and Algorithms, improving problem-solving rigor and interview performance.</li>
+                <li>Guided students through complex coding problems, dynamic programming optimization, and structured algorithmic design.</li>
+              </ul>
+            </div>
+          </div>
+          <span class="text-xs font-mono text-slate-400 self-start md:self-center px-3 py-1 rounded-full bg-slate-800 shrink-0">500+ Students</span>
+        </div>
+
+        <!-- TA IIT Kharagpur -->
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col md:flex-row md:items-start justify-between gap-4">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0 mt-1">
+              <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Teaching Assistant &bull; Indian Institute of Technology, Kharagpur</h3>
+              <p class="text-xs text-cyan-400 font-mono mb-2">Aug 2023 – May 2025</p>
+              <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                <li>Assisted faculty in conducting tutorials and grading undergraduate coursework at IIT Kharagpur.</li>
+                <li>Conducted interactive doubt-clearing sessions, reinforcing core analytical problem solving.</li>
+              </ul>
+            </div>
+          </div>
+          <span class="text-xs font-mono text-slate-400 self-start md:self-center px-3 py-1 rounded-full bg-slate-800 shrink-0">IIT Kharagpur</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Achievements Section -->
+    <section id="education" class="py-16 border-t border-slate-900">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Education -->
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2">
+            <i data-lucide="book-open" class="w-5 h-5 text-indigo-400"></i>
+            <span>Education</span>
+          </h2>
+          <div class="space-y-4">
+            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
+              <div class="flex justify-between items-start mb-1">
+                <h3 class="font-bold text-white text-sm">IIT Kharagpur</h3>
+                <span class="text-xs font-mono text-indigo-400 font-bold">CGPA: 8.12</span>
+              </div>
+              <p class="text-xs text-slate-300">Dual Degree (B.Tech + M.Tech) in Ocean Eng. & Naval Architecture</p>
+              <p class="text-xs text-slate-500 font-mono mt-1">2020 – 2025</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
+              <div class="flex justify-between items-start mb-1">
+                <h3 class="font-bold text-white text-sm">S K P Vidya Vihar, Bhagalpur</h3>
+                <span class="text-xs font-mono text-indigo-400 font-bold">92%</span>
+              </div>
+              <p class="text-xs text-slate-300">Class XII (CBSE)</p>
+              <p class="text-xs text-slate-500 font-mono mt-1">2020</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
+              <div class="flex justify-between items-start mb-1">
+                <h3 class="font-bold text-white text-sm">D P S Sabour, Bhagalpur</h3>
+                <span class="text-xs font-mono text-indigo-400 font-bold">10 CGPA</span>
+              </div>
+              <p class="text-xs text-slate-300">Class X (CBSE)</p>
+              <p class="text-xs text-slate-500 font-mono mt-1">2018</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Awards & Honors -->
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2">
+            <i data-lucide="award" class="w-5 h-5 text-amber-400"></i>
+            <span>Awards & Achievements</span>
+          </h2>
+          <div class="space-y-4">
+            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex items-start gap-3">
+              <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400 shrink-0">
+                <i data-lucide="trophy" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-sm">GATE 2024 — AIR 64</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Ranked in the 99.8th percentile nationwide in the Graduate Aptitude Test in Engineering.</p>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex items-start gap-3">
+              <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 shrink-0">
+                <i data-lucide="star" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-sm">Prof. J.P. Ghose Memorial Award</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Awarded for distinguished academic performance at IIT Kharagpur (2022–2023).</p>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex items-start gap-3">
+              <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400 shrink-0">
+                <i data-lucide="medal" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-sm">Gold Medalist — Gymkhana Championship</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Gold Medal winner in Choreography at IIT Kharagpur (2021–2022).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get in Touch Section -->
+    <section id="contact" class="py-20 border-t border-slate-900">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3">Get in Touch</h2>
+        <p class="text-slate-400 text-sm">
+          Feel free to reach out for collaborations on agentic systems, deep learning pipelines, or software roles.
+        </p>
+      </div>
+
+      <div class="max-w-xl mx-auto p-8 rounded-3xl bg-slate-900/60 border border-slate-800">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <a href="mailto:sumanraj4176@gmail.com" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3">
+            <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </div>
+            <div class="overflow-hidden text-left">
+              <span class="block text-[10px] font-mono text-slate-500 uppercase">Email</span>
+              <span class="text-xs font-semibold text-slate-200 truncate block">sumanraj4176@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="tel:+919798196180" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3">
+            <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </div>
+            <div class="text-left">
+              <span class="block text-[10px] font-mono text-slate-500 uppercase">Phone</span>
+              <span class="text-xs font-semibold text-slate-200">+91-9798196180</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3">
+            <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </div>
+            <div class="text-left">
+              <span class="block text-[10px] font-mono text-slate-500 uppercase">GitHub</span>
+              <span class="text-xs font-semibold text-slate-200">SKR18156592</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3">
+            <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </div>
+            <div class="text-left">
+              <span class="block text-[10px] font-mono text-slate-500 uppercase">LinkedIn</span>
+              <span class="text-xs font-semibold text-slate-200">sumanraj11</span>
+            </div>
+          </a>
+
+          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3 sm:col-span-2">
+            <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400">
+              <i data-lucide="code" class="w-4 h-4"></i>
+            </div>
+            <div class="text-left">
+              <span class="block text-[10px] font-mono text-slate-500 uppercase">LeetCode</span>
+              <span class="text-xs font-semibold text-slate-200">sumanraj112002</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Direct Backend Email Form (Web3Forms) -->
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+          <!-- Configured Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="8f9683c9-ede3-4df9-bb3e-0e1b879f5725" />
+          
+          <div>
+            <label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5">Name</label>
+            <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5">Email</label>
+            <input type="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5">Message</label>
+            <textarea name="message" rows="3" required placeholder="Let's build something great..." class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all"></textarea>
+          </div>
+          
+          <button id="form-submit-btn" type="submit" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2">
+            <span>Send Direct Message</span>
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+          
+          <div id="form-status" class="hidden p-3 rounded-xl text-center text-xs font-mono"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Suman Kumar Raj. IIT Kharagpur.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    lucide.createIcons();
+
+    // AJAX Handler for Web3Forms so the page doesn't reload awkwardly
+    const form = document.getElementById('contact-form');
+    const statusDiv = document.getElementById('form-status');
+    const submitBtn = document.getElementById('form-submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Sending...</span>';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        const result = await response.json();
+
+        if (response.status === 200) {
+          statusDiv.className = 'p-3 rounded-xl text-center text-xs font-mono bg-emerald-500/10 border border-emerald-500/30 text-emerald-400';
+          statusDiv.innerHTML = 'Message sent successfully! Thank you for reaching out.';
+          statusDiv.classList.remove('hidden');
+          form.reset();
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (error) {
+        statusDiv.className = 'p-3 rounded-xl text-center text-xs font-mono bg-rose-500/10 border border-rose-500/30 text-rose-400';
+        statusDiv.innerHTML = 'Error sending message. Please try emailing directly.';
+        statusDiv.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Send Direct Message</span> <i data-lucide="send" class="w-4 h-4"></i>';
+        lucide.createIcons();
+      }
+    });
+
+    // Fetch and dynamically render all public repositories from GitHub
+    async function fetchGitHubRepos() {
+      const username = 'SKR18156592';
+      const container = document.getElementById('repos-container');
+      
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=30`);
+        if (!response.ok) throw new Error('Failed to fetch repositories');
+        
+        const repos = await response.json();
+        
+        if (repos.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full p-8 text-center bg-slate-900/40 rounded-2xl border border-slate-800 text-slate-400 text-xs font-mono">
+              No public repositories found.
+            </div>
+          `;
+          return;
+        }
+
+        container.innerHTML = repos.map(repo => `
+          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/40 transition-all flex flex-col justify-between hover:bg-slate-900/80">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2 text-indigo-400 font-mono text-xs">
+                  <i data-lucide="folder-git-2" class="w-4 h-4 shrink-0"></i>
+                  <span class="font-bold text-white group-hover:text-indigo-400 transition-colors truncate max-w-[180px]">${repo.name}</span>
+                </div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors shrink-0"></i>
+              </div>
+              <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-4">
+                ${repo.description || 'Public repository on GitHub.'}
+              </p>
+            </div>
+
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-500 pt-3 border-t border-slate-800/60">
+              <div class="flex items-center gap-3">
+                ${repo.language ? `
+                  <span class="flex items-center gap-1 text-slate-300">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                    ${repo.language}
+                  </span>
+                ` : ''}
+                <span class="flex items-center gap-1 hover:text-amber-400 transition-colors">
+                  <i data-lucide="star" class="w-3 h-3"></i> ${repo.stargazers_count}
+                </span>
+                <span class="flex items-center gap-1">
+                  <i data-lucide="git-fork" class="w-3 h-3"></i> ${repo.forks_count}
+                </span>
+              </div>
+              <span>${new Date(repo.updated_at).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}</span>
+            </div>
+          </a>
+        `).join('');
+
+        lucide.createIcons();
+
+      } catch (err) {
+        container.innerHTML = `
+          <div class="col-span-full p-6 text-center bg-slate-900/40 rounded-2xl border border-slate-800 text-slate-400 text-xs font-mono">
+            Unable to fetch repositories dynamically. Please visit <a href="https://github.com/SKR18156592" target="_blank" class="text-indigo-400 underline">github.com/SKR18156592</a> directly.
+          </div>
+        `;
+      }
+    }
+
+    fetchGitHubRepos();
+  </script>
+</body>
+</html>
