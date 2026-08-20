@@ -40,17 +40,17 @@
 
   <!-- Ambient Background Glows -->
   <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-indigo-600/20 blur-[130px] rounded-full"></div>
-    <div class="absolute top-1/3 -left-40 w-[550px] h-[550px] bg-cyan-600/15 blur-[120px] rounded-full"></div>
-    <div class="absolute bottom-10 right-0 w-[550px] h-[450px] bg-purple-600/15 blur-[120px] rounded-full"></div>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-indigo-600/15 blur-[150px] rounded-full animate-pulse"></div>
+    <div class="absolute top-1/3 -left-40 w-[600px] h-[600px] bg-cyan-600/10 blur-[140px] rounded-full"></div>
+    <div class="absolute bottom-10 right-0 w-[600px] h-[500px] bg-purple-600/10 blur-[140px] rounded-full"></div>
   </div>
 
   <!-- Navigation Bar -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80 shadow-2xl shadow-slate-950/50">
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="text-xl font-bold tracking-tight text-white flex items-center gap-2.5 shrink-0">
-        <span class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-mono text-sm font-bold shadow-lg shadow-indigo-500/30">SK</span>
-        <span>Suman Kumar Raj</span>
+      <a href="#" class="text-xl font-bold tracking-tight text-white flex items-center gap-2.5 shrink-0 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center font-mono text-sm font-bold shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform">SK</span>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">Suman Kumar Raj</span>
       </a>
 
       <!-- Navigation Links -->
@@ -66,7 +66,7 @@
       </div>
 
       <div class="flex items-center gap-3 shrink-0">
-        <a href="#contact" class="px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-all shadow-md shadow-indigo-600/25 flex items-center gap-1.5">
+        <a href="#contact" class="px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-all shadow-lg shadow-indigo-600/25 flex items-center gap-1.5 hover:scale-105">
           <i data-lucide="mail" class="w-3.5 h-3.5"></i>
           <span>Get in Touch</span>
         </a>
@@ -76,9 +76,9 @@
 
   <main class="max-w-6xl mx-auto px-6">
     <!-- Hero Section -->
-    <section class="pt-20 pb-16 md:pt-28 md:pb-24">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-6">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+    <section class="pt-24 pb-16 md:pt-32 md:pb-28">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-semibold mb-6 shadow-inner shadow-indigo-500/20">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
         IIT Kharagpur &bull; GATE AIR 64 &bull; GenAI & Machine Learning Engineer
       </div>
 
@@ -86,37 +86,37 @@
         Architecting <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400">Autonomous AI Agents</span> & Production-Grade ML Pipelines.
       </h1>
 
-      <p class="text-lg sm:text-xl text-slate-400 max-w-3xl leading-relaxed mb-8">
+      <p class="text-lg sm:text-xl text-slate-400 max-w-3xl leading-relaxed mb-10">
         Dual Degree graduate from <strong class="text-slate-200">IIT Kharagpur</strong>. Specializing in Multi-Agent orchestration with <strong class="text-slate-200">LangGraph</strong>, stateful memory systems, RAG frameworks, deep learning computer vision, credit risk modeling, and open-source profiling tools.
       </p>
 
       <!-- Quick Action Buttons & Socials -->
       <div class="flex flex-wrap items-center gap-3.5">
-        <a href="#featured-projects" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/30">
+        <a href="#featured-projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-semibold text-sm flex items-center gap-2 transition-all shadow-xl shadow-indigo-600/30 hover:scale-105">
           <span>Explore Projects</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
-        <a href="suman_resume_1.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl border border-indigo-500/40 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 text-sm font-medium flex items-center gap-2 transition-all">
+        <a href="suman_resume_1.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-indigo-500/40 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 text-sm font-medium flex items-center gap-2 transition-all hover:scale-105">
           <i data-lucide="eye" class="w-4 h-4"></i>
           <span>View Resume</span>
         </a>
-        <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+        <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="px-4 py-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all hover:scale-105">
           <i data-lucide="github" class="w-4 h-4 text-purple-400"></i>
           <span>GitHub</span>
         </a>
-        <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+        <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="px-4 py-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all hover:scale-105">
           <i data-lucide="linkedin" class="w-4 h-4 text-cyan-400"></i>
           <span>LinkedIn</span>
         </a>
-        <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+        <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="px-4 py-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all hover:scale-105">
           <i data-lucide="code" class="w-4 h-4 text-amber-400"></i>
           <span>LeetCode</span>
         </a>
-        <a href="mailto:sumanraj4176@gmail.com" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+        <a href="mailto:sumanraj4176@gmail.com" class="px-4 py-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all hover:scale-105">
           <i data-lucide="mail" class="w-4 h-4 text-indigo-400"></i>
           <span>Email</span>
         </a>
-        <a href="tel:+919798196180" class="px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+        <a href="tel:+919798196180" class="px-4 py-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-sm font-medium flex items-center gap-2 transition-all hover:scale-105">
           <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
           <span>+91-9798196180</span>
         </a>
@@ -124,18 +124,18 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 border-t border-slate-900">
-      <div class="grid md:grid-cols-3 gap-8">
+    <section id="about" class="py-20 border-t border-slate-900/80">
+      <div class="grid md:grid-cols-3 gap-8 p-8 rounded-3xl bg-gradient-to-br from-slate-900/40 via-slate-900/20 to-transparent border border-slate-800/60 shadow-xl backdrop-blur-md">
         <div>
           <h2 class="text-2xl font-bold tracking-tight text-white mb-2">About Me</h2>
-          <p class="text-xs text-indigo-400 font-mono">My Journey & Passion</p>
+          <p class="text-xs text-indigo-400 font-mono tracking-wider uppercase">My Journey & Passion</p>
         </div>
         <div class="md:col-span-2 space-y-4 text-slate-300 leading-relaxed text-base">
           <p>
-            Hello! I'm <strong class="text-white">Suman Kumar Raj</strong>, a GenAI and Machine Learning Engineer who loves transforming complex math and algorithms into practical, high-impact intelligent software.
+            Hello! I'm <strong class="text-white font-semibold">Suman Kumar Raj</strong>, a GenAI and Machine Learning Engineer who loves transforming complex math and algorithms into practical, high-impact intelligent software.
           </p>
           <p>
-            Coming from an engineering background at <strong class="text-indigo-400">IIT Kharagpur</strong>, I enjoy tackling hard engineering challenges—whether it's orchestrating multi-agent systems with LangGraph, building deep learning classifiers for computer vision, or developing open-source Python packages to profile execution bottlenecks.
+            Coming from an engineering background at <strong class="text-indigo-400 font-semibold">IIT Kharagpur</strong>, I enjoy tackling hard engineering challenges—whether it's orchestrating multi-agent systems with LangGraph, building deep learning classifiers for computer vision, or developing open-source Python packages to profile execution bottlenecks.
           </p>
           <p>
             When I'm not writing code or building AI pipelines, you'll find me mentoring students in Data Structures & Algorithms, exploring new ideas in systems architecture, or pushing the boundaries of what large language models can automate.
@@ -145,40 +145,40 @@
     </section>
 
     <!-- Technical Arsenal / Skills -->
-    <section id="skills" class="py-16 border-t border-slate-900">
-      <div class="mb-10">
+    <section id="skills" class="py-20 border-t border-slate-900/80">
+      <div class="mb-12">
         <h2 class="text-3xl font-bold tracking-tight text-white mb-2">Technical Arsenal</h2>
         <p class="text-slate-400 text-sm">Synchronized directly from core resume skill categories and GitHub documentation.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- 1. Generative AI & LLMs -->
-        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/40 transition-all group flex flex-col justify-between">
+        <div class="p-7 rounded-3xl bg-gradient-to-b from-slate-900/70 to-slate-950/90 border border-slate-800/80 hover:border-indigo-500/50 transition-all duration-300 group flex flex-col justify-between shadow-xl hover:-translate-y-1">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="bot" class="w-5 h-5"></i>
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-indigo-500/20">
+              <i data-lucide="bot" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-3 text-base">Generative AI & LLMs</h3>
-            <ul class="space-y-2 text-sm font-mono text-slate-300">
+            <h3 class="font-bold text-white mb-4 text-lg">Generative AI & LLMs</h3>
+            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> LangChain</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> LangGraph</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> Agentic AI</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> Memory Systems & Multi-Agent Systems</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> LLM Orchestration, RAG, VectorDB, GraphDB</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> Prompt Engineering, Tool & Function Calling</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> Structured Outputs, LLM Evaluation</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> Memory & Multi-Agent Systems</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> LLM Orchestration, RAG, VectorDB</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> Tool & Function Calling</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> Structured Outputs, Evaluation</li>
             </ul>
           </div>
         </div>
 
         <!-- 2. Machine Learning & Deep Learning -->
-        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-cyan-500/40 transition-all group flex flex-col justify-between">
+        <div class="p-7 rounded-3xl bg-gradient-to-b from-slate-900/70 to-slate-950/90 border border-slate-800/80 hover:border-cyan-500/50 transition-all duration-300 group flex flex-col justify-between shadow-xl hover:-translate-y-1">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-cyan-500/20">
+              <i data-lucide="brain-circuit" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-3 text-base">Machine Learning & Deep Learning</h3>
-            <ul class="space-y-2 text-sm font-mono text-slate-300">
+            <h3 class="font-bold text-white mb-4 text-lg">Machine & Deep Learning</h3>
+            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Classification, Regression</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Feature Engineering, EDA</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Linear & Logistic Regression</li>
@@ -190,31 +190,30 @@
         </div>
 
         <!-- 3. Programming Languages -->
-        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-purple-500/40 transition-all group flex flex-col justify-between">
+        <div class="p-7 rounded-3xl bg-gradient-to-b from-slate-900/70 to-slate-950/90 border border-slate-800/80 hover:border-purple-500/50 transition-all duration-300 group flex flex-col justify-between shadow-xl hover:-translate-y-1">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="code-2" class="w-5 h-5"></i>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-purple-500/20">
+              <i data-lucide="code-2" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-3 text-base">Programming Languages</h3>
-            <ul class="space-y-2 text-sm font-mono text-slate-300">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> Python</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> SQL</li>
+            <h3 class="font-bold text-white mb-4 text-lg">Programming Languages</h3>
+            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> Python (Expert)</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> SQL (Advanced Queries & EDA)</li>
             </ul>
           </div>
         </div>
 
         <!-- 4. Frameworks and Libraries -->
-        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-emerald-500/40 transition-all group flex flex-col justify-between">
+        <div class="p-7 rounded-3xl bg-gradient-to-b from-slate-900/70 to-slate-950/90 border border-slate-800/80 hover:border-emerald-500/50 transition-all duration-300 group flex flex-col justify-between shadow-xl hover:-translate-y-1">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="layers" class="w-5 h-5"></i>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-emerald-500/20">
+              <i data-lucide="layers" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-3 text-base">Frameworks and Libraries</h3>
-            <ul class="space-y-2 text-sm font-mono text-slate-300">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> TensorFlow</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> Keras</li>
+            <h3 class="font-bold text-white mb-4 text-lg">Frameworks & Libraries</h3>
+            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> TensorFlow & Keras</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> Scikit-learn</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> NumPy, Pandas</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> NumPy & Pandas</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> Matplotlib & Seaborn</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> TensorBoard</li>
             </ul>
@@ -222,38 +221,33 @@
         </div>
 
         <!-- 5. Platforms & Tools -->
-        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-amber-500/40 transition-all group flex flex-col justify-between">
+        <div class="p-7 rounded-3xl bg-gradient-to-b from-slate-900/70 to-slate-950/90 border border-slate-800/80 hover:border-amber-500/50 transition-all duration-300 group flex flex-col justify-between shadow-xl hover:-translate-y-1">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="terminal" class="w-5 h-5"></i>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-amber-500/20">
+              <i data-lucide="terminal" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-3 text-base">Platforms & Tools</h3>
-            <ul class="space-y-2 text-sm font-mono text-slate-300">
+            <h3 class="font-bold text-white mb-4 text-lg">Platforms & Tools</h3>
+            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> Git & GitHub</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> LangSmith</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> VS Code</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> Jupyter Notebook</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> Google Colab</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> Kaggle</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> VS Code & Jupyter</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> Google Colab & Kaggle</li>
             </ul>
           </div>
         </div>
 
         <!-- 6. Core Engineering & Fundamentals -->
-        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-rose-500/40 transition-all group flex flex-col justify-between">
+        <div class="p-7 rounded-3xl bg-gradient-to-b from-slate-900/70 to-slate-950/90 border border-slate-800/80 hover:border-rose-500/50 transition-all duration-300 group flex flex-col justify-between shadow-xl hover:-translate-y-1">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <i data-lucide="cpu" class="w-5 h-5"></i>
+            <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-rose-500/20">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-3 text-base">Core Engineering & Fundamentals</h3>
-            <ul class="space-y-2 text-sm font-mono text-slate-300">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> Data Structures and Algorithms</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> DBMS & Object-Oriented Programming (OOPs)</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> MLOps</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> Probability and Statistics</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> Linear Algebra</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> Numerical & Complex Analysis</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> Advanced Calculus & Applied Methods</li>
+            <h3 class="font-bold text-white mb-4 text-lg">Core Engineering & Math</h3>
+            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> Data Structures & Algorithms</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> DBMS & OOPs Principles</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> Probability, Statistics & Linear Algebra</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> MLOps Fundamentals</li>
             </ul>
           </div>
         </div>
@@ -261,153 +255,148 @@
     </section>
 
     <!-- Featured Projects -->
-    <section id="featured-projects" class="py-16 border-t border-slate-900">
-      <div class="mb-10">
+    <section id="featured-projects" class="py-20 border-t border-slate-900/80">
+      <div class="mb-12">
         <h2 class="text-3xl font-bold tracking-tight text-white mb-2">Featured Projects</h2>
         <p class="text-slate-400 text-sm">Deep-dive implementations in Agentic AI, Computer Vision, Deep Learning, and Open-Source Software.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
         <!-- 1. Multi-Agent Research Assistant -->
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-indigo-500/50 transition-all">
+        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:-translate-y-1">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">LangGraph &bull; Multi-Agent</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-4 h-4"></i></a>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">LangGraph &bull; Multi-Agent</span>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Multi-Agent Research Assistant</h3>
-            <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-4 list-disc list-inside">
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">Multi-Agent Research Assistant</h3>
+            <ul class="text-sm text-slate-300 space-y-2.5 leading-relaxed mb-6 list-disc list-inside">
               <li>Built a multi-agent research system in LangGraph that decomposes complex topics into specialized analyst perspectives with human-in-the-loop refinement.</li>
               <li>Implemented parallel information retrieval using Tavily and Wikipedia to synthesize context across diverse domains.</li>
               <li>Designed a map-reduce workflow to parallelize analyst interviews and aggregate insights into structured research reports.</li>
             </ul>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Python</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">LangGraph</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">LangChain</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">OpenAI</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Tavily</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Wikipedia</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">LangSmith</span>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Python</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">LangGraph</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">LangChain</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">OpenAI</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Tavily</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">LangSmith</span>
           </div>
         </div>
 
         <!-- 2. MyTaskManager -->
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-cyan-500/50 transition-all">
+        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:-translate-y-1">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Stateful Memory &bull; Routing</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-4 h-4"></i></a>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Stateful Memory &bull; Routing</span>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">MyTaskManager</h3>
-            <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-4 list-disc list-inside">
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">MyTaskManager</h3>
+            <ul class="text-sm text-slate-300 space-y-2.5 leading-relaxed mb-6 list-disc list-inside">
               <li>Engineered a stateful task-management AI agent in LangGraph maintaining short-term conversational context and structured long-term memory.</li>
               <li>Architected distinct Profile, To-Do, and Instruction memories using Pydantic schemas for precise extraction and adaptive execution.</li>
               <li>Implemented cyclic workflows and dynamic routing to manage memory updates before safely returning control to the primary agent.</li>
             </ul>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Python</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">LangGraph</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">LangChain</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">OpenAI</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Pydantic</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Trustcall</span>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Python</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">LangGraph</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">OpenAI</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Pydantic</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Trustcall</span>
           </div>
         </div>
 
         <!-- 3. Fingerprint Liveness Detection -->
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-purple-500/50 transition-all">
+        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:-translate-y-1">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">Computer Vision &bull; PAD</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-4 h-4"></i></a>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Computer Vision &bull; PAD</span>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Fingerprint Liveness Detection (PAD)</h3>
-            <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-4 list-disc list-inside">
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">Fingerprint Liveness Detection (PAD)</h3>
+            <ul class="text-sm text-slate-300 space-y-2.5 leading-relaxed mb-6 list-disc list-inside">
               <li>Created a Presentation Attack Detection (PAD) biometric verification pipeline using MobileNetV3-Small transfer learning.</li>
               <li>Developed an end-to-end processing pipeline: 70/15/15 split, image augmentation, ImageNet normalization, and single-image inference.</li>
               <li>Calibrated decision thresholds against a target 3% BPCER; evaluated with APCER, BPCER, ACER, EER, and ROC-AUC metrics.</li>
             </ul>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Python</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">MobileNetV3</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">TensorFlow</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Keras</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">OpenCV</span>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Python</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">MobileNetV3</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">TensorFlow</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">OpenCV</span>
           </div>
         </div>
 
         <!-- 4. LendingClub Risk Prediction -->
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all">
+        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:-translate-y-1">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Deep Learning &bull; 0.93 F1-Score</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-4 h-4"></i></a>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Deep Learning &bull; 0.93 F1-Score</span>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">LendingClub Risk Prediction</h3>
-            <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-4 list-disc list-inside">
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">LendingClub Risk Prediction</h3>
+            <ul class="text-sm text-slate-300 space-y-2.5 leading-relaxed mb-6 list-disc list-inside">
               <li>Built an end-to-end credit risk classification system on 396K+ loan records with missing value handling, categorical encoding, and MinMax scaling.</li>
               <li>Trained a deep neural network with ReLU activations, dropout regularization, and sigmoid output to classify loan default risk.</li>
               <li>Attained a 0.93 F1-score on the test set while effectively resolving severe class imbalance.</li>
             </ul>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Python</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">TensorFlow</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Scikit-learn</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Pandas</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">NumPy</span>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Python</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">TensorFlow</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Scikit-learn</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Pandas</span>
           </div>
         </div>
 
         <!-- 5. CodeBeat (Open Source Package) -->
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-amber-500/50 transition-all md:col-span-2">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
+        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:-translate-y-1 md:col-span-2">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
             <div>
-              <div class="flex items-center gap-2 mb-1">
-                <span class="text-xs font-mono px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">Open-Source Python Package &bull; PyPI</span>
-                <h3 class="text-xl font-bold text-white">CodeBeat</h3>
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">Open-Source Python Package &bull; PyPI</span>
+                <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">CodeBeat</h3>
               </div>
-              <p class="text-sm text-slate-300 leading-relaxed">
+              <p class="text-sm text-slate-300 leading-relaxed mt-2">
                 Created and published an open-source Python profiling package leveraging Object-Oriented Programming (OOPs) principles for modular line-by-line function tracing and runtime statistics.
               </p>
             </div>
             <div class="flex items-center gap-2 shrink-0">
-              <a href="https://pypi.org/project/codebeat/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sm font-mono text-white flex items-center gap-2 transition-all">
+              <a href="https://pypi.org/project/codebeat/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sm font-mono text-white flex items-center gap-2 transition-all shadow-md">
                 <i data-lucide="package" class="w-4 h-4 text-amber-400"></i>
                 <span>PyPI</span>
               </a>
-              <a href="https://github.com/SKR18156592/CodeBeat" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sm font-mono text-white flex items-center gap-2 transition-all">
+              <a href="https://github.com/SKR18156592/CodeBeat" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sm font-mono text-white flex items-center gap-2 transition-all shadow-md">
                 <i data-lucide="github" class="w-4 h-4 text-purple-400"></i>
                 <span>GitHub</span>
               </a>
             </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800/80">
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Python</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">OOPs</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Performance Profiling</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">PyPI Distribution</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300">Runtime Telemetry</span>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Python</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">OOPs</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Performance Profiling</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">PyPI Distribution</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Live All Repositories (GitHub API Filtered to Exclude 'portfolio' and 'SKR18156592') -->
-    <section id="github-repos" class="py-16 border-t border-slate-900">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+    <!-- Live All Repositories -->
+    <section id="github-repos" class="py-20 border-t border-slate-900/80">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12">
         <div>
-          <div class="flex items-center gap-2.5 mb-1">
+          <div class="flex items-center gap-2.5 mb-2">
             <h2 class="text-3xl font-bold tracking-tight text-white">All GitHub Repositories</h2>
-            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono">Live API</span>
+            <span class="px-3 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono font-semibold">Live API</span>
           </div>
           <p class="text-slate-400 text-sm">Dynamically synchronized with <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">@SKR18156592</a>.</p>
         </div>
-        <a href="https://github.com/SKR18156592?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white text-sm font-mono flex items-center gap-2 w-fit transition-all">
+        <a href="https://github.com/SKR18156592?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white text-sm font-mono flex items-center gap-2 w-fit transition-all shadow-md">
           <i data-lucide="github" class="w-4 h-4"></i>
           <span>View on GitHub</span>
         </a>
@@ -415,132 +404,132 @@
 
       <!-- Live Repos Grid -->
       <div id="repos-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="p-6 rounded-2xl bg-slate-900/30 border border-slate-800/80 animate-pulse col-span-full text-center py-12">
-          <i data-lucide="loader-2" class="w-6 h-6 animate-spin text-indigo-400 mx-auto mb-2"></i>
+        <div class="p-8 rounded-3xl bg-slate-900/30 border border-slate-800/80 animate-pulse col-span-full text-center py-16">
+          <i data-lucide="loader-2" class="w-6 h-6 animate-spin text-indigo-400 mx-auto mb-3"></i>
           <p class="text-sm font-mono text-slate-400">Loading repositories from GitHub API...</p>
         </div>
       </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-16 border-t border-slate-900">
-      <div class="mb-10">
+    <section id="experience" class="py-20 border-t border-slate-900/80">
+      <div class="mb-12">
         <h2 class="text-3xl font-bold tracking-tight text-white mb-2">Experience & Mentorship</h2>
         <p class="text-slate-400 text-sm">Academic roles, leadership, and teaching experience.</p>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-6">
         <!-- AlgoZenith -->
-        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col md:flex-row md:items-start justify-between gap-4">
-          <div class="flex items-start gap-4">
-            <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 shrink-0 mt-1">
-              <i data-lucide="users" class="w-5 h-5"></i>
+        <div class="p-7 rounded-3xl bg-slate-900/40 border border-slate-800/80 hover:border-indigo-500/40 transition-all flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-xl">
+          <div class="flex items-start gap-5">
+            <div class="p-3.5 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0 mt-1 shadow-inner shadow-indigo-500/20">
+              <i data-lucide="users" class="w-6 h-6"></i>
             </div>
             <div>
               <h3 class="font-bold text-white text-lg">DSA Mentor &bull; AlgoZenith</h3>
-              <p class="text-sm text-indigo-400 font-mono mb-2">Oct 2022 – May 2024</p>
+              <p class="text-sm text-indigo-400 font-mono mb-3">Oct 2022 – May 2024</p>
               <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
                 <li>Mentored 500+ students in Data Structures and Algorithms, improving problem-solving rigor and interview performance.</li>
                 <li>Guided students through complex coding problems, dynamic programming optimization, and structured algorithmic design.</li>
               </ul>
             </div>
           </div>
-          <span class="text-xs font-mono text-slate-400 self-start md:self-center px-3 py-1 rounded-full bg-slate-800 shrink-0">500+ Students</span>
+          <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-800 border border-slate-700 shrink-0 shadow-sm">500+ Students</span>
         </div>
 
         <!-- TA IIT Kharagpur -->
-        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col md:flex-row md:items-start justify-between gap-4">
-          <div class="flex items-start gap-4">
-            <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0 mt-1">
-              <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+        <div class="p-7 rounded-3xl bg-slate-900/40 border border-slate-800/80 hover:border-cyan-500/40 transition-all flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-xl">
+          <div class="flex items-start gap-5">
+            <div class="p-3.5 rounded-2xl bg-cyan-500/10 text-cyan-400 shrink-0 mt-1 shadow-inner shadow-cyan-500/20">
+              <i data-lucide="graduation-cap" class="w-6 h-6"></i>
             </div>
             <div>
               <h3 class="font-bold text-white text-lg">Teaching Assistant &bull; Indian Institute of Technology, Kharagpur</h3>
-              <p class="text-sm text-cyan-400 font-mono mb-2">Aug 2023 – May 2025</p>
+              <p class="text-sm text-cyan-400 font-mono mb-3">Aug 2023 – May 2025</p>
               <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
                 <li>Assisted faculty in conducting tutorials and grading undergraduate coursework at IIT Kharagpur.</li>
                 <li>Conducted interactive doubt-clearing sessions, reinforcing core analytical problem solving.</li>
               </ul>
             </div>
           </div>
-          <span class="text-xs font-mono text-slate-400 self-start md:self-center px-3 py-1 rounded-full bg-slate-800 shrink-0">IIT Kharagpur</span>
+          <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-800 border border-slate-700 shrink-0 shadow-sm">IIT Kharagpur</span>
         </div>
       </div>
     </section>
 
     <!-- Education & Achievements Section -->
-    <section id="education" class="py-16 border-t border-slate-900">
+    <section id="education" class="py-20 border-t border-slate-900/80">
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Education -->
         <div>
-          <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2">
+          <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2.5">
             <i data-lucide="book-open" class="w-5 h-5 text-indigo-400"></i>
             <span>Education</span>
           </h2>
           <div class="space-y-4">
-            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
-              <div class="flex justify-between items-start mb-1">
+            <div class="p-6 rounded-3xl bg-slate-900/40 border border-slate-800/80 shadow-lg">
+              <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">IIT Kharagpur</h3>
-                <span class="text-xs font-mono text-indigo-400 font-bold">CGPA: 8.12</span>
+                <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 font-bold border border-indigo-500/20">CGPA: 8.12</span>
               </div>
               <p class="text-sm text-slate-300">Dual Degree (B.Tech + M.Tech) in Ocean Eng. & Naval Architecture</p>
-              <p class="text-xs text-slate-500 font-mono mt-1">2020 – 2025</p>
+              <p class="text-xs text-slate-500 font-mono mt-2">2020 – 2025</p>
             </div>
 
-            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
-              <div class="flex justify-between items-start mb-1">
+            <div class="p-6 rounded-3xl bg-slate-900/40 border border-slate-800/80 shadow-lg">
+              <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">S K P Vidya Vihar, Bhagalpur</h3>
-                <span class="text-xs font-mono text-indigo-400 font-bold">92%</span>
+                <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 font-bold border border-indigo-500/20">92%</span>
               </div>
               <p class="text-sm text-slate-300">Class XII (CBSE)</p>
-              <p class="text-xs text-slate-500 font-mono mt-1">2020</p>
+              <p class="text-xs text-slate-500 font-mono mt-2">2020</p>
             </div>
 
-            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
-              <div class="flex justify-between items-start mb-1">
+            <div class="p-6 rounded-3xl bg-slate-900/40 border border-slate-800/80 shadow-lg">
+              <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">D P S Sabour, Bhagalpur</h3>
-                <span class="text-xs font-mono text-indigo-400 font-bold">10 CGPA</span>
+                <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 font-bold border border-indigo-500/20">10 CGPA</span>
               </div>
               <p class="text-sm text-slate-300">Class X (CBSE)</p>
-              <p class="text-xs text-slate-500 font-mono mt-1">2018</p>
+              <p class="text-xs text-slate-500 font-mono mt-2">2018</p>
             </div>
           </div>
         </div>
 
         <!-- Awards & Honors -->
         <div>
-          <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2">
+          <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2.5">
             <i data-lucide="award" class="w-5 h-5 text-amber-400"></i>
             <span>Awards & Achievements</span>
           </h2>
           <div class="space-y-4">
-            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex items-start gap-3">
-              <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400 shrink-0">
-                <i data-lucide="trophy" class="w-4 h-4"></i>
+            <div class="p-6 rounded-3xl bg-slate-900/40 border border-slate-800/80 flex items-start gap-4 shadow-lg">
+              <div class="p-2.5 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0 shadow-inner shadow-amber-500/20">
+                <i data-lucide="trophy" class="w-5 h-5"></i>
               </div>
               <div>
                 <h3 class="font-bold text-white text-base">GATE 2024 — AIR 64</h3>
-                <p class="text-sm text-slate-400 mt-0.5">Ranked in the 99.8th percentile nationwide in the Graduate Aptitude Test in Engineering.</p>
+                <p class="text-sm text-slate-400 mt-1">Ranked in the 99.8th percentile nationwide in the Graduate Aptitude Test in Engineering.</p>
               </div>
             </div>
 
-            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex items-start gap-3">
-              <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 shrink-0">
-                <i data-lucide="star" class="w-4 h-4"></i>
+            <div class="p-6 rounded-3xl bg-slate-900/40 border border-slate-800/80 flex items-start gap-4 shadow-lg">
+              <div class="p-2.5 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0 shadow-inner shadow-indigo-500/20">
+                <i data-lucide="star" class="w-5 h-5"></i>
               </div>
               <div>
                 <h3 class="font-bold text-white text-base">Prof. J.P. Ghose Memorial Award</h3>
-                <p class="text-sm text-slate-400 mt-0.5">Awarded for distinguished academic performance at IIT Kharagpur (2022–2023).</p>
+                <p class="text-sm text-slate-400 mt-1">Awarded for distinguished academic performance at IIT Kharagpur (2022–2023).</p>
               </div>
             </div>
 
-            <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex items-start gap-3">
-              <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400 shrink-0">
-                <i data-lucide="medal" class="w-4 h-4"></i>
+            <div class="p-6 rounded-3xl bg-slate-900/40 border border-slate-800/80 flex items-start gap-4 shadow-lg">
+              <div class="p-2.5 rounded-2xl bg-purple-500/10 text-purple-400 shrink-0 shadow-inner shadow-purple-500/20">
+                <i data-lucide="medal" class="w-5 h-5"></i>
               </div>
               <div>
                 <h3 class="font-bold text-white text-base">Gold Medalist — Gymkhana Championship</h3>
-                <p class="text-sm text-slate-400 mt-0.5">Gold Medal winner in Choreography at IIT Kharagpur (2021–2022).</p>
+                <p class="text-sm text-slate-400 mt-1">Gold Medal winner in Choreography at IIT Kharagpur (2021–2022).</p>
               </div>
             </div>
           </div>
@@ -548,8 +537,8 @@
       </div>
     </section>
 
-    <!-- Certificates & Licenses Section (Modern Bento Grid Style) -->
-    <section id="certificates" class="py-20 border-t border-slate-900">
+    <!-- Certificates & Licenses Section -->
+    <section id="certificates" class="py-20 border-t border-slate-900/80">
       <div class="mb-12">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-mono mb-3">
           <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
@@ -561,7 +550,7 @@
 
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Card 1: RAG -->
-        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-xl">
+        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-indigo-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-xl hover:-translate-y-1">
           <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl group-hover:bg-indigo-500/10 transition-all"></div>
           <div>
             <div class="flex items-center justify-between mb-6">
@@ -581,7 +570,7 @@
         </div>
 
         <!-- Card 2: Python with DSA -->
-        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-xl">
+        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-xl hover:-translate-y-1">
           <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition-all"></div>
           <div>
             <div class="flex items-center justify-between mb-6">
@@ -601,7 +590,7 @@
         </div>
 
         <!-- Card 3: Data Science & ML Bootcamp -->
-        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800 hover:border-purple-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-xl">
+        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-purple-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-xl hover:-translate-y-1">
           <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl group-hover:bg-purple-500/10 transition-all"></div>
           <div>
             <div class="flex items-center justify-between mb-6">
@@ -623,91 +612,91 @@
     </section>
 
     <!-- Extra-Curricular Activities Section -->
-    <section id="extracurricular" class="py-16 border-t border-slate-900">
-      <div class="mb-10">
+    <section id="extracurricular" class="py-20 border-t border-slate-900/80">
+      <div class="mb-12">
         <h2 class="text-3xl font-bold tracking-tight text-white mb-2">Extra-Curricular Activities</h2>
         <p class="text-slate-400 text-sm">Community engagement, social service, and campus involvement.</p>
       </div>
 
       <div class="space-y-4">
         <!-- NSS Volunteer -->
-        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col md:flex-row md:items-start justify-between gap-4">
-          <div class="flex items-start gap-4">
-            <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0 mt-1">
-              <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+        <div class="p-7 rounded-3xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/40 transition-all flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-xl">
+          <div class="flex items-start gap-5">
+            <div class="p-3.5 rounded-2xl bg-emerald-500/10 text-emerald-400 shrink-0 mt-1 shadow-inner shadow-emerald-500/20">
+              <i data-lucide="heart-handshake" class="w-6 h-6"></i>
             </div>
             <div>
               <h3 class="font-bold text-white text-lg">NSS Volunteer &bull; Unit 9, IIT Kharagpur</h3>
-              <p class="text-sm text-emerald-400 font-mono mb-2">2+ Years of Community Service</p>
+              <p class="text-sm text-emerald-400 font-mono mb-3">2+ Years of Community Service</p>
               <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
                 <li>Served as a dedicated volunteer for over 2 years in NSS, Unit 9, IIT Kharagpur.</li>
                 <li>Contributed to social welfare initiatives, community development campaigns, and campus outreach programs.</li>
               </ul>
             </div>
           </div>
-          <span class="text-xs font-mono text-slate-400 self-start md:self-center px-3 py-1 rounded-full bg-slate-800 shrink-0">IIT Kharagpur</span>
+          <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-800 border border-slate-700 shrink-0 shadow-sm">IIT Kharagpur</span>
         </div>
       </div>
     </section>
 
     <!-- Get in Touch Section -->
-    <section id="contact" class="py-20 border-t border-slate-900">
-      <div class="max-w-2xl mx-auto text-center mb-10">
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3">Get in Touch</h2>
+    <section id="contact" class="py-24 border-t border-slate-900/80">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">Get in Touch</h2>
         <p class="text-slate-300 text-base">
           Feel free to reach out for collaborations on agentic systems, deep learning pipelines, or software roles.
         </p>
       </div>
 
-      <div class="max-w-xl mx-auto p-8 rounded-3xl bg-slate-900/60 border border-slate-800">
-        <!-- Adjusted grid and items so the full email address wraps nicely and remains completely visible without truncation -->
+      <div class="max-w-xl mx-auto p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900/80 to-slate-950/90 border border-slate-800 shadow-2xl">
+        <!-- Contact Cards Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-          <a href="mailto:sumanraj4176@gmail.com" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3 sm:col-span-2">
-            <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400 shrink-0">
+          <a href="mailto:sumanraj4176@gmail.com" class="p-4 rounded-2xl bg-slate-950 border border-slate-800/80 hover:border-indigo-500/50 transition-all flex items-center gap-3.5 sm:col-span-2 group">
+            <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 group-hover:scale-110 transition-transform shrink-0">
               <i data-lucide="mail" class="w-5 h-5"></i>
             </div>
             <div class="text-left">
-              <span class="block text-[11px] font-mono text-slate-500 uppercase">Email</span>
+              <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">Email</span>
               <span class="text-sm font-semibold text-slate-200 break-all">sumanraj4176@gmail.com</span>
             </div>
           </a>
 
-          <a href="tel:+919798196180" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3">
-            <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 shrink-0">
+          <a href="tel:+919798196180" class="p-4 rounded-2xl bg-slate-950 border border-slate-800/80 hover:border-emerald-500/50 transition-all flex items-center gap-3.5 group">
+            <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-110 transition-transform shrink-0">
               <i data-lucide="phone" class="w-5 h-5"></i>
             </div>
             <div class="text-left">
-              <span class="block text-[11px] font-mono text-slate-500 uppercase">Phone</span>
+              <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">Phone</span>
               <span class="text-sm font-semibold text-slate-200">+91-9798196180</span>
             </div>
           </a>
 
-          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3">
-            <div class="p-2.5 rounded-lg bg-purple-500/10 text-purple-400 shrink-0">
+          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800/80 hover:border-purple-500/50 transition-all flex items-center gap-3.5 group">
+            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 group-hover:scale-110 transition-transform shrink-0">
               <i data-lucide="github" class="w-5 h-5"></i>
             </div>
             <div class="text-left">
-              <span class="block text-[11px] font-mono text-slate-500 uppercase">GitHub</span>
+              <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">GitHub</span>
               <span class="text-sm font-semibold text-slate-200 truncate">SKR18156592</span>
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3">
-            <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0">
+          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800/80 hover:border-cyan-500/50 transition-all flex items-center gap-3.5 group">
+            <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 group-hover:scale-110 transition-transform shrink-0">
               <i data-lucide="linkedin" class="w-5 h-5"></i>
             </div>
             <div class="text-left">
-              <span class="block text-[11px] font-mono text-slate-500 uppercase">LinkedIn</span>
+              <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">LinkedIn</span>
               <span class="text-sm font-semibold text-slate-200 truncate">sumanraj11</span>
             </div>
           </a>
 
-          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500/50 transition-all flex items-center gap-3">
-            <div class="p-2.5 rounded-lg bg-amber-500/10 text-amber-400 shrink-0">
+          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800/80 hover:border-amber-500/50 transition-all flex items-center gap-3.5 group">
+            <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400 group-hover:scale-110 transition-transform shrink-0">
               <i data-lucide="code" class="w-5 h-5"></i>
             </div>
             <div class="text-left">
-              <span class="block text-[11px] font-mono text-slate-500 uppercase">LeetCode</span>
+              <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">LeetCode</span>
               <span class="text-sm font-semibold text-slate-200 truncate">sumanraj112002</span>
             </div>
           </a>
@@ -715,23 +704,22 @@
 
         <!-- Direct Backend Email Form (Web3Forms) -->
         <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-          <!-- Configured Web3Forms Access Key -->
           <input type="hidden" name="access_key" value="8f9683c9-ede3-4df9-bb3e-0e1b879f5725" />
           
           <div>
             <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">Name</label>
-            <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all" />
+            <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all shadow-inner" />
           </div>
           <div>
             <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">Email</label>
-            <input type="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all" />
+            <input type="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all shadow-inner" />
           </div>
           <div>
             <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">Message</label>
-            <textarea name="message" rows="3" required placeholder="Let's build something great..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all"></textarea>
+            <textarea name="message" rows="3" required placeholder="Let's build something great..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all shadow-inner"></textarea>
           </div>
           
-          <button id="form-submit-btn" type="submit" class="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2">
+          <button id="form-submit-btn" type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-semibold text-sm transition-all shadow-xl shadow-indigo-600/30 flex items-center justify-center gap-2 hover:scale-[1.02]">
             <span>Send Direct Message</span>
             <i data-lucide="send" class="w-4 h-4"></i>
           </button>
@@ -751,7 +739,7 @@
   <script>
     lucide.createIcons();
 
-    // AJAX Handler for Web3Forms so the page doesn't reload awkwardly
+    // AJAX Handler for Web3Forms
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
     const submitBtn = document.getElementById('form-submit-btn');
@@ -800,7 +788,6 @@
         
         let repos = await response.json();
         
-        // Filter out repositories named 'portfolio' or 'skr18156592' (case-insensitive)
         repos = repos.filter(repo => {
           const name = repo.name.toLowerCase();
           return name !== 'portfolio' && name !== 'skr18156592';
@@ -808,7 +795,7 @@
         
         if (repos.length === 0) {
           container.innerHTML = `
-            <div class="col-span-full p-8 text-center bg-slate-900/40 rounded-2xl border border-slate-800 text-slate-400 text-sm font-mono">
+            <div class="col-span-full p-8 text-center bg-slate-900/40 rounded-3xl border border-slate-800 text-slate-400 text-sm font-mono">
               No public repositories found.
             </div>
           `;
@@ -816,25 +803,25 @@
         }
 
         container.innerHTML = repos.map(repo => `
-          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/40 transition-all flex flex-col justify-between hover:bg-slate-900/80">
+          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-3xl bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between hover:bg-slate-900/80 shadow-xl hover:-translate-y-1">
             <div>
-              <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm">
                   <i data-lucide="folder-git-2" class="w-4 h-4 shrink-0"></i>
                   <span class="font-bold text-white group-hover:text-indigo-400 transition-colors truncate max-w-[180px]">${repo.name}</span>
                 </div>
                 <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors shrink-0"></i>
               </div>
-              <p class="text-sm text-slate-300 line-clamp-2 leading-relaxed mb-4">
+              <p class="text-sm text-slate-300 line-clamp-2 leading-relaxed mb-6">
                 ${repo.description || 'Public repository on GitHub.'}
               </p>
             </div>
 
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400 pt-3 border-t border-slate-800/60">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 pt-4 border-t border-slate-800/60">
               <div class="flex items-center gap-3">
                 ${repo.language ? `
-                  <span class="flex items-center gap-1 text-slate-200">
-                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                  <span class="flex items-center gap-1.5 text-slate-200">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400 shadow-sm shadow-indigo-400"></span>
                     ${repo.language}
                   </span>
                 ` : ''}
@@ -854,7 +841,7 @@
 
       } catch (err) {
         container.innerHTML = `
-          <div class="col-span-full p-6 text-center bg-slate-900/40 rounded-2xl border border-slate-800 text-slate-400 text-sm font-mono">
+          <div class="col-span-full p-6 text-center bg-slate-900/40 rounded-3xl border border-slate-800 text-slate-400 text-sm font-mono">
             Unable to fetch repositories dynamically. Please visit <a href="https://github.com/SKR18156592" target="_blank" class="text-indigo-400 underline">github.com/SKR18156592</a> directly.
           </div>
         `;
