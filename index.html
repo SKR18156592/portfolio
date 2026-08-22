@@ -138,7 +138,7 @@
         <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 font-extrabold tracking-tight">Suman Kumar Raj</span>
       </a>
 
-      <!-- Desktop Navigation Links (Single-Line & Balanced) -->
+      <!-- Desktop Navigation Links -->
       <div class="hidden lg:flex items-center gap-3.5 xl:gap-5 text-xs xl:text-sm font-medium text-slate-300 shrink-0" id="desktop-nav">
         <a href="#about" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">About</a>
         <a href="#skills" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">Skills</a>
@@ -204,7 +204,7 @@
           <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08]">
             Hi, I'm Suman Kumar Raj
           </h1>
-          <!-- Interactive Typewriter Headline -->
+          <!-- Interactive Typewriter Headline (Updated with 2 phrases) -->
           <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold min-h-[44px] flex items-center gap-2">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400" id="typewriter-text"></span>
             <span class="w-1.5 h-8 bg-cyan-400 animate-pulse inline-block"></span>
@@ -1039,20 +1039,17 @@
       cursorGlow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
     });
 
-    // Dynamic Typewriter Effect
+    // Dynamic Typewriter Effect (Targeted 2 Phrases)
     const phrases = [
-      "GenAI & Agentic Systems Engineer",
-      "IIT Kharagpur Dual Degree Alumnus",
-      "LangGraph & Multi-Agent Specialist",
-      "GATE 2024 (AIR 64)",
-      "Deep Learning & Computer Vision"
+      "GenAI & Machine Learning Engineer",
+      "IIT Kharagpur Alumnus"
     ];
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     const typeSpeed = 90;
     const deleteSpeed = 45;
-    const pauseTime = 1600;
+    const pauseTime = 1800;
     const typewriterEl = document.getElementById('typewriter-text');
 
     function typeEffect() {
