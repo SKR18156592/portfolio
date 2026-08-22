@@ -603,76 +603,205 @@
       </div>
     </section>
 
-    <!-- Certificates & Licenses Section -->
-    <section id="certificates" class="py-20 border-t border-slate-900/80">
-      <div class="mb-12">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-mono mb-3">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-          <span>Verified Credentials</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-2">Licenses & Certifications</h2>
-        <p class="text-slate-400 text-sm sm:text-base">Specialized training, advanced coursework, and technical certifications.</p>
-      </div>
+    <!-- Licenses & Certifications Section -->
+    <section id="certificates" class="py-20 border-t border-slate-900/80 relative overflow-hidden">
+      <!-- Background Ambient Glow Effect -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-600/10 blur-[150px] pointer-events-none rounded-full"></div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Card 1: RAG -->
-        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-indigo-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-xl hover:-translate-y-1">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl group-hover:bg-indigo-500/10 transition-all"></div>
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <span class="px-3.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 text-xs font-mono font-bold tracking-wide">Coursera</span>
-              <i data-lucide="award" class="w-5 h-5 text-indigo-400"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors mb-2">Retrieval-Augmented Generation (RAG)</h3>
-            <p class="text-sm text-slate-300 leading-relaxed mb-6">Advanced specialization focusing on vector databases, hybrid search tuning, and contextual LLM generation workflows.</p>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs font-mono text-slate-400">
-            <span>Issued Aug 19, 2026</span>
-            <a href="https://coursera.org/verify/22QSGZ7M96PX" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-              <span>Verify</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
+      <div class="relative z-10">
+        <!-- Section Header -->
+        <div class="mb-12">
+          <span class="text-blue-400 font-semibold text-xs tracking-widest uppercase bg-blue-950/80 px-3 py-1 rounded-full border border-blue-800/40">Verified Credentials</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-3">Licenses & Certifications</h2>
+          <p class="text-sm sm:text-base text-slate-400 mt-2">Specialized training, advanced coursework, and technical certifications.</p>
         </div>
 
-        <!-- Card 2: Python with DSA -->
-        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-xl hover:-translate-y-1">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition-all"></div>
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <span class="px-3.5 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-mono font-bold tracking-wide">Udemy</span>
-              <i data-lucide="code" class="w-5 h-5 text-cyan-400"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">Python with Data Structures & Algorithms</h3>
-            <p class="text-sm text-slate-300 leading-relaxed mb-6">Comprehensive mastery of algorithmic problem solving, time-complexity optimization, and LeetCode coding patterns.</p>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs font-mono text-slate-400">
-            <span>Issued May 20, 2026</span>
-            <a href="https://ude.my/UC-c5f7586c-19c1-4972-b47c-030660a70e86" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-              <span>Verify</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
+        <!-- Certifications Grid / Stack (Ordered by Date: Newest to Oldest) -->
+        <div class="space-y-6">
 
-        <!-- Card 3: Data Science & ML Bootcamp -->
-        <div class="p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-purple-500/60 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-xl hover:-translate-y-1">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl group-hover:bg-purple-500/10 transition-all"></div>
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <span class="px-3.5 py-1 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30 text-xs font-mono font-bold tracking-wide">Udemy</span>
-              <i data-lucide="brain-circuit" class="w-5 h-5 text-purple-400"></i>
+          <!-- 1. RAG - DeepLearning.AI (August 19, 2026) -->
+          <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 shadow-2xl shadow-blue-950/50 transition-all duration-300 hover:scale-[1.01]">
+            <div class="bg-slate-900/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+              <div>
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded-full">
+                    <svg class="h-4 w-4 fill-rose-500 shrink-0" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
+                      <circle cx="16" cy="13.5" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/>
+                      <circle cx="16" cy="11.5" r="3.5" fill="currentColor"/>
+                    </svg>
+                    DeepLearning.AI
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">Issued August 19, 2026</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mt-3 group-hover:text-blue-400 transition-colors">
+                  Retrieval-Augmented Generation (RAG)
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">Authorized through Coursera</p>
+
+                <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
+                  Completed advanced training on building production-grade RAG pipelines, focusing on chunking methodologies, dense/sparse embeddings, and hybrid search mechanics to optimize LLM groundedness and factual accuracy.
+                </p>
+
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Hybrid Search</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Chunking Strategies</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Embeddings</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Vector Databases</span>
+                </div>
+              </div>
+
+              <div class="w-full md:w-auto shrink-0">
+                <a href="https://coursera.org/verify/22QSGZ7M96PX" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50 hover:-translate-y-0.5">
+                  Verify Certificate
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
             </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors mb-2">Python for Data Science & Machine Learning</h3>
-            <p class="text-sm text-slate-300 leading-relaxed mb-6">Comprehensive data manipulation, exploratory data analysis, and end-to-end machine learning model implementation.</p>
           </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs font-mono text-slate-400">
-            <span>Issued May 27, 2021</span>
-            <a href="https://ude.my/UC-3b8d8e1f-47ed-4c5b-868c-ddcc75480a96" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-              <span>Verify</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </a>
+
+          <!-- 2. LangGraph - LangChain Academy (August 4, 2026) -->
+          <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500 shadow-2xl shadow-purple-950/50 transition-all duration-300 hover:scale-[1.01]">
+            <div class="bg-slate-900/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+              <div>
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-slate-100/10 text-slate-200 border border-slate-100/20 rounded-full">
+                    <svg class="h-4 w-4 fill-white shrink-0" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13 2C7 6 4 13 5 19C6 24 10 28 15 29C13 26 12 23 12 20C12 14 14 8 13 2Z"/>
+                      <path d="M19 5C24 9 27 16 26 22C25 27 21 30 16 30C18 27 19 24 19 21C19 15 18 9 19 5Z"/>
+                      <path d="M5 21C9 20 13 22 16 25C13 27 9 27 5 25V21Z"/>
+                      <path d="M16 10C20 11 22 15 23 18C20 18 17 16 14 14C14 12 15 11 16 10Z"/>
+                    </svg>
+                    LangChain Academy
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">Issued August 4, 2026</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mt-3 group-hover:text-purple-400 transition-colors">
+                  Foundation: Introduction to LangGraph - Python
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">Authorized through LangChain Academy</p>
+
+                <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
+                  Specialized training, advanced coursework, and technical certifications.
+                </p>
+
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">LangGraph</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">State Management</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Multi-Agent Systems</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Python</span>
+                </div>
+              </div>
+
+              <div class="w-full md:w-auto shrink-0">
+                <a href="https://academy.langchain.com/certificates/nfy9ggg3ez" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50 hover:-translate-y-0.5">
+                  Verify Certificate
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
+
+          <!-- 3. Python with Data Structures & Algorithms - Udemy (May 20, 2026) -->
+          <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-600 shadow-2xl shadow-purple-950/50 transition-all duration-300 hover:scale-[1.01]">
+            <div class="bg-slate-900/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+              <div>
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
+                    <svg class="h-4 w-auto" viewBox="0 0 78 26" xmlns="http://www.w3.org/2000/svg">
+                      <path fill="#a435f0" d="M4 1 L10 7 L-2 7 Z"/>
+                      <text x="0" y="21" font-family="sans-serif" font-weight="700" font-size="19" fill="#ffffff">udemy</text>
+                    </svg>
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">Issued May 20, 2026</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mt-3 group-hover:text-violet-400 transition-colors">
+                  Python with Data Structures & Algorithms
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">Instructors: Krish Naik, Mayank Aggarwal, KRISHAI Technologies</p>
+
+                <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
+                  Specialized training, advanced coursework, and technical certifications.
+                </p>
+
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Python</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Data Structures & Algorithms</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">LeetCode</span>
+                </div>
+              </div>
+
+              <div class="w-full md:w-auto shrink-0">
+                <a href="https://www.udemy.com/certificate/UC-c5f7586c-19c1-4972-b47c-030660a70e86/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-violet-600/30 hover:shadow-violet-500/50 hover:-translate-y-0.5">
+                  Verify Certificate
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Python for Data Science & Machine Learning - Udemy (May 27, 2021) -->
+          <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-500 shadow-2xl shadow-purple-950/50 transition-all duration-300 hover:scale-[1.01]">
+            <div class="bg-slate-900/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+              <div>
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
+                    <svg class="h-4 w-auto" viewBox="0 0 78 26" xmlns="http://www.w3.org/2000/svg">
+                      <path fill="#a435f0" d="M4 1 L10 7 L-2 7 Z"/>
+                      <text x="0" y="21" font-family="sans-serif" font-weight="700" font-size="19" fill="#ffffff">udemy</text>
+                    </svg>
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">Issued May 27, 2021</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mt-3 group-hover:text-violet-400 transition-colors">
+                  Python for Data Science & Machine Learning
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">Instructors: Jose Portilla, Pierian Training</p>
+
+                <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
+                  Specialized training, advanced coursework, and technical certifications.
+                </p>
+
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Data Science</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Machine Learning</span>
+                  <span class="text-xs font-medium bg-slate-800/80 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700/60 shadow-inner">Python</span>
+                </div>
+              </div>
+
+              <div class="w-full md:w-auto shrink-0">
+                <a href="https://www.udemy.com/certificate/UC-3b8d8e1f-47ed-4c5b-868c-ddcc75480a96/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-purple-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-violet-600/30 hover:shadow-violet-500/50 hover:-translate-y-0.5">
+                  Verify Certificate
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
