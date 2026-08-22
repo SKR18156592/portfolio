@@ -53,7 +53,7 @@
         <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">Suman Kumar Raj</span>
       </a>
 
-      <!-- Navigation Links -->
+      <!-- Desktop Navigation Links -->
       <div class="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-300 ml-6">
         <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
         <a href="#skills" class="hover:text-indigo-400 transition-colors">Skills</a>
@@ -65,13 +65,40 @@
         <a href="#extracurricular" class="hover:text-indigo-400 transition-colors">Activities</a>
       </div>
 
+      <!-- Right Actions & Mobile Hamburger Toggle -->
       <div class="flex items-center gap-3 shrink-0">
-        <a href="#contact" class="px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white transition-all shadow-lg shadow-indigo-600/30 flex items-center gap-1.5 hover:scale-105">
+        <a href="#contact" class="hidden sm:flex px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white transition-all shadow-lg shadow-indigo-600/30 items-center gap-1.5 hover:scale-105">
           <i data-lucide="mail" class="w-3.5 h-3.5"></i>
           <span>Get in Touch</span>
         </a>
+
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="lg:hidden p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
+          <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+          <i data-lucide="x" id="close-icon" class="w-5 h-5 hidden"></i>
+        </button>
       </div>
     </nav>
+
+    <!-- Mobile Drawer Menu Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-2xl px-6 py-6 shadow-2xl transition-all">
+      <div class="flex flex-col space-y-4 text-base font-medium text-slate-300">
+        <a href="#about" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="user" class="w-4 h-4 text-indigo-400"></i> About</a>
+        <a href="#skills" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="cpu" class="w-4 h-4 text-indigo-400"></i> Skills</a>
+        <a href="#featured-projects" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="folder-git-2" class="w-4 h-4 text-indigo-400"></i> Featured Projects</a>
+        <a href="#github-repos" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="github" class="w-4 h-4 text-indigo-400"></i> All Repositories</a>
+        <a href="#experience" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="briefcase" class="w-4 h-4 text-indigo-400"></i> Experience</a>
+        <a href="#education" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="graduation-cap" class="w-4 h-4 text-indigo-400"></i> Education</a>
+        <a href="#certificates" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="award" class="w-4 h-4 text-indigo-400"></i> Certificates</a>
+        <a href="#extracurricular" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="heart-handshake" class="w-4 h-4 text-indigo-400"></i> Activities</a>
+        <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+          <a href="#contact" class="mobile-link w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>Get in Touch</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-6">
@@ -148,7 +175,7 @@
             
             <!-- Main Photo Container -->
             <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl p-1 bg-slate-950 border border-slate-700 shadow-2xl overflow-hidden">
-              <img src="20NA30027.jpeg" alt="Suman Kumar Raj" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" />
+              <img src="20NA30027.jpeg" alt="Suman Kumar Raj" loading="lazy" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-50"></div>
             </div>
 
@@ -770,6 +797,37 @@
   <!-- Scripts -->
   <script>
     lucide.createIcons();
+
+    // Mobile Hamburger Drawer Controller
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMobileMenu() {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      if (isOpen) {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    // Close menu automatically when clicking any section link
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
 
     // AJAX Handler for Web3Forms
     const form = document.getElementById('contact-form');
