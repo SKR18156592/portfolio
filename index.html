@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Suman Kumar Raj | GenAI & Machine Learning Engineer</title>
+  <meta name="description" content="Dual Degree graduate from IIT Kharagpur specializing in LangGraph, Multi-Agent systems, and Deep Learning." />
   
   <!-- Open Graph / Social Preview Meta Tags -->
   <meta property="og:title" content="Suman Kumar Raj | GenAI & Machine Learning Engineer" />
@@ -80,7 +81,7 @@
         </a>
 
         <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="lg:hidden p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
+        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
           <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
           <i data-lucide="x" id="close-icon" class="w-5 h-5 hidden"></i>
         </button>
@@ -180,9 +181,9 @@
             <!-- Glowing Multi-Layer Border Frame -->
             <div class="absolute -inset-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-700 group-hover:duration-300 animate-pulse"></div>
             
-            <!-- Main Photo Container (with loading="lazy") -->
+            <!-- Main Photo Container (with loading="lazy" and explicit dimensions) -->
             <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl p-1 bg-slate-950 border border-slate-700 shadow-2xl overflow-hidden">
-              <img src="20NA30027.jpeg" alt="Suman Kumar Raj" loading="lazy" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" />
+              <img src="20NA30027.jpeg" alt="Suman Kumar Raj" width="256" height="256" loading="lazy" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-50"></div>
             </div>
 
@@ -655,7 +656,7 @@
               <div class="w-full md:w-auto shrink-0">
                 <a href="https://coursera.org/verify/22QSGZ7M96PX" 
                    target="_blank" 
-                   rel="noopener noreferrer"
+                   rel="noopener noreferrer" 
                    class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50 hover:-translate-y-0.5">
                   Verify Certificate
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -703,7 +704,7 @@
               <div class="w-full md:w-auto shrink-0">
                 <a href="https://academy.langchain.com/certificates/nfy9ggg3ez" 
                    target="_blank" 
-                   rel="noopener noreferrer"
+                   rel="noopener noreferrer" 
                    class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50 hover:-translate-y-0.5">
                   Verify Certificate
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -747,7 +748,7 @@
               <div class="w-full md:w-auto shrink-0">
                 <a href="https://www.udemy.com/certificate/UC-c5f7586c-19c1-4972-b47c-030660a70e86/" 
                    target="_blank" 
-                   rel="noopener noreferrer"
+                   rel="noopener noreferrer" 
                    class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-violet-600/30 hover:shadow-violet-500/50 hover:-translate-y-0.5">
                   Verify Certificate
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -791,7 +792,7 @@
               <div class="w-full md:w-auto shrink-0">
                 <a href="https://www.udemy.com/certificate/UC-3b8d8e1f-47ed-4c5b-868c-ddcc75480a96/" 
                    target="_blank" 
-                   rel="noopener noreferrer"
+                   rel="noopener noreferrer" 
                    class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-purple-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-violet-600/30 hover:shadow-violet-500/50 hover:-translate-y-0.5">
                   Verify Certificate
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -934,7 +935,7 @@
   <script>
     lucide.createIcons();
 
-    // Mobile Hamburger Drawer Controller
+    // Accessible Mobile Hamburger Drawer Controller
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -943,15 +944,10 @@
 
     function toggleMobileMenu() {
       const isOpen = !mobileMenu.classList.contains('hidden');
-      if (isOpen) {
-        mobileMenu.classList.add('hidden');
-        menuIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      } else {
-        mobileMenu.classList.remove('hidden');
-        menuIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-      }
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden', !isOpen);
+      closeIcon.classList.toggle('hidden', isOpen);
+      mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
     }
 
     mobileMenuBtn.addEventListener('click', toggleMobileMenu);
@@ -962,18 +958,22 @@
         mobileMenu.classList.add('hidden');
         menuIcon.classList.remove('hidden');
         closeIcon.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
       });
     });
 
-    // AJAX Handler for Web3Forms
+    // Enhanced AJAX Handler for Web3Forms
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
     const submitBtn = document.getElementById('form-submit-btn');
+    const formInputs = form.querySelectorAll('input:not([type="hidden"]), textarea');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.disabled = true;
+      formInputs.forEach(input => input.disabled = true);
       submitBtn.innerHTML = '<span>Sending...</span>';
+      statusDiv.classList.add('hidden');
 
       try {
         const response = await fetch(form.action, {
@@ -998,12 +998,13 @@
         statusDiv.classList.remove('hidden');
       } finally {
         submitBtn.disabled = false;
+        formInputs.forEach(input => input.disabled = false);
         submitBtn.innerHTML = '<span>Send Direct Message</span> <i data-lucide="send" class="w-4 h-4"></i>';
         lucide.createIcons();
       }
     });
 
-    // Fetch and dynamically render all public repositories from GitHub (excluding 'portfolio' and 'SKR18156592')
+    // Fetch and dynamically render all public repositories from GitHub
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
