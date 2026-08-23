@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Suman Kumar Raj | GenAI & Machine Learning Engineer</title>
-  <meta name="description" content="Dual Degree graduate from IIT Kharagpur specializing in LangGraph, Multi-Agent systems, and Deep Learning." />
+  <meta name="description" content="Dual Degree graduate from IIT Kharagpur building production-grade GenAI and machine learning systems." />
   
   <!-- Open Graph / Social Preview Meta Tags -->
   <meta property="og:title" content="Suman Kumar Raj | GenAI & Machine Learning Engineer" />
-  <meta property="og:description" content="Dual Degree graduate from IIT Kharagpur specializing in LangGraph, Multi-Agent systems, and Deep Learning." />
+  <meta property="og:description" content="Dual Degree graduate from IIT Kharagpur building production-grade GenAI and machine learning systems." />
   <meta property="og:image" content="20NA30027.jpeg" />
   <meta property="og:url" content="https://github.com/SKR18156592" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -215,8 +215,9 @@
           </div>
         </div>
 
+        <!-- Updated Hero Bio -->
         <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-4xl font-normal">
-          Dual Degree graduate from <strong class="text-white font-semibold">IIT Kharagpur</strong>. Specializing in Multi-Agent orchestration with <strong class="text-white font-semibold">LangGraph</strong>, stateful memory systems, RAG frameworks, deep learning computer vision, credit risk modeling, and open-source profiling tools.
+          Dual Degree graduate from <strong class="text-white font-semibold">IIT Kharagpur</strong> building production-grade <strong class="text-white font-semibold">GenAI and machine learning systems</strong>. Experienced in architecting stateful multi-agent workflows with <strong class="text-white font-semibold">LangGraph</strong> and production <strong class="text-white font-semibold">RAG pipelines</strong>.
         </p>
 
         <!-- Action Buttons & Social Links -->
@@ -1282,11 +1283,10 @@
         });
 
         localStorage.setItem(cacheKey, JSON.stringify(repos));
-        localStorage.setItem(cacheExpiryKey, (Date.now() + 1000 * 60 * 30).toString()); // 30 min cache
+        localStorage.setItem(cacheExpiryKey, (Date.now() + 1000 * 60 * 30).toString());
         
         renderRepos(repos, container);
       } catch (err) {
-        // If fetch fails but stale cache exists, fallback to stale cache
         if (cachedData) {
           renderRepos(JSON.parse(cachedData), container);
         } else {
