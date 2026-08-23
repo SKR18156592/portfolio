@@ -78,7 +78,11 @@
   </script>
 
   <style>
-    /* Custom Scrollbar */
+    /* Cross-browser Scrollbar */
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #1e293b #020617;
+    }
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -204,9 +208,9 @@
           <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08]">
             Hi, I'm Suman Kumar Raj
           </h1>
-          <!-- Interactive Typewriter Headline (Updated with 2 phrases) -->
+          <!-- Interactive Typewriter Headline -->
           <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold min-h-[44px] flex items-center gap-2">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400" id="typewriter-text"></span>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400" id="typewriter-text">GenAI & Machine Learning Engineer</span>
             <span class="w-1.5 h-8 bg-cyan-400 animate-pulse inline-block"></span>
           </div>
         </div>
@@ -241,13 +245,11 @@
       </div>
     </section>
 
-    <!-- About Section with Enhanced Visual Framing -->
+    <!-- About Section -->
     <section id="about" class="py-20 border-t border-slate-900/80">
       <div class="grid md:grid-cols-12 gap-8 p-8 sm:p-10 rounded-3xl glass-card relative overflow-hidden items-center">
-        <!-- Ambient Card Glow -->
         <div class="absolute -top-24 -left-24 w-72 h-72 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
-        <!-- Visually Enhanced Photo Column with Animated Orbiting Border -->
         <div class="md:col-span-4 flex justify-center relative">
           <div class="relative group">
             <div class="absolute -inset-2.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
@@ -257,7 +259,6 @@
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60"></div>
             </div>
 
-            <!-- Floating IIT KGP Status Badge -->
             <div class="absolute -bottom-3 -right-2 px-3.5 py-1.5 rounded-2xl bg-slate-900/95 backdrop-blur-md border border-slate-700 text-[11px] font-mono font-bold text-indigo-300 shadow-2xl flex items-center gap-1.5">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               <span>IIT KGP</span>
@@ -265,7 +266,6 @@
           </div>
         </div>
 
-        <!-- Bio Column -->
         <div class="md:col-span-8 space-y-4 text-slate-300 leading-relaxed text-base relative z-10">
           <div>
             <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-1">About Me</h2>
@@ -281,7 +281,7 @@
       </div>
     </section>
 
-    <!-- Technical Arsenal / Bento Grid Skills -->
+    <!-- Technical Arsenal -->
     <section id="skills" class="py-20 border-t border-slate-900/80">
       <div class="mb-12">
         <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Technical Arsenal</h2>
@@ -308,7 +308,7 @@
           </div>
         </div>
 
-        <!-- 2. Machine Learning & Deep Learning -->
+        <!-- 2. Machine & Deep Learning -->
         <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-cyan-500/20">
@@ -340,7 +340,7 @@
           </div>
         </div>
 
-        <!-- 4. Frameworks and Libraries -->
+        <!-- 4. Frameworks & Libraries -->
         <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-emerald-500/20">
@@ -373,7 +373,7 @@
           </div>
         </div>
 
-        <!-- 6. Core Engineering & Fundamentals -->
+        <!-- 6. Core Engineering & Math -->
         <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-rose-500/20">
@@ -490,7 +490,7 @@
           </div>
         </div>
 
-        <!-- 5. CodeBeat (Open Source Package) -->
+        <!-- 5. CodeBeat -->
         <div class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1 md:col-span-2">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-4">
             <div class="space-y-2">
@@ -502,7 +502,6 @@
                 Created and published an open-source Python profiling package leveraging Object-Oriented Programming (OOPs) principles for modular line-by-line function tracing and runtime statistics.
               </p>
 
-              <!-- Quick Terminal Installation Box -->
               <div class="pt-3">
                 <div class="inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-slate-950/90 border border-slate-800 font-mono text-xs text-slate-300 shadow-inner group/term">
                   <span class="text-amber-400 font-bold">$</span>
@@ -535,7 +534,7 @@
       </div>
     </section>
 
-    <!-- Live All Repositories Section -->
+    <!-- Live GitHub Repositories Section -->
     <section id="github-repos" class="py-20 border-t border-slate-900/80">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12">
         <div>
@@ -551,7 +550,6 @@
         </a>
       </div>
 
-      <!-- Live Repos Grid Container -->
       <div id="repos-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="p-8 rounded-3xl glass-card animate-pulse col-span-full text-center py-16">
           <i data-lucide="loader-2" class="w-6 h-6 animate-spin text-indigo-400 mx-auto mb-3"></i>
@@ -698,7 +696,7 @@
         </div>
 
         <div class="space-y-6">
-          <!-- 1. RAG - DeepLearning.AI (August 19, 2026) -->
+          <!-- 1. RAG -->
           <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 shadow-2xl shadow-blue-950/50 transition-all duration-300 hover:scale-[1.01]">
             <div class="bg-slate-950/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
@@ -745,7 +743,7 @@
             </div>
           </div>
 
-          <!-- 2. LangGraph - LangChain Academy (August 4, 2026) -->
+          <!-- 2. LangGraph -->
           <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500 shadow-2xl shadow-purple-950/50 transition-all duration-300 hover:scale-[1.01]">
             <div class="bg-slate-950/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
@@ -793,7 +791,7 @@
             </div>
           </div>
 
-          <!-- 3. Python with Data Structures & Algorithms - Udemy (May 20, 2026) -->
+          <!-- 3. DSA Udemy -->
           <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-600 shadow-2xl shadow-purple-950/50 transition-all duration-300 hover:scale-[1.01]">
             <div class="bg-slate-950/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
@@ -837,7 +835,7 @@
             </div>
           </div>
 
-          <!-- 4. Python for Data Science & Machine Learning - Udemy (May 27, 2021) -->
+          <!-- 4. Data Science Jose Portilla -->
           <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-500 shadow-2xl shadow-purple-950/50 transition-all duration-300 hover:scale-[1.01]">
             <div class="bg-slate-950/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
@@ -912,7 +910,7 @@
       </div>
     </section>
 
-    <!-- Get in Touch Section with Quick-Copy Buttons -->
+    <!-- Get in Touch Section -->
     <section id="contact" class="py-24 border-t border-slate-900/80">
       <div class="max-w-2xl mx-auto text-center mb-12">
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">Get in Touch</h2>
@@ -1039,14 +1037,14 @@
       cursorGlow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
     });
 
-    // Dynamic Typewriter Effect (Targeted 2 Phrases)
+    // Dynamic Typewriter Effect
     const phrases = [
       "GenAI & Machine Learning Engineer",
       "IIT Kharagpur Alumnus"
     ];
     let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    let charIndex = phrases[0].length;
+    let isDeleting = true;
     const typeSpeed = 90;
     const deleteSpeed = 45;
     const pauseTime = 1800;
@@ -1073,7 +1071,7 @@
         setTimeout(typeEffect, isDeleting ? deleteSpeed : typeSpeed);
       }
     }
-    typeEffect();
+    setTimeout(typeEffect, pauseTime);
 
     // Global Toast Notification Helper
     function showToast(message) {
@@ -1100,7 +1098,7 @@
     const backToTopBtn = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop;
+      const winScroll = window.scrollY;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
       scrollProgress.style.width = scrolled + '%';
@@ -1118,15 +1116,16 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Active Navigation Spy on Scroll
+    // Active Navigation Spy on Scroll (Using window.scrollY)
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
 
     window.addEventListener('scroll', () => {
       let current = '';
+      const scrollPosition = window.scrollY;
       sections.forEach(section => {
         const sectionTop = section.offsetTop - 120;
-        if (pageYOffset >= sectionTop) {
+        if (scrollPosition >= sectionTop) {
           current = section.getAttribute('id');
         }
       });
@@ -1207,74 +1206,96 @@
       }
     });
 
-    // Fetch and dynamically render all public repositories from GitHub
+    // Repository Card Render Helper
+    function renderRepos(repos, container) {
+      if (!repos || repos.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full p-8 text-center glass-card rounded-3xl border border-slate-800 text-slate-400 text-sm font-mono">
+            No public repositories found.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = repos.map(repo => `
+        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-3xl glass-card transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-xl">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm">
+                <i data-lucide="folder-git-2" class="w-4 h-4 shrink-0"></i>
+                <span class="font-bold text-white group-hover:text-indigo-400 transition-colors truncate max-w-[180px]">${repo.name}</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors shrink-0"></i>
+            </div>
+            <p class="text-sm text-slate-300 line-clamp-2 leading-relaxed mb-6">
+              ${repo.description || 'Public repository on GitHub.'}
+            </p>
+          </div>
+
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 pt-4 border-t border-slate-800/60">
+            <div class="flex items-center gap-3">
+              ${repo.language ? `
+                <span class="flex items-center gap-1.5 text-slate-200">
+                  <span class="w-2 h-2 rounded-full bg-indigo-400 shadow-sm shadow-indigo-400"></span>
+                  ${repo.language}
+                </span>
+              ` : ''}
+              <span class="flex items-center gap-1 hover:text-amber-400 transition-colors">
+                <i data-lucide="star" class="w-3.5 h-3.5"></i> ${repo.stargazers_count}
+              </span>
+              <span class="flex items-center gap-1">
+                <i data-lucide="git-fork" class="w-3.5 h-3.5"></i> ${repo.forks_count}
+              </span>
+            </div>
+            <span>${new Date(repo.updated_at).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}</span>
+          </div>
+        </a>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    // Fetch and dynamically render all public repositories from GitHub with LocalStorage Caching
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
+      const cacheKey = `gh_repos_${username}`;
+      const cacheExpiryKey = `${cacheKey}_expiry`;
+
+      const cachedData = localStorage.getItem(cacheKey);
+      const cacheExpiry = localStorage.getItem(cacheExpiryKey);
+
+      // Return cached version if still valid (< 30 minutes)
+      if (cachedData && cacheExpiry && Date.now() < Number(cacheExpiry)) {
+        renderRepos(JSON.parse(cachedData), container);
+        return;
+      }
       
       try {
         const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=30`);
         if (!response.ok) throw new Error('Failed to fetch repositories');
         
         let repos = await response.json();
-        
         repos = repos.filter(repo => {
           const name = repo.name.toLowerCase();
           return name !== 'portfolio' && name !== 'skr18156592';
         });
+
+        localStorage.setItem(cacheKey, JSON.stringify(repos));
+        localStorage.setItem(cacheExpiryKey, (Date.now() + 1000 * 60 * 30).toString()); // 30 min cache
         
-        if (repos.length === 0) {
+        renderRepos(repos, container);
+      } catch (err) {
+        // If fetch fails but stale cache exists, fallback to stale cache
+        if (cachedData) {
+          renderRepos(JSON.parse(cachedData), container);
+        } else {
           container.innerHTML = `
-            <div class="col-span-full p-8 text-center glass-card rounded-3xl border border-slate-800 text-slate-400 text-sm font-mono">
-              No public repositories found.
+            <div class="col-span-full p-6 text-center glass-card rounded-3xl border border-slate-800 text-slate-400 text-sm font-mono">
+              Unable to fetch repositories dynamically. Please visit <a href="https://github.com/SKR18156592" target="_blank" class="text-indigo-400 underline">github.com/SKR18156592</a> directly.
             </div>
           `;
-          return;
         }
-
-        container.innerHTML = repos.map(repo => `
-          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-3xl glass-card transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-xl">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm">
-                  <i data-lucide="folder-git-2" class="w-4 h-4 shrink-0"></i>
-                  <span class="font-bold text-white group-hover:text-indigo-400 transition-colors truncate max-w-[180px]">${repo.name}</span>
-                </div>
-                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors shrink-0"></i>
-              </div>
-              <p class="text-sm text-slate-300 line-clamp-2 leading-relaxed mb-6">
-                ${repo.description || 'Public repository on GitHub.'}
-              </p>
-            </div>
-
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400 pt-4 border-t border-slate-800/60">
-              <div class="flex items-center gap-3">
-                ${repo.language ? `
-                  <span class="flex items-center gap-1.5 text-slate-200">
-                    <span class="w-2 h-2 rounded-full bg-indigo-400 shadow-sm shadow-indigo-400"></span>
-                    ${repo.language}
-                  </span>
-                ` : ''}
-                <span class="flex items-center gap-1 hover:text-amber-400 transition-colors">
-                  <i data-lucide="star" class="w-3.5 h-3.5"></i> ${repo.stargazers_count}
-                </span>
-                <span class="flex items-center gap-1">
-                  <i data-lucide="git-fork" class="w-3.5 h-3.5"></i> ${repo.forks_count}
-                </span>
-              </div>
-              <span>${new Date(repo.updated_at).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}</span>
-            </div>
-          </a>
-        `).join('');
-
-        lucide.createIcons();
-
-      } catch (err) {
-        container.innerHTML = `
-          <div class="col-span-full p-6 text-center glass-card rounded-3xl border border-slate-800 text-slate-400 text-sm font-mono">
-            Unable to fetch repositories dynamically. Please visit <a href="https://github.com/SKR18156592" target="_blank" class="text-indigo-400 underline">github.com/SKR18156592</a> directly.
-          </div>
-        `;
       }
     }
 
