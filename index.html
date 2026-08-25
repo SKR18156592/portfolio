@@ -50,15 +50,6 @@
           },
           animation: {
             'spin-slow': 'spin 12s linear infinite',
-          },
-          colors: {
-            brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              500: '#6366f1',
-              600: '#4f46e5',
-              700: '#4338ca',
-            }
           }
         }
       }
@@ -66,6 +57,15 @@
   </script>
 
   <style>
+    /* Native smooth background to prevent mobile GPU tile purges */
+    body {
+      background-color: #030712;
+      background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: #f1f5f9;
+      -webkit-font-smoothing: antialiased;
+    }
+
     html {
       scrollbar-width: thin;
       scrollbar-color: #1e293b #020617;
@@ -84,24 +84,17 @@
       background: #4f46e5;
     }
 
-    .bg-grid-pattern {
-      background-image: radial-gradient(rgba(99, 102, 241, 0.12) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-
-    /* Mobile-Optimized Glass Card: Uses clean opacity instead of expensive backdrop blur filters */
+    /* Fast mobile glass card without heavy GPU composite layers */
     .glass-card {
-      background: rgba(15, 23, 42, 0.88);
+      background-color: #0b1329;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      contain: content;
     }
 
-    /* Apply blur only on larger desktop screens where GPUs handle multi-pass compositing cleanly */
     @media (min-width: 1024px) {
       .glass-card {
-        background: rgba(15, 23, 42, 0.65);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
       }
       .glass-card:hover {
         border-color: rgba(99, 102, 241, 0.4);
@@ -110,23 +103,19 @@
     }
   </style>
 </head>
-<body class="bg-[#030712] text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white text-[15px] relative overflow-x-hidden">
+<body class="selection:bg-indigo-500 selection:text-white text-[15px] relative overflow-x-hidden">
 
-  <!-- Desktop Dynamic Glow Orb (Completely omitted on mobile) -->
-  <div id="cursor-glow" class="fixed w-[400px] h-[400px] bg-indigo-600/15 rounded-full blur-[90px] pointer-events-none -z-10 transition-transform duration-200 ease-out hidden lg:block"></div>
+  <!-- Desktop Dynamic Glow Orb -->
+  <div id="cursor-glow" class="fixed w-[350px] h-[350px] bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none -z-10 transition-transform duration-200 ease-out hidden lg:block"></div>
 
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 z-[70] w-0 transition-all duration-75"></div>
 
-  <!-- Ambient Static Background (Zero animation strain) -->
-  <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20"></div>
-  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] lg:w-[900px] h-[450px] bg-indigo-600/10 blur-[80px] rounded-full"></div>
-    <div class="absolute bottom-10 right-0 w-[500px] h-[400px] bg-purple-600/10 blur-[80px] rounded-full hidden md:block"></div>
-  </div>
+  <!-- Ambient Glow (Lightweight Static, Zero Multi-Layer Compositing) -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[350px] bg-indigo-600/10 blur-[100px] pointer-events-none -z-10"></div>
 
   <!-- Navigation Bar -->
-  <header class="sticky top-0 z-50 bg-[#030712]/90 border-b border-slate-800/80 lg:backdrop-blur-xl shadow-xl">
+  <header class="sticky top-0 z-50 bg-[#030712]/95 border-b border-slate-800/80 shadow-md">
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
       <a href="#" class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2.5 shrink-0 group">
         <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-400 p-[1.5px] flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-transform">
@@ -184,7 +173,7 @@
 
   <main class="max-w-6xl mx-auto px-6">
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 md:pt-36 md:pb-28">
+    <section class="pt-20 pb-16 md:pt-32 md:pb-24">
       <div class="space-y-6">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs font-semibold">
           <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
@@ -970,15 +959,15 @@
   <script>
     lucide.createIcons();
 
-    // Mouse Move Glow Follower (Only on Fine Pointer / Desktop Devices)
+    // Mouse Move Glow (Only fine desktop pointers)
     const cursorGlow = document.getElementById('cursor-glow');
     if (window.matchMedia('(pointer: fine)').matches && cursorGlow) {
       window.addEventListener('mousemove', (e) => {
-        cursorGlow.style.transform = `translate(${e.clientX - 200}px, ${e.clientY - 200}px)`;
+        cursorGlow.style.transform = `translate(${e.clientX - 175}px, ${e.clientY - 175}px)`;
       }, { passive: true });
     }
 
-    // Dynamic Typewriter Effect
+    // Typewriter with Visibility Lifecycle Management
     const phrases = [
       "GenAI & Machine Learning Engineer",
       "IIT Kharagpur Alumnus"
@@ -986,12 +975,12 @@
     let phraseIndex = 0;
     let charIndex = phrases[0].length;
     let isDeleting = true;
-    const typeSpeed = 90;
-    const deleteSpeed = 45;
-    const pauseTime = 1800;
+    let typewriterTimer = null;
     const typewriterEl = document.getElementById('typewriter-text');
 
     function typeEffect() {
+      if (document.hidden) return; // Do not execute in background
+
       const currentPhrase = phrases[phraseIndex];
       if (isDeleting) {
         typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
@@ -1001,20 +990,31 @@
         charIndex++;
       }
 
+      let delay = isDeleting ? 45 : 90;
+
       if (!isDeleting && charIndex === currentPhrase.length) {
         isDeleting = true;
-        setTimeout(typeEffect, pauseTime);
+        delay = 1800;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(typeEffect, 400);
-      } else {
-        setTimeout(typeEffect, isDeleting ? deleteSpeed : typeSpeed);
+        delay = 400;
       }
-    }
-    setTimeout(typeEffect, pauseTime);
 
-    // Global Toast Notification Helper
+      typewriterTimer = setTimeout(typeEffect, delay);
+    }
+    typewriterTimer = setTimeout(typeEffect, 1800);
+
+    // Instant Resume on Tab Focus
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (typewriterTimer) clearTimeout(typewriterTimer);
+      } else {
+        typeEffect();
+      }
+    });
+
+    // Toast Notification
     function showToast(message) {
       const toast = document.getElementById('toast');
       const toastMessage = document.getElementById('toast-message');
@@ -1027,7 +1027,7 @@
       }, 2500);
     }
 
-    // Clipboard Copy Helper
+    // Copy to Clipboard
     function copyToClipboard(text, successMsg = 'Copied to clipboard!') {
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => showToast(successMsg));
@@ -1042,7 +1042,7 @@
       }
     }
 
-    // High Performance Scroll Handler
+    // Passive Scroll Handler
     const scrollProgress = document.getElementById('scroll-progress');
     const backToTopBtn = document.getElementById('back-to-top');
     const sections = document.querySelectorAll('section[id]');
@@ -1090,7 +1090,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Mobile Menu Controller
+    // Mobile Hamburger
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -1116,7 +1116,7 @@
       });
     });
 
-    // Web3Forms Form Submission
+    // Form submission
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
     const submitBtn = document.getElementById('form-submit-btn');
@@ -1158,7 +1158,7 @@
       }
     });
 
-    // Repository Card Render Helper
+    // Repository Cards
     function renderRepos(repos, container) {
       if (!repos || repos.length === 0) {
         container.innerHTML = `
@@ -1170,7 +1170,7 @@
       }
 
       container.innerHTML = repos.map(repo => `
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="p-6 rounded-3xl glass-card flex flex-col justify-between shadow-xl">
+        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="p-6 rounded-3xl glass-card flex flex-col justify-between shadow-md">
           <div>
             <div class="flex items-center justify-between mb-3">
               <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm">
@@ -1207,7 +1207,7 @@
       lucide.createIcons();
     }
 
-    // Fetch GitHub Repositories
+    // Repository fetch with localStorage caching
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
