@@ -100,10 +100,11 @@
       background-size: 32px 32px;
     }
     .glass-card {
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
+      transform: translateZ(0);
     }
     .glass-card:hover {
       border-color: rgba(99, 102, 241, 0.4);
@@ -113,8 +114,8 @@
 </head>
 <body class="bg-[#030712] text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white text-[15px] relative overflow-x-hidden">
 
-  <!-- Interactive Dynamic Glow Orb -->
-  <div id="cursor-glow" class="fixed w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none -z-10 transition-transform duration-300 ease-out hidden md:block"></div>
+  <!-- Interactive Dynamic Glow Orb (Desktop Pointer Only) -->
+  <div id="cursor-glow" class="fixed w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none -z-10 transition-transform duration-300 ease-out hidden lg:block"></div>
 
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 z-[70] w-0 transition-all duration-75"></div>
@@ -535,7 +536,6 @@
         </a>
       </div>
 
-      <!-- Skeletons render here on initial load -->
       <div id="repos-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <!-- 6 Skeleton Cards -->
         <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[180px] animate-pulse">
@@ -1104,11 +1104,13 @@
   <script>
     lucide.createIcons();
 
-    // Mouse Move Glow Follower
+    // Mouse Move Glow Follower (Only on Fine Pointer / Desktop Devices)
     const cursorGlow = document.getElementById('cursor-glow');
-    window.addEventListener('mousemove', (e) => {
-      cursorGlow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
-    });
+    if (window.matchMedia('(pointer: fine)').matches && cursorGlow) {
+      window.addEventListener('mousemove', (e) => {
+        cursorGlow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+      }, { passive: true });
+    }
 
     // Dynamic Typewriter Effect
     const phrases = [
@@ -1161,54 +1163,66 @@
 
     // Clipboard Copy Helper
     function copyToClipboard(text, successMsg = 'Copied to clipboard!') {
-      navigator.clipboard.writeText(text).then(() => {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => showToast(successMsg));
+      } else {
+        const input = document.createElement('textarea');
+        input.value = text;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
         showToast(successMsg);
-      });
+      }
     }
 
-    // Scroll Progress Bar & Back to Top Controller
+    // Optimized Scroll Progress & Back to Top with requestAnimationFrame
     const scrollProgress = document.getElementById('scroll-progress');
     const backToTopBtn = document.getElementById('back-to-top');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-      const winScroll = window.scrollY;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      scrollProgress.style.width = scrolled + '%';
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const winScroll = window.scrollY;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+          scrollProgress.style.width = scrolled + '%';
 
-      if (winScroll > 400) {
-        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
-      } else {
-        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+          if (winScroll > 400) {
+            backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+          } else {
+            backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+          }
+
+          // Active Navigation Spy
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop - 140;
+            if (winScroll >= sectionTop) {
+              current = section.getAttribute('id');
+            }
+          });
+
+          navLinks.forEach(link => {
+            link.classList.remove('text-indigo-400', 'font-semibold');
+            if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('text-indigo-400', 'font-semibold');
+            }
+          });
+
+          ticking = false;
+        });
+        ticking = true;
       }
-    });
+    }, { passive: true });
 
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Active Navigation Spy on Scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      const scrollPosition = window.scrollY;
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (scrollPosition >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('text-indigo-400', 'font-semibold');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('text-indigo-400', 'font-semibold');
-        }
-      });
     });
 
     // Mobile Hamburger Menu Controller
@@ -1328,7 +1342,7 @@
       lucide.createIcons();
     }
 
-    // Fetch and dynamically render GitHub Repositories with LocalStorage Caching
+    // Fetch GitHub Repositories with LocalStorage Caching
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
