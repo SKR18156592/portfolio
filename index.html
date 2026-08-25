@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://github.com/SKR18156592" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Schema.org JSON-LD Structured Data for Rich Search Results -->
+  <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -78,7 +78,6 @@
   </script>
 
   <style>
-    /* Cross-browser Scrollbar */
     html {
       scrollbar-width: thin;
       scrollbar-color: #1e293b #020617;
@@ -96,14 +95,10 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #4f46e5;
     }
-
-    /* Grid pattern background */
     .bg-grid-pattern {
       background-image: radial-gradient(rgba(99, 102, 241, 0.12) 1px, transparent 1px);
       background-size: 32px 32px;
     }
-
-    /* Glassmorphic card styling */
     .glass-card {
       background: rgba(15, 23, 42, 0.65);
       backdrop-filter: blur(16px);
@@ -118,7 +113,7 @@
 </head>
 <body class="bg-[#030712] text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white text-[15px] relative overflow-x-hidden">
 
-  <!-- Interactive Dynamic Glow Orb (Follows Cursor) -->
+  <!-- Interactive Dynamic Glow Orb -->
   <div id="cursor-glow" class="fixed w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none -z-10 transition-transform duration-300 ease-out hidden md:block"></div>
 
   <!-- Top Scroll Progress Bar -->
@@ -161,7 +156,6 @@
           <span>Get in Touch</span>
         </a>
 
-        <!-- Hamburger Button -->
         <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl border border-slate-800 bg-slate-900/90 text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
           <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
           <i data-lucide="x" id="close-icon" class="w-5 h-5 hidden"></i>
@@ -194,7 +188,6 @@
     <!-- Hero Section -->
     <section class="pt-28 pb-20 md:pt-40 md:pb-32">
       <div class="space-y-7">
-        <!-- Live Status Pill -->
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs font-semibold shadow-inner shadow-emerald-500/20 backdrop-blur-md">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
           <span>Available for Full-Time Roles & Collaborations</span>
@@ -208,19 +201,16 @@
           <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08]">
             Hi, I'm Suman Kumar Raj
           </h1>
-          <!-- Interactive Typewriter Headline -->
           <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold min-h-[44px] flex items-center gap-2">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400" id="typewriter-text">GenAI & Machine Learning Engineer</span>
             <span class="w-1.5 h-8 bg-cyan-400 animate-pulse inline-block"></span>
           </div>
         </div>
 
-        <!-- Updated Hero Bio -->
         <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-4xl font-normal">
           Dual Degree graduate from <strong class="text-white font-semibold">IIT Kharagpur</strong> building production-grade <strong class="text-white font-semibold">GenAI and machine learning systems</strong>. Experienced in architecting stateful multi-agent workflows with <strong class="text-white font-semibold">LangGraph</strong> and production <strong class="text-white font-semibold">RAG pipelines</strong>.
         </p>
 
-        <!-- Action Buttons & Social Links -->
         <div class="flex flex-wrap items-center gap-3.5 pt-2">
           <a href="#featured-projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-sm flex items-center gap-2 transition-all shadow-xl shadow-indigo-600/30 hover:scale-105">
             <span>Explore Projects</span>
@@ -290,7 +280,6 @@
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- 1. Generative AI & LLMs -->
         <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-indigo-500/20">
@@ -309,7 +298,6 @@
           </div>
         </div>
 
-        <!-- 2. Machine & Deep Learning -->
         <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-cyan-500/20">
@@ -327,7 +315,6 @@
           </div>
         </div>
 
-        <!-- 3. Programming Languages -->
         <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-purple-500/20">
@@ -341,7 +328,6 @@
           </div>
         </div>
 
-        <!-- 4. Frameworks & Libraries -->
         <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-emerald-500/20">
@@ -358,7 +344,6 @@
           </div>
         </div>
 
-        <!-- 5. Platforms & Tools -->
         <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-amber-500/20">
@@ -374,7 +359,6 @@
           </div>
         </div>
 
-        <!-- 6. Core Engineering & Math -->
         <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-rose-500/20">
@@ -401,7 +385,7 @@
 
       <div class="grid md:grid-cols-2 gap-6">
         <!-- 1. Multi-Agent Research Assistant -->
-        <div class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold">LangGraph &bull; Multi-Agent</span>
@@ -422,10 +406,10 @@
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">Tavily</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">LangSmith</span>
           </div>
-        </div>
+        </article>
 
         <!-- 2. MyTaskManager -->
-        <div class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold">Stateful Memory &bull; Routing</span>
@@ -445,10 +429,10 @@
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">Pydantic</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">Trustcall</span>
           </div>
-        </div>
+        </article>
 
         <!-- 3. Fingerprint Liveness Detection -->
-        <div class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30 font-semibold">Computer Vision &bull; PAD</span>
@@ -467,10 +451,10 @@
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">TensorFlow</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">OpenCV</span>
           </div>
-        </div>
+        </article>
 
         <!-- 4. LendingClub Risk Prediction -->
-        <div class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">Deep Learning &bull; 0.93 F1-Score</span>
@@ -489,10 +473,10 @@
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">Scikit-learn</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">Pandas</span>
           </div>
-        </div>
+        </article>
 
         <!-- 5. CodeBeat -->
-        <div class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1 md:col-span-2">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1 md:col-span-2">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-4">
             <div class="space-y-2">
               <div class="flex items-center gap-2 mb-1.5">
@@ -531,7 +515,7 @@
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">Performance Profiling</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">PyPI Distribution</span>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
@@ -567,7 +551,6 @@
       </div>
 
       <div class="space-y-6">
-        <!-- AlgoZenith -->
         <div class="p-7 rounded-3xl glass-card transition-all flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-xl">
           <div class="flex items-start gap-5">
             <div class="p-3.5 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0 mt-1 shadow-inner shadow-indigo-500/20">
@@ -585,7 +568,6 @@
           <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 shrink-0 shadow-sm">500+ Students</span>
         </div>
 
-        <!-- TA IIT Kharagpur -->
         <div class="p-7 rounded-3xl glass-card transition-all flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-xl">
           <div class="flex items-start gap-5">
             <div class="p-3.5 rounded-2xl bg-cyan-500/10 text-cyan-400 shrink-0 mt-1 shadow-inner shadow-cyan-500/20">
@@ -608,7 +590,6 @@
     <!-- Education & Achievements Section -->
     <section id="education" class="py-20 border-t border-slate-900/80">
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- Education -->
         <div>
           <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2.5">
             <i data-lucide="book-open" class="w-5 h-5 text-indigo-400"></i>
@@ -644,7 +625,6 @@
           </div>
         </div>
 
-        <!-- Awards & Honors -->
         <div>
           <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2.5">
             <i data-lucide="award" class="w-5 h-5 text-amber-400"></i>
@@ -891,7 +871,6 @@
       </div>
 
       <div class="space-y-4">
-        <!-- NSS Volunteer -->
         <div class="p-7 rounded-3xl glass-card transition-all flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-xl">
           <div class="flex items-start gap-5">
             <div class="p-3.5 rounded-2xl bg-emerald-500/10 text-emerald-400 shrink-0 mt-1 shadow-inner shadow-emerald-500/20">
@@ -921,7 +900,6 @@
       </div>
 
       <div class="max-w-xl mx-auto p-8 sm:p-10 rounded-3xl glass-card shadow-2xl">
-        <!-- Contact Cards Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-indigo-500/50 transition-all flex items-center justify-between sm:col-span-2 group">
             <a href="mailto:sumanraj4176@gmail.com" class="flex items-center gap-3.5 min-w-0">
@@ -1117,7 +1095,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Active Navigation Spy on Scroll (Using window.scrollY)
+    // Active Navigation Spy on Scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('#desktop-nav .nav-link');
 
@@ -1256,7 +1234,7 @@
       lucide.createIcons();
     }
 
-    // Fetch and dynamically render all public repositories from GitHub with LocalStorage Caching
+    // Fetch and dynamically render GitHub Repositories with LocalStorage Caching
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
@@ -1266,7 +1244,6 @@
       const cachedData = localStorage.getItem(cacheKey);
       const cacheExpiry = localStorage.getItem(cacheExpiryKey);
 
-      // Return cached version if still valid (< 30 minutes)
       if (cachedData && cacheExpiry && Date.now() < Number(cacheExpiry)) {
         renderRepos(JSON.parse(cachedData), container);
         return;
@@ -1292,7 +1269,7 @@
         } else {
           container.innerHTML = `
             <div class="col-span-full p-6 text-center glass-card rounded-3xl border border-slate-800 text-slate-400 text-sm font-mono">
-              Unable to fetch repositories dynamically. Please visit <a href="https://github.com/SKR18156592" target="_blank" class="text-indigo-400 underline">github.com/SKR18156592</a> directly.
+              Unable to fetch repositories dynamically. Please visit <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline">github.com/SKR18156592</a> directly.
             </div>
           `;
         }
