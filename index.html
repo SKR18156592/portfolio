@@ -50,18 +50,6 @@
           },
           animation: {
             'spin-slow': 'spin 12s linear infinite',
-            'float': 'float 6s ease-in-out infinite',
-            'glow-pulse': 'glow 4s ease-in-out infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-            glow: {
-              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-              '50%': { opacity: '0.8', transform: 'scale(1.08)' },
-            }
           },
           colors: {
             brand: {
@@ -95,41 +83,50 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #4f46e5;
     }
+
     .bg-grid-pattern {
       background-image: radial-gradient(rgba(99, 102, 241, 0.12) 1px, transparent 1px);
       background-size: 32px 32px;
     }
+
+    /* Mobile-Optimized Glass Card: Uses clean opacity instead of expensive backdrop blur filters */
     .glass-card {
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.88);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      transform: translateZ(0);
+      contain: content;
     }
-    .glass-card:hover {
-      border-color: rgba(99, 102, 241, 0.4);
-      box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.2);
+
+    /* Apply blur only on larger desktop screens where GPUs handle multi-pass compositing cleanly */
+    @media (min-width: 1024px) {
+      .glass-card {
+        background: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .glass-card:hover {
+        border-color: rgba(99, 102, 241, 0.4);
+        box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.2);
+      }
     }
   </style>
 </head>
 <body class="bg-[#030712] text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white text-[15px] relative overflow-x-hidden">
 
-  <!-- Interactive Dynamic Glow Orb (Desktop Pointer Only) -->
-  <div id="cursor-glow" class="fixed w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none -z-10 transition-transform duration-300 ease-out hidden lg:block"></div>
+  <!-- Desktop Dynamic Glow Orb (Completely omitted on mobile) -->
+  <div id="cursor-glow" class="fixed w-[400px] h-[400px] bg-indigo-600/15 rounded-full blur-[90px] pointer-events-none -z-10 transition-transform duration-200 ease-out hidden lg:block"></div>
 
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 z-[70] w-0 transition-all duration-75"></div>
 
-  <!-- Ambient Dynamic Background Glows & Grid -->
+  <!-- Ambient Static Background (Zero animation strain) -->
   <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20"></div>
   <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[650px] bg-indigo-600/20 blur-[170px] rounded-full animate-glow-pulse"></div>
-    <div class="absolute top-1/3 -left-40 w-[650px] h-[650px] bg-cyan-600/15 blur-[160px] rounded-full animate-pulse"></div>
-    <div class="absolute bottom-10 right-0 w-[700px] h-[600px] bg-purple-600/15 blur-[160px] rounded-full"></div>
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] lg:w-[900px] h-[450px] bg-indigo-600/10 blur-[80px] rounded-full"></div>
+    <div class="absolute bottom-10 right-0 w-[500px] h-[400px] bg-purple-600/10 blur-[80px] rounded-full hidden md:block"></div>
   </div>
 
   <!-- Navigation Bar -->
-  <header class="sticky top-0 z-50 backdrop-blur-2xl bg-[#030712]/80 border-b border-slate-800/80 shadow-2xl shadow-indigo-950/30">
+  <header class="sticky top-0 z-50 bg-[#030712]/90 border-b border-slate-800/80 lg:backdrop-blur-xl shadow-xl">
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
       <a href="#" class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2.5 shrink-0 group">
         <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-400 p-[1.5px] flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-transform">
@@ -157,7 +154,7 @@
           <span>Get in Touch</span>
         </a>
 
-        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl border border-slate-800 bg-slate-900/90 text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
+        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-300 hover:text-white transition-all">
           <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
           <i data-lucide="x" id="close-icon" class="w-5 h-5 hidden"></i>
         </button>
@@ -165,7 +162,7 @@
     </nav>
 
     <!-- Mobile Drawer Menu Dropdown -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-2xl px-6 py-6 shadow-2xl transition-all">
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950 px-6 py-6 shadow-2xl transition-all">
       <div class="flex flex-col space-y-4 text-base font-medium text-slate-300">
         <a href="#about" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="user" class="w-4 h-4 text-indigo-400"></i> About</a>
         <a href="#skills" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="cpu" class="w-4 h-4 text-indigo-400"></i> Skills</a>
@@ -187,24 +184,24 @@
 
   <main class="max-w-6xl mx-auto px-6">
     <!-- Hero Section -->
-    <section class="pt-28 pb-20 md:pt-40 md:pb-32">
-      <div class="space-y-7">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs font-semibold shadow-inner shadow-emerald-500/20 backdrop-blur-md">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <section class="pt-24 pb-16 md:pt-36 md:pb-28">
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
           <span>Available for Full-Time Roles & Collaborations</span>
         </div>
 
         <div class="space-y-3">
           <div class="flex flex-wrap items-center gap-3">
-            <span class="px-3.5 py-1 rounded-xl bg-gradient-to-r from-indigo-500/15 to-purple-500/15 text-indigo-300 border border-indigo-500/30 font-mono text-xs font-bold tracking-wider shadow-sm">IIT KHARAGPUR</span>
-            <span class="px-3.5 py-1 rounded-xl bg-gradient-to-r from-amber-500/15 to-orange-500/15 text-amber-300 border border-amber-500/30 font-mono text-xs font-bold tracking-wider shadow-sm flex items-center gap-1.5"><i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-400"></i> GATE AIR 64</span>
+            <span class="px-3.5 py-1 rounded-xl bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-mono text-xs font-bold tracking-wider">IIT KHARAGPUR</span>
+            <span class="px-3.5 py-1 rounded-xl bg-amber-500/15 text-amber-300 border border-amber-500/30 font-mono text-xs font-bold tracking-wider flex items-center gap-1.5"><i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-400"></i> GATE AIR 64</span>
           </div>
           <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08]">
             Hi, I'm Suman Kumar Raj
           </h1>
           <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold min-h-[44px] flex items-center gap-2">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400" id="typewriter-text">GenAI & Machine Learning Engineer</span>
-            <span class="w-1.5 h-8 bg-cyan-400 animate-pulse inline-block"></span>
+            <span class="w-1.5 h-8 bg-cyan-400 inline-block"></span>
           </div>
         </div>
 
@@ -213,23 +210,23 @@
         </p>
 
         <div class="flex flex-wrap items-center gap-3.5 pt-2">
-          <a href="#featured-projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-sm flex items-center gap-2 transition-all shadow-xl shadow-indigo-600/30 hover:scale-105">
+          <a href="#featured-projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-indigo-600/30">
             <span>Explore Projects</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
-          <a href="suman_resume_1.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/80 hover:bg-slate-800/90 text-slate-200 hover:text-white text-sm font-medium flex items-center gap-2 transition-all shadow-md hover:border-slate-700">
+          <a href="suman_resume_1.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-200 text-sm font-medium flex items-center gap-2">
             <i data-lucide="eye" class="w-4 h-4 text-indigo-400"></i>
             <span>View Resume</span>
           </a>
-          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/80 hover:bg-slate-800/90 text-slate-200 hover:text-white text-sm font-medium flex items-center gap-2 transition-all shadow-md hover:border-slate-700">
+          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-200 text-sm font-medium flex items-center gap-2">
             <svg class="w-4 h-4 fill-current text-purple-400" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub</span>
           </a>
-          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/80 hover:bg-slate-800/90 text-slate-200 hover:text-white text-sm font-medium flex items-center gap-2 transition-all shadow-md hover:border-slate-700">
+          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-200 text-sm font-medium flex items-center gap-2">
             <svg class="w-4 h-4 fill-current text-cyan-400" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             <span>LinkedIn</span>
           </a>
-          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/80 hover:bg-slate-800/90 text-slate-200 hover:text-white text-sm font-medium flex items-center gap-2 transition-all shadow-md hover:border-slate-700">
+          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-200 text-sm font-medium flex items-center gap-2">
             <i data-lucide="code" class="w-4 h-4 text-amber-400"></i>
             <span>LeetCode</span>
           </a>
@@ -238,27 +235,18 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 border-t border-slate-900/80">
-      <div class="grid md:grid-cols-12 gap-8 p-8 sm:p-10 rounded-3xl glass-card relative overflow-hidden items-center">
-        <div class="absolute -top-24 -left-24 w-72 h-72 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="md:col-span-4 flex justify-center relative">
-          <div class="relative group">
-            <div class="absolute -inset-2.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
-            
-            <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl p-1 bg-slate-950 border border-slate-700 shadow-2xl overflow-hidden">
-              <img src="20NA30027.jpeg" alt="Suman Kumar Raj" width="256" height="256" loading="lazy" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60"></div>
-            </div>
-
-            <div class="absolute -bottom-3 -right-2 px-3.5 py-1.5 rounded-2xl bg-slate-900/95 backdrop-blur-md border border-slate-700 text-[11px] font-mono font-bold text-indigo-300 shadow-2xl flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>IIT KGP</span>
+    <section id="about" class="py-16 border-t border-slate-900">
+      <div class="grid md:grid-cols-12 gap-8 p-7 sm:p-10 rounded-3xl glass-card items-center">
+        <div class="md:col-span-4 flex justify-center">
+          <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-3xl p-1 bg-slate-950 border border-slate-700 shadow-xl overflow-hidden">
+            <img src="20NA30027.jpeg" alt="Suman Kumar Raj" width="240" height="240" loading="lazy" class="w-full h-full object-cover rounded-2xl" />
+            <div class="absolute bottom-2 right-2 px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-[10px] font-mono font-bold text-indigo-300">
+              IIT KGP
             </div>
           </div>
         </div>
 
-        <div class="md:col-span-8 space-y-4 text-slate-300 leading-relaxed text-base relative z-10">
+        <div class="md:col-span-8 space-y-4 text-slate-300 leading-relaxed text-base">
           <div>
             <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-1">About Me</h2>
             <p class="text-xs text-indigo-400 font-mono tracking-wider uppercase font-semibold">My Journey & Passion</p>
@@ -274,20 +262,20 @@
     </section>
 
     <!-- Technical Arsenal -->
-    <section id="skills" class="py-20 border-t border-slate-900/80">
-      <div class="mb-12">
+    <section id="skills" class="py-16 border-t border-slate-900">
+      <div class="mb-10">
         <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Technical Arsenal</h2>
         <p class="text-slate-400 text-sm">Core languages, frameworks, and production tools powering my AI & engineering projects.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-indigo-500/20">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4">
               <i data-lucide="bot" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-4 text-lg">Generative AI & LLMs</h3>
-            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
+            <h3 class="font-bold text-white mb-3 text-lg">Generative AI & LLMs</h3>
+            <ul class="space-y-2 text-sm font-mono text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> LangChain</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> LangGraph</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400 shrink-0"></i> Agentic AI</li>
@@ -299,13 +287,13 @@
           </div>
         </div>
 
-        <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-cyan-500/20">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
               <i data-lucide="brain-circuit" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-4 text-lg">Machine & Deep Learning</h3>
-            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
+            <h3 class="font-bold text-white mb-3 text-lg">Machine & Deep Learning</h3>
+            <ul class="space-y-2 text-sm font-mono text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Classification, Regression</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Feature Engineering, EDA</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0"></i> Linear & Logistic Regression</li>
@@ -316,26 +304,26 @@
           </div>
         </div>
 
-        <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-purple-500/20">
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
               <i data-lucide="code-2" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-4 text-lg">Programming Languages</h3>
-            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
+            <h3 class="font-bold text-white mb-3 text-lg">Programming Languages</h3>
+            <ul class="space-y-2 text-sm font-mono text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> Python (Expert)</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400 shrink-0"></i> SQL (Advanced Queries & EDA)</li>
             </ul>
           </div>
         </div>
 
-        <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-emerald-500/20">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
               <i data-lucide="layers" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-4 text-lg">Frameworks & Libraries</h3>
-            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
+            <h3 class="font-bold text-white mb-3 text-lg">Frameworks & Libraries</h3>
+            <ul class="space-y-2 text-sm font-mono text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> TensorFlow & Keras</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> Scikit-learn</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i> NumPy & Pandas</li>
@@ -345,13 +333,13 @@
           </div>
         </div>
 
-        <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-amber-500/20">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
               <i data-lucide="terminal" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-4 text-lg">Platforms & Tools</h3>
-            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
+            <h3 class="font-bold text-white mb-3 text-lg">Platforms & Tools</h3>
+            <ul class="space-y-2 text-sm font-mono text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> Git & GitHub</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> LangSmith</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i> VS Code & Jupyter</li>
@@ -360,13 +348,13 @@
           </div>
         </div>
 
-        <div class="p-7 rounded-3xl glass-card transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-inner shadow-rose-500/20">
+            <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
               <i data-lucide="cpu" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-white mb-4 text-lg">Core Engineering & Math</h3>
-            <ul class="space-y-2.5 text-sm font-mono text-slate-300">
+            <h3 class="font-bold text-white mb-3 text-lg">Core Engineering & Math</h3>
+            <ul class="space-y-2 text-sm font-mono text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> Data Structures & Algorithms</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> DBMS & OOPs Principles</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400 shrink-0"></i> Probability, Statistics & Linear Algebra</li>
@@ -378,22 +366,22 @@
     </section>
 
     <!-- Featured Projects -->
-    <section id="featured-projects" class="py-20 border-t border-slate-900/80">
-      <div class="mb-12">
+    <section id="featured-projects" class="py-16 border-t border-slate-900">
+      <div class="mb-10">
         <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Featured Projects</h2>
         <p class="text-slate-400 text-sm">Deep-dive implementations in Agentic AI, Computer Vision, Deep Learning, and Open-Source Software.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
         <!-- 1. Multi-Agent Research Assistant -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold">LangGraph &bull; Multi-Agent</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">Multi-Agent Research Assistant</h3>
-            <ul class="text-sm text-slate-300 space-y-2.5 leading-relaxed mb-6 list-disc list-inside">
+            <h3 class="text-xl font-bold text-white mb-3">Multi-Agent Research Assistant</h3>
+            <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
               <li>Built a multi-agent research system in LangGraph that decomposes complex topics into specialized analyst perspectives with human-in-the-loop refinement.</li>
               <li>Implemented parallel information retrieval using Tavily and Wikipedia to synthesize context across diverse domains.</li>
               <li>Designed a map-reduce workflow to parallelize analyst interviews and aggregate insights into structured research reports.</li>
@@ -410,14 +398,14 @@
         </article>
 
         <!-- 2. MyTaskManager -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold">Stateful Memory &bull; Routing</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">MyTaskManager</h3>
-            <ul class="text-sm text-slate-300 space-y-2.5 leading-relaxed mb-6 list-disc list-inside">
+            <h3 class="text-xl font-bold text-white mb-3">MyTaskManager</h3>
+            <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
               <li>Engineered a stateful task-management AI agent in LangGraph maintaining short-term conversational context and structured long-term memory.</li>
               <li>Architected distinct Profile, To-Do, and Instruction memories using Pydantic schemas for precise extraction and adaptive execution.</li>
               <li>Implemented cyclic workflows and dynamic routing to manage memory updates before safely returning control to the primary agent.</li>
@@ -433,14 +421,14 @@
         </article>
 
         <!-- 3. Fingerprint Liveness Detection -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30 font-semibold">Computer Vision &bull; PAD</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">Fingerprint Liveness Detection (PAD)</h3>
-            <ul class="text-sm text-slate-300 space-y-2.5 leading-relaxed mb-6 list-disc list-inside">
+            <h3 class="text-xl font-bold text-white mb-3">Fingerprint Liveness Detection (PAD)</h3>
+            <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
               <li>Created a Presentation Attack Detection (PAD) biometric verification pipeline using MobileNetV3-Small transfer learning.</li>
               <li>Developed an end-to-end processing pipeline: 70/15/15 split, image augmentation, ImageNet normalization, and single-image inference.</li>
               <li>Calibrated decision thresholds against a target 3% BPCER; evaluated with APCER, BPCER, ACER, EER, and ROC-AUC metrics.</li>
@@ -455,14 +443,14 @@
         </article>
 
         <!-- 4. LendingClub Risk Prediction -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">Deep Learning &bull; 0.93 F1-Score</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
+              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">LendingClub Risk Prediction</h3>
-            <ul class="text-sm text-slate-300 space-y-2.5 leading-relaxed mb-6 list-disc list-inside">
+            <h3 class="text-xl font-bold text-white mb-3">LendingClub Risk Prediction</h3>
+            <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
               <li>Built an end-to-end credit risk classification system on 396K+ loan records with missing value handling, categorical encoding, and MinMax scaling.</li>
               <li>Trained a deep neural network with ReLU activations, dropout regularization, and sigmoid output to classify loan default risk.</li>
               <li>Attained a 0.93 F1-score on the test set while effectively resolving severe class imbalance.</li>
@@ -477,22 +465,22 @@
         </article>
 
         <!-- 5. CodeBeat -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1 md:col-span-2">
+        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between md:col-span-2">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-4">
             <div class="space-y-2">
               <div class="flex items-center gap-2 mb-1.5">
                 <span class="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold">Open-Source Python Package &bull; PyPI</span>
-                <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">CodeBeat</h3>
+                <h3 class="text-xl font-bold text-white">CodeBeat</h3>
               </div>
               <p class="text-sm text-slate-300 leading-relaxed max-w-2xl">
                 Created and published an open-source Python profiling package leveraging Object-Oriented Programming (OOPs) principles for modular line-by-line function tracing and runtime statistics.
               </p>
 
               <div class="pt-3">
-                <div class="inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-slate-950/90 border border-slate-800 font-mono text-xs text-slate-300 shadow-inner group/term">
+                <div class="inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300">
                   <span class="text-amber-400 font-bold">$</span>
                   <span id="pip-command">pip install codebeat</span>
-                  <button onclick="copyToClipboard('pip install codebeat', 'Command copied to clipboard!')" class="text-slate-400 hover:text-white transition-colors p-1" title="Copy Command">
+                  <button onclick="copyToClipboard('pip install codebeat', 'Command copied to clipboard!')" class="text-slate-400 hover:text-white p-1" title="Copy Command">
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                   </button>
                 </div>
@@ -500,11 +488,11 @@
             </div>
 
             <div class="flex items-center gap-2 shrink-0">
-              <a href="https://pypi.org/project/codebeat/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-sm font-mono text-white flex items-center gap-2 transition-all shadow-md">
+              <a href="https://pypi.org/project/codebeat/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm font-mono text-white flex items-center gap-2 shadow-md">
                 <i data-lucide="package" class="w-4 h-4 text-amber-400"></i>
                 <span>PyPI</span>
               </a>
-              <a href="https://github.com/SKR18156592/CodeBeat" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-sm font-mono text-white flex items-center gap-2 transition-all shadow-md">
+              <a href="https://github.com/SKR18156592/CodeBeat" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm font-mono text-white flex items-center gap-2 shadow-md">
                 <i data-lucide="github" class="w-4 h-4 text-purple-400"></i>
                 <span>GitHub</span>
               </a>
@@ -521,133 +509,48 @@
     </section>
 
     <!-- Live GitHub Repositories Section -->
-    <section id="github-repos" class="py-20 border-t border-slate-900/80">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12">
+    <section id="github-repos" class="py-16 border-t border-slate-900">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
         <div>
           <div class="flex items-center gap-2.5 mb-2">
             <h2 class="text-3xl font-extrabold tracking-tight text-white">All GitHub Repositories</h2>
             <span class="px-3 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-semibold">Live API</span>
           </div>
-          <p class="text-slate-400 text-sm">Dynamically synchronized with <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">@SKR18156592</a>.</p>
+          <p class="text-slate-400 text-sm">Dynamically synchronized with <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline">@SKR18156592</a>.</p>
         </div>
-        <a href="https://github.com/SKR18156592?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white text-sm font-mono flex items-center gap-2 w-fit transition-all shadow-md">
+        <a href="https://github.com/SKR18156592?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-sm font-mono flex items-center gap-2 w-fit">
           <i data-lucide="github" class="w-4 h-4"></i>
           <span>View on GitHub</span>
         </a>
       </div>
 
       <div id="repos-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- 6 Skeleton Cards -->
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[180px] animate-pulse">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <div class="h-4 bg-slate-800 rounded-lg w-2/5"></div>
-              <div class="h-4 bg-slate-800 rounded-lg w-4"></div>
-            </div>
-            <div class="space-y-2 mb-4">
-              <div class="h-3 bg-slate-800/80 rounded w-full"></div>
-              <div class="h-3 bg-slate-800/80 rounded w-4/5"></div>
-            </div>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-800/60">
-            <div class="h-3 bg-slate-800 rounded w-1/3"></div>
-            <div class="h-3 bg-slate-800 rounded w-1/4"></div>
-          </div>
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[170px] animate-pulse">
+          <div><div class="h-4 bg-slate-800 rounded w-1/2 mb-3"></div><div class="h-3 bg-slate-800/80 rounded w-full mb-2"></div><div class="h-3 bg-slate-800/80 rounded w-3/4"></div></div>
+          <div class="flex justify-between pt-4 border-t border-slate-800"><div class="h-3 bg-slate-800 rounded w-1/3"></div><div class="h-3 bg-slate-800 rounded w-1/4"></div></div>
         </div>
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[180px] animate-pulse">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <div class="h-4 bg-slate-800 rounded-lg w-1/2"></div>
-              <div class="h-4 bg-slate-800 rounded-lg w-4"></div>
-            </div>
-            <div class="space-y-2 mb-4">
-              <div class="h-3 bg-slate-800/80 rounded w-full"></div>
-              <div class="h-3 bg-slate-800/80 rounded w-3/4"></div>
-            </div>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-800/60">
-            <div class="h-3 bg-slate-800 rounded w-1/3"></div>
-            <div class="h-3 bg-slate-800 rounded w-1/4"></div>
-          </div>
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[170px] animate-pulse">
+          <div><div class="h-4 bg-slate-800 rounded w-1/2 mb-3"></div><div class="h-3 bg-slate-800/80 rounded w-full mb-2"></div><div class="h-3 bg-slate-800/80 rounded w-3/4"></div></div>
+          <div class="flex justify-between pt-4 border-t border-slate-800"><div class="h-3 bg-slate-800 rounded w-1/3"></div><div class="h-3 bg-slate-800 rounded w-1/4"></div></div>
         </div>
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[180px] animate-pulse">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <div class="h-4 bg-slate-800 rounded-lg w-2/5"></div>
-              <div class="h-4 bg-slate-800 rounded-lg w-4"></div>
-            </div>
-            <div class="space-y-2 mb-4">
-              <div class="h-3 bg-slate-800/80 rounded w-full"></div>
-              <div class="h-3 bg-slate-800/80 rounded w-2/3"></div>
-            </div>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-800/60">
-            <div class="h-3 bg-slate-800 rounded w-1/3"></div>
-            <div class="h-3 bg-slate-800 rounded w-1/4"></div>
-          </div>
-        </div>
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[180px] animate-pulse">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <div class="h-4 bg-slate-800 rounded-lg w-3/5"></div>
-              <div class="h-4 bg-slate-800 rounded-lg w-4"></div>
-            </div>
-            <div class="space-y-2 mb-4">
-              <div class="h-3 bg-slate-800/80 rounded w-full"></div>
-              <div class="h-3 bg-slate-800/80 rounded w-4/5"></div>
-            </div>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-800/60">
-            <div class="h-3 bg-slate-800 rounded w-1/3"></div>
-            <div class="h-3 bg-slate-800 rounded w-1/4"></div>
-          </div>
-        </div>
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[180px] animate-pulse">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <div class="h-4 bg-slate-800 rounded-lg w-1/2"></div>
-              <div class="h-4 bg-slate-800 rounded-lg w-4"></div>
-            </div>
-            <div class="space-y-2 mb-4">
-              <div class="h-3 bg-slate-800/80 rounded w-full"></div>
-              <div class="h-3 bg-slate-800/80 rounded w-3/5"></div>
-            </div>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-800/60">
-            <div class="h-3 bg-slate-800 rounded w-1/3"></div>
-            <div class="h-3 bg-slate-800 rounded w-1/4"></div>
-          </div>
-        </div>
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[180px] animate-pulse">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <div class="h-4 bg-slate-800 rounded-lg w-2/5"></div>
-              <div class="h-4 bg-slate-800 rounded-lg w-4"></div>
-            </div>
-            <div class="space-y-2 mb-4">
-              <div class="h-3 bg-slate-800/80 rounded w-full"></div>
-              <div class="h-3 bg-slate-800/80 rounded w-4/5"></div>
-            </div>
-          </div>
-          <div class="flex items-center justify-between pt-4 border-t border-slate-800/60">
-            <div class="h-3 bg-slate-800 rounded w-1/3"></div>
-            <div class="h-3 bg-slate-800 rounded w-1/4"></div>
-          </div>
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between h-[170px] animate-pulse">
+          <div><div class="h-4 bg-slate-800 rounded w-1/2 mb-3"></div><div class="h-3 bg-slate-800/80 rounded w-full mb-2"></div><div class="h-3 bg-slate-800/80 rounded w-3/4"></div></div>
+          <div class="flex justify-between pt-4 border-t border-slate-800"><div class="h-3 bg-slate-800 rounded w-1/3"></div><div class="h-3 bg-slate-800 rounded w-1/4"></div></div>
         </div>
       </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 border-t border-slate-900/80">
-      <div class="mb-12">
+    <section id="experience" class="py-16 border-t border-slate-900">
+      <div class="mb-10">
         <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Experience & Mentorship</h2>
         <p class="text-slate-400 text-sm">Academic roles, leadership, and teaching experience.</p>
       </div>
 
-      <div class="space-y-6">
-        <div class="p-7 rounded-3xl glass-card transition-all flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-xl">
-          <div class="flex items-start gap-5">
-            <div class="p-3.5 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0 mt-1 shadow-inner shadow-indigo-500/20">
+      <div class="space-y-5">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0 mt-1">
               <i data-lucide="users" class="w-6 h-6"></i>
             </div>
             <div>
@@ -659,12 +562,12 @@
               </ul>
             </div>
           </div>
-          <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 shrink-0 shadow-sm">500+ Students</span>
+          <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 shrink-0">500+ Students</span>
         </div>
 
-        <div class="p-7 rounded-3xl glass-card transition-all flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-xl">
-          <div class="flex items-start gap-5">
-            <div class="p-3.5 rounded-2xl bg-cyan-500/10 text-cyan-400 shrink-0 mt-1 shadow-inner shadow-cyan-500/20">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-2xl bg-cyan-500/10 text-cyan-400 shrink-0 mt-1">
               <i data-lucide="graduation-cap" class="w-6 h-6"></i>
             </div>
             <div>
@@ -676,13 +579,13 @@
               </ul>
             </div>
           </div>
-          <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 shrink-0 shadow-sm">IIT Kharagpur</span>
+          <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 shrink-0">IIT Kharagpur</span>
         </div>
       </div>
     </section>
 
     <!-- Education & Achievements Section -->
-    <section id="education" class="py-20 border-t border-slate-900/80">
+    <section id="education" class="py-16 border-t border-slate-900">
       <div class="grid md:grid-cols-2 gap-8">
         <div>
           <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2.5">
@@ -690,7 +593,7 @@
             <span>Education</span>
           </h2>
           <div class="space-y-4">
-            <div class="p-6 rounded-3xl glass-card shadow-lg">
+            <div class="p-6 rounded-3xl glass-card">
               <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">IIT Kharagpur</h3>
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">CGPA: 8.12</span>
@@ -699,7 +602,7 @@
               <p class="text-xs text-slate-500 font-mono mt-2">2020 – 2025</p>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card shadow-lg">
+            <div class="p-6 rounded-3xl glass-card">
               <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">S K P Vidya Vihar, Bhagalpur</h3>
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">92%</span>
@@ -708,7 +611,7 @@
               <p class="text-xs text-slate-500 font-mono mt-2">2020</p>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card shadow-lg">
+            <div class="p-6 rounded-3xl glass-card">
               <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">D P S Sabour, Bhagalpur</h3>
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">10 CGPA</span>
@@ -725,8 +628,8 @@
             <span>Awards & Achievements</span>
           </h2>
           <div class="space-y-4">
-            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 shadow-lg">
-              <div class="p-2.5 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0 shadow-inner shadow-amber-500/20">
+            <div class="p-6 rounded-3xl glass-card flex items-start gap-4">
+              <div class="p-2.5 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
                 <i data-lucide="trophy" class="w-5 h-5"></i>
               </div>
               <div>
@@ -735,8 +638,8 @@
               </div>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 shadow-lg">
-              <div class="p-2.5 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0 shadow-inner shadow-indigo-500/20">
+            <div class="p-6 rounded-3xl glass-card flex items-start gap-4">
+              <div class="p-2.5 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0">
                 <i data-lucide="star" class="w-5 h-5"></i>
               </div>
               <div>
@@ -745,8 +648,8 @@
               </div>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 shadow-lg">
-              <div class="p-2.5 rounded-2xl bg-purple-500/10 text-purple-400 shrink-0 shadow-inner shadow-purple-500/20">
+            <div class="p-6 rounded-3xl glass-card flex items-start gap-4">
+              <div class="p-2.5 rounded-2xl bg-purple-500/10 text-purple-400 shrink-0">
                 <i data-lucide="medal" class="w-5 h-5"></i>
               </div>
               <div>
@@ -760,214 +663,177 @@
     </section>
 
     <!-- Licenses & Certifications Section -->
-    <section id="certificates" class="py-20 border-t border-slate-900/80 relative overflow-hidden">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-600/10 blur-[150px] pointer-events-none rounded-full"></div>
+    <section id="certificates" class="py-16 border-t border-slate-900">
+      <div class="mb-10">
+        <span class="text-blue-400 font-semibold text-xs tracking-widest uppercase bg-blue-950/80 px-3 py-1 rounded-full border border-blue-800/40">Verified Credentials</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-3">Licenses & Certifications</h2>
+        <p class="text-sm sm:text-base text-slate-400 mt-2">Specialized training, advanced coursework, and technical certifications.</p>
+      </div>
 
-      <div class="relative z-10">
-        <div class="mb-12">
-          <span class="text-blue-400 font-semibold text-xs tracking-widest uppercase bg-blue-950/80 px-3 py-1 rounded-full border border-blue-800/40">Verified Credentials</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-3">Licenses & Certifications</h2>
-          <p class="text-sm sm:text-base text-slate-400 mt-2">Specialized training, advanced coursework, and technical certifications.</p>
+      <div class="space-y-6">
+        <!-- 1. RAG -->
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-blue-500/30">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded-full">
+                DeepLearning.AI
+              </span>
+              <span class="text-xs text-slate-400 font-medium">Issued August 19, 2026</span>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-white mt-3">
+              Retrieval-Augmented Generation (RAG)
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Authorized through Coursera</p>
+
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
+              Completed advanced training on building production-grade RAG pipelines, focusing on chunking methodologies, dense/sparse embeddings, and hybrid search mechanics to optimize LLM groundedness and factual accuracy.
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Hybrid Search</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Chunking Strategies</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Embeddings</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Vector Databases</span>
+            </div>
+          </div>
+
+          <div class="w-full md:w-auto shrink-0">
+            <a href="https://coursera.org/verify/22QSGZ7M96PX" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-600/30">
+              Verify Certificate
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
         </div>
 
-        <div class="space-y-6">
-          <!-- 1. RAG -->
-          <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 shadow-2xl shadow-blue-950/50 transition-all duration-300 hover:scale-[1.01]">
-            <div class="bg-slate-950/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-              <div>
-                <div class="flex flex-wrap items-center gap-3">
-                  <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded-full">
-                    <svg class="h-4 w-4 fill-rose-500 shrink-0" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
-                      <circle cx="16" cy="13.5" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/>
-                      <circle cx="16" cy="11.5" r="3.5" fill="currentColor"/>
-                    </svg>
-                    DeepLearning.AI
-                  </span>
-                  <span class="text-xs text-slate-400 font-medium">Issued August 19, 2026</span>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-white mt-3 group-hover:text-blue-400 transition-colors">
-                  Retrieval-Augmented Generation (RAG)
-                </h3>
-                <p class="text-xs text-slate-400 mt-0.5">Authorized through Coursera</p>
+        <!-- 2. LangGraph -->
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-purple-500/30">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-slate-100/10 text-slate-200 border border-slate-100/20 rounded-full">
+                LangChain Academy
+              </span>
+              <span class="text-xs text-slate-400 font-medium">Issued August 4, 2026</span>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-white mt-3">
+              Foundation: Introduction to LangGraph - Python
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Authorized through LangChain Academy</p>
 
-                <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
-                  Completed advanced training on building production-grade RAG pipelines, focusing on chunking methodologies, dense/sparse embeddings, and hybrid search mechanics to optimize LLM groundedness and factual accuracy.
-                </p>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
+              Completed foundational training on LangGraph, mastering state management, graph compilation, routing, and tool integration to architect resilient, stateful multi-agent AI systems and production-grade workflows in Python.
+            </p>
 
-                <div class="mt-5 flex flex-wrap gap-2">
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Hybrid Search</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Chunking Strategies</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Embeddings</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Vector Databases</span>
-                </div>
-              </div>
-
-              <div class="w-full md:w-auto shrink-0">
-                <a href="https://coursera.org/verify/22QSGZ7M96PX" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50 hover:-translate-y-0.5">
-                  Verify Certificate
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">LangGraph</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">State Management</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Multi-Agent Systems</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Python</span>
             </div>
           </div>
 
-          <!-- 2. LangGraph -->
-          <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-500 shadow-2xl shadow-purple-950/50 transition-all duration-300 hover:scale-[1.01]">
-            <div class="bg-slate-950/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-              <div>
-                <div class="flex flex-wrap items-center gap-3">
-                  <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-slate-100/10 text-slate-200 border border-slate-100/20 rounded-full">
-                    <svg class="h-4 w-4 fill-white shrink-0" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13 2C7 6 4 13 5 19C6 24 10 28 15 29C13 26 12 23 12 20C12 14 14 8 13 2Z"/>
-                      <path d="M19 5C24 9 27 16 26 22C25 27 21 30 16 30C18 27 19 24 19 21C19 15 18 9 19 5Z"/>
-                      <path d="M5 21C9 20 13 22 16 25C13 27 9 27 5 25V21Z"/>
-                      <path d="M16 10C20 11 22 15 23 18C20 18 17 16 14 14C14 12 15 11 16 10Z"/>
-                    </svg>
-                    LangChain Academy
-                  </span>
-                  <span class="text-xs text-slate-400 font-medium">Issued August 4, 2026</span>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-white mt-3 group-hover:text-purple-400 transition-colors">
-                  Foundation: Introduction to LangGraph - Python
-                </h3>
-                <p class="text-xs text-slate-400 mt-0.5">Authorized through LangChain Academy</p>
+          <div class="w-full md:w-auto shrink-0">
+            <a href="https://academy.langchain.com/certificates/nfy9ggg3ez" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-purple-600/30">
+              Verify Certificate
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
 
-                <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
-                  Completed foundational training on LangGraph, mastering state management, graph compilation, routing, and tool integration to architect resilient, stateful multi-agent AI systems and production-grade workflows in Python.
-                </p>
+        <!-- 3. DSA Udemy -->
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-violet-500/30">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
+                Udemy
+              </span>
+              <span class="text-xs text-slate-400 font-medium">Issued May 20, 2026</span>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-white mt-3">
+              Python with Data Structures & Algorithms
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Instructors: Krish Naik, Mayank Aggarwal, KRISHAI Technologies</p>
 
-                <div class="mt-5 flex flex-wrap gap-2">
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">LangGraph</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">State Management</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Multi-Agent Systems</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Python</span>
-                </div>
-              </div>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
+              Completed an intensive bootcamp focusing on advanced Python programming and core Data Structures & Algorithms, backed by rigorous LeetCode coding exercises.
+            </p>
 
-              <div class="w-full md:w-auto shrink-0">
-                <a href="https://academy.langchain.com/certificates/nfy9ggg3ez" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50 hover:-translate-y-0.5">
-                  Verify Certificate
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Python</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Data Structures & Algorithms</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">LeetCode</span>
             </div>
           </div>
 
-          <!-- 3. DSA Udemy -->
-          <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-600 shadow-2xl shadow-purple-950/50 transition-all duration-300 hover:scale-[1.01]">
-            <div class="bg-slate-950/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-              <div>
-                <div class="flex flex-wrap items-center gap-3">
-                  <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
-                    <svg class="h-4 w-auto" viewBox="0 0 78 26" xmlns="http://www.w3.org/2000/svg">
-                      <path fill="#a435f0" d="M4 1 L10 7 L-2 7 Z"/>
-                      <text x="0" y="21" font-family="sans-serif" font-weight="700" font-size="19" fill="#ffffff">udemy</text>
-                    </svg>
-                  </span>
-                  <span class="text-xs text-slate-400 font-medium">Issued May 20, 2026</span>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-white mt-3 group-hover:text-violet-400 transition-colors">
-                  Python with Data Structures & Algorithms
-                </h3>
-                <p class="text-xs text-slate-400 mt-0.5">Instructors: Krish Naik, Mayank Aggarwal, KRISHAI Technologies</p>
+          <div class="w-full md:w-auto shrink-0">
+            <a href="https://www.udemy.com/certificate/UC-c5f7586c-19c1-4972-b47c-030660a70e86/" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-violet-600/30">
+              Verify Certificate
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
 
-                <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
-                  Completed an intensive bootcamp focusing on advanced Python programming and core Data Structures & Algorithms, backed by rigorous LeetCode coding exercises.
-                </p>
+        <!-- 4. Data Science Jose Portilla -->
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-indigo-500/30">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
+                Udemy
+              </span>
+              <span class="text-xs text-slate-400 font-medium">Issued May 27, 2021</span>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-white mt-3">
+              Python for Data Science & Machine Learning
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Instructors: Jose Portilla, Pierian Training</p>
 
-                <div class="mt-5 flex flex-wrap gap-2">
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Python</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Data Structures & Algorithms</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">LeetCode</span>
-                </div>
-              </div>
+            <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
+              Completed foundational training covering data analysis libraries, numerical computing, data visualization, and core machine learning algorithms using Python.
+            </p>
 
-              <div class="w-full md:w-auto shrink-0">
-                <a href="https://www.udemy.com/certificate/UC-c5f7586c-19c1-4972-b47c-030660a70e86/" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-violet-600/30 hover:shadow-violet-500/50 hover:-translate-y-0.5">
-                  Verify Certificate
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Data Science</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Machine Learning</span>
+              <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Python</span>
             </div>
           </div>
 
-          <!-- 4. Data Science Jose Portilla -->
-          <div class="group relative p-[1px] rounded-3xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-500 shadow-2xl shadow-purple-950/50 transition-all duration-300 hover:scale-[1.01]">
-            <div class="bg-slate-950/90 backdrop-blur-xl rounded-[23px] p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-              <div>
-                <div class="flex flex-wrap items-center gap-3">
-                  <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
-                    <svg class="h-4 w-auto" viewBox="0 0 78 26" xmlns="http://www.w3.org/2000/svg">
-                      <path fill="#a435f0" d="M4 1 L10 7 L-2 7 Z"/>
-                      <text x="0" y="21" font-family="sans-serif" font-weight="700" font-size="19" fill="#ffffff">udemy</text>
-                    </svg>
-                  </span>
-                  <span class="text-xs text-slate-400 font-medium">Issued May 27, 2021</span>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-white mt-3 group-hover:text-violet-400 transition-colors">
-                  Python for Data Science & Machine Learning
-                </h3>
-                <p class="text-xs text-slate-400 mt-0.5">Instructors: Jose Portilla, Pierian Training</p>
-
-                <p class="text-sm text-slate-300 mt-3 leading-relaxed max-w-2xl">
-                  Completed foundational training covering data analysis libraries, numerical computing, data visualization, and core machine learning algorithms using Python.
-                </p>
-
-                <div class="mt-5 flex flex-wrap gap-2">
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Data Science</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Machine Learning</span>
-                  <span class="text-xs font-medium bg-slate-900 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800">Python</span>
-                </div>
-              </div>
-
-              <div class="w-full md:w-auto shrink-0">
-                <a href="https://www.udemy.com/certificate/UC-3b8d8e1f-47ed-4c5b-868c-ddcc75480a96/" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="w-full md:w-auto inline-flex justify-center items-center gap-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-purple-500 text-white text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-violet-600/30 hover:shadow-violet-500/50 hover:-translate-y-0.5">
-                  Verify Certificate
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+          <div class="w-full md:w-auto shrink-0">
+            <a href="https://www.udemy.com/certificate/UC-3b8d8e1f-47ed-4c5b-868c-ddcc75480a96/" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-violet-600/30">
+              Verify Certificate
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Extra-Curricular Activities Section -->
-    <section id="extracurricular" class="py-20 border-t border-slate-900/80">
-      <div class="mb-12">
+    <section id="extracurricular" class="py-16 border-t border-slate-900">
+      <div class="mb-10">
         <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Extra-Curricular Activities</h2>
         <p class="text-slate-400 text-sm">Community engagement, social service, and campus involvement.</p>
       </div>
 
       <div class="space-y-4">
-        <div class="p-7 rounded-3xl glass-card transition-all flex flex-col md:flex-row md:items-start justify-between gap-4 shadow-xl">
-          <div class="flex items-start gap-5">
-            <div class="p-3.5 rounded-2xl bg-emerald-500/10 text-emerald-400 shrink-0 mt-1 shadow-inner shadow-emerald-500/20">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-2xl bg-emerald-500/10 text-emerald-400 shrink-0 mt-1">
               <i data-lucide="heart-handshake" class="w-6 h-6"></i>
             </div>
             <div>
@@ -979,25 +845,25 @@
               </ul>
             </div>
           </div>
-          <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 shrink-0 shadow-sm">IIT Kharagpur</span>
+          <span class="text-xs font-mono text-slate-300 self-start md:self-center px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 shrink-0">IIT Kharagpur</span>
         </div>
       </div>
     </section>
 
     <!-- Get in Touch Section -->
-    <section id="contact" class="py-24 border-t border-slate-900/80">
-      <div class="max-w-2xl mx-auto text-center mb-12">
+    <section id="contact" class="py-20 border-t border-slate-900">
+      <div class="max-w-2xl mx-auto text-center mb-10">
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">Get in Touch</h2>
         <p class="text-slate-300 text-base">
           Feel free to reach out for collaborations on agentic systems, deep learning pipelines, or software roles.
         </p>
       </div>
 
-      <div class="max-w-xl mx-auto p-8 sm:p-10 rounded-3xl glass-card shadow-2xl">
+      <div class="max-w-xl mx-auto p-7 sm:p-10 rounded-3xl glass-card shadow-2xl">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-          <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-indigo-500/50 transition-all flex items-center justify-between sm:col-span-2 group">
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between sm:col-span-2">
             <a href="mailto:sumanraj4176@gmail.com" class="flex items-center gap-3.5 min-w-0">
-              <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 group-hover:scale-110 transition-transform shrink-0">
+              <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 shrink-0">
                 <i data-lucide="mail" class="w-5 h-5"></i>
               </div>
               <div class="text-left truncate">
@@ -1005,14 +871,14 @@
                 <span class="text-sm font-semibold text-slate-200 truncate">sumanraj4176@gmail.com</span>
               </div>
             </a>
-            <button onclick="copyToClipboard('sumanraj4176@gmail.com', 'Email copied to clipboard!')" class="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white transition-colors ml-2 shrink-0" title="Copy Email">
+            <button onclick="copyToClipboard('sumanraj4176@gmail.com', 'Email copied to clipboard!')" class="p-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white ml-2 shrink-0" title="Copy Email">
               <i data-lucide="copy" class="w-4 h-4"></i>
             </button>
           </div>
 
-          <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-emerald-500/50 transition-all flex items-center justify-between group">
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between">
             <a href="tel:+919798196180" class="flex items-center gap-3.5 min-w-0">
-              <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-110 transition-transform shrink-0">
+              <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0">
                 <i data-lucide="phone" class="w-5 h-5"></i>
               </div>
               <div class="text-left truncate">
@@ -1020,13 +886,13 @@
                 <span class="text-sm font-semibold text-slate-200">+91-9798196180</span>
               </div>
             </a>
-            <button onclick="copyToClipboard('+919798196180', 'Phone number copied!')" class="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white transition-colors ml-2 shrink-0" title="Copy Phone">
+            <button onclick="copyToClipboard('+919798196180', 'Phone number copied!')" class="p-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white ml-2 shrink-0" title="Copy Phone">
               <i data-lucide="copy" class="w-4 h-4"></i>
             </button>
           </div>
 
-          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-purple-500/50 transition-all flex items-center gap-3.5 group">
-            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 group-hover:scale-110 transition-transform shrink-0">
+          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5">
+            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 shrink-0">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </div>
             <div class="text-left">
@@ -1035,8 +901,8 @@
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/50 transition-all flex items-center gap-3.5 group">
-            <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 group-hover:scale-110 transition-transform shrink-0">
+          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5">
+            <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </div>
             <div class="text-left">
@@ -1045,8 +911,8 @@
             </div>
           </a>
 
-          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-amber-500/50 transition-all flex items-center gap-3.5 group">
-            <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400 group-hover:scale-110 transition-transform shrink-0">
+          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5">
+            <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400 shrink-0">
               <i data-lucide="code" class="w-5 h-5"></i>
             </div>
             <div class="text-left">
@@ -1062,18 +928,18 @@
           
           <div>
             <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5 font-semibold">Name</label>
-            <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-slate-950/90 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all shadow-inner" />
+            <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm" />
           </div>
           <div>
             <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5 font-semibold">Email</label>
-            <input type="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950/90 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all shadow-inner" />
+            <input type="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm" />
           </div>
           <div>
             <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5 font-semibold">Message</label>
-            <textarea name="message" rows="3" required placeholder="Let's build something great..." class="w-full px-4 py-3 rounded-xl bg-slate-950/90 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-all shadow-inner"></textarea>
+            <textarea name="message" rows="3" required placeholder="Let's build something great..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm"></textarea>
           </div>
           
-          <button id="form-submit-btn" type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-sm transition-all shadow-xl shadow-indigo-600/30 flex items-center justify-center gap-2 hover:scale-[1.02]">
+          <button id="form-submit-btn" type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
             <span>Send Direct Message</span>
             <i data-lucide="send" class="w-4 h-4"></i>
           </button>
@@ -1085,12 +951,12 @@
   </main>
 
   <!-- Floating Back to Top Button -->
-  <button id="back-to-top" aria-label="Back to Top" class="fixed bottom-6 right-6 p-3 rounded-2xl bg-indigo-600/80 hover:bg-indigo-600 text-white shadow-2xl backdrop-blur-md border border-indigo-400/30 transition-all duration-300 opacity-0 pointer-events-none hover:scale-110 z-40">
+  <button id="back-to-top" aria-label="Back to Top" class="fixed bottom-6 right-6 p-3 rounded-2xl bg-indigo-600 text-white shadow-xl border border-indigo-400/30 transition-all duration-200 opacity-0 pointer-events-none z-40">
     <i data-lucide="arrow-up" class="w-5 h-5"></i>
   </button>
 
   <!-- Global Floating Toast Notification -->
-  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-2xl bg-slate-900/95 border border-indigo-500/40 text-slate-100 text-xs font-mono shadow-2xl backdrop-blur-xl transition-all duration-300 opacity-0 pointer-events-none z-50 flex items-center gap-2">
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-2xl bg-slate-900 border border-indigo-500/40 text-slate-100 text-xs font-mono shadow-2xl transition-all duration-200 opacity-0 pointer-events-none z-50 flex items-center gap-2">
     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
     <span id="toast-message">Copied to clipboard!</span>
   </div>
@@ -1108,7 +974,7 @@
     const cursorGlow = document.getElementById('cursor-glow');
     if (window.matchMedia('(pointer: fine)').matches && cursorGlow) {
       window.addEventListener('mousemove', (e) => {
-        cursorGlow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+        cursorGlow.style.transform = `translate(${e.clientX - 200}px, ${e.clientY - 200}px)`;
       }, { passive: true });
     }
 
@@ -1176,7 +1042,7 @@
       }
     }
 
-    // Optimized Scroll Progress & Back to Top with requestAnimationFrame
+    // High Performance Scroll Handler
     const scrollProgress = document.getElementById('scroll-progress');
     const backToTopBtn = document.getElementById('back-to-top');
     const sections = document.querySelectorAll('section[id]');
@@ -1199,7 +1065,6 @@
             backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
           }
 
-          // Active Navigation Spy
           let current = '';
           sections.forEach(section => {
             const sectionTop = section.offsetTop - 140;
@@ -1225,7 +1090,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Mobile Hamburger Menu Controller
+    // Mobile Menu Controller
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -1251,7 +1116,7 @@
       });
     });
 
-    // Contact Form AJAX Submission (Web3Forms)
+    // Web3Forms Form Submission
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
     const submitBtn = document.getElementById('form-submit-btn');
@@ -1305,14 +1170,14 @@
       }
 
       container.innerHTML = repos.map(repo => `
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-3xl glass-card transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-xl">
+        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="p-6 rounded-3xl glass-card flex flex-col justify-between shadow-xl">
           <div>
             <div class="flex items-center justify-between mb-3">
               <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm">
                 <i data-lucide="folder-git-2" class="w-4 h-4 shrink-0"></i>
-                <span class="font-bold text-white group-hover:text-indigo-400 transition-colors truncate max-w-[180px]">${repo.name}</span>
+                <span class="font-bold text-white truncate max-w-[180px]">${repo.name}</span>
               </div>
-              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors shrink-0"></i>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 shrink-0"></i>
             </div>
             <p class="text-sm text-slate-300 line-clamp-2 leading-relaxed mb-6">
               ${repo.description || 'Public repository on GitHub.'}
@@ -1323,11 +1188,11 @@
             <div class="flex items-center gap-3">
               ${repo.language ? `
                 <span class="flex items-center gap-1.5 text-slate-200">
-                  <span class="w-2 h-2 rounded-full bg-indigo-400 shadow-sm shadow-indigo-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
                   ${repo.language}
                 </span>
               ` : ''}
-              <span class="flex items-center gap-1 hover:text-amber-400 transition-colors">
+              <span class="flex items-center gap-1">
                 <i data-lucide="star" class="w-3.5 h-3.5"></i> ${repo.stargazers_count}
               </span>
               <span class="flex items-center gap-1">
@@ -1342,7 +1207,7 @@
       lucide.createIcons();
     }
 
-    // Fetch GitHub Repositories with LocalStorage Caching
+    // Fetch GitHub Repositories
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
