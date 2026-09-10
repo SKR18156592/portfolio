@@ -57,7 +57,6 @@
   </script>
 
   <style>
-    /* Native smooth background to prevent mobile GPU tile purges */
     body {
       background-color: #030712;
       background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px);
@@ -84,7 +83,6 @@
       background: #4f46e5;
     }
 
-    /* Fast mobile glass card without heavy GPU composite layers */
     .glass-card {
       background-color: #0b1329;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -111,7 +109,7 @@
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 z-[70] w-0 transition-all duration-75"></div>
 
-  <!-- Ambient Glow (Lightweight Static, Zero Multi-Layer Compositing) -->
+  <!-- Ambient Glow -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[350px] bg-indigo-600/10 blur-[100px] pointer-events-none -z-10"></div>
 
   <!-- Navigation Bar -->
@@ -306,7 +304,6 @@
           </div>
         </div>
 
-        <!-- Updated Frameworks & Libraries Card with PyTorch -->
         <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
@@ -370,7 +367,10 @@
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold">LangGraph &bull; Multi-Agent</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
+              <a href="https://github.com/SKR18156592/Multi-Agent-Research-Assistant" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-indigo-500/40 transition-colors leading-none">
+                <svg class="w-3.5 h-3.5 fill-current text-indigo-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
             </div>
             <h3 class="text-xl font-bold text-white mb-3">Multi-Agent Research Assistant</h3>
             <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
@@ -394,7 +394,10 @@
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold">Stateful Memory &bull; Routing</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
+              <a href="https://github.com/SKR18156592/MyTaskManager" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-cyan-500/40 transition-colors leading-none">
+                <svg class="w-3.5 h-3.5 fill-current text-cyan-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
             </div>
             <h3 class="text-xl font-bold text-white mb-3">MyTaskManager</h3>
             <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
@@ -417,7 +420,10 @@
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30 font-semibold">Computer Vision &bull; PAD</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
+              <a href="https://github.com/SKR18156592/Fingerprint-Liveness-Detection" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-purple-500/40 transition-colors leading-none">
+                <svg class="w-3.5 h-3.5 fill-current text-purple-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
             </div>
             <h3 class="text-xl font-bold text-white mb-3">Fingerprint Liveness Detection (PAD)</h3>
             <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
@@ -439,7 +445,10 @@
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">Deep Learning &bull; 0.93 F1-Score</span>
-              <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white" title="View Repository"><i data-lucide="github" class="w-5 h-5"></i></a>
+              <a href="https://github.com/SKR18156592/Credit-Risk-Prediction" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-emerald-500/40 transition-colors leading-none">
+                <svg class="w-3.5 h-3.5 fill-current text-emerald-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
             </div>
             <h3 class="text-xl font-bold text-white mb-3">LendingClub Risk Prediction</h3>
             <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
@@ -458,38 +467,38 @@
 
         <!-- 5. CodeBeat -->
         <article class="p-7 rounded-3xl glass-card flex flex-col justify-between md:col-span-2">
-          <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-4">
-            <div class="space-y-2">
-              <div class="flex items-center gap-2 mb-1.5">
-                <span class="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold">Open-Source Python Package &bull; PyPI</span>
-                <h3 class="text-xl font-bold text-white">CodeBeat</h3>
-              </div>
-              <p class="text-sm text-slate-300 leading-relaxed max-w-2xl">
-                Created and published an open-source Python profiling package leveraging Object-Oriented Programming (OOPs) principles for modular line-by-line function tracing and runtime statistics.
-              </p>
-
-              <div class="pt-3">
-                <div class="inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300">
-                  <span class="text-amber-400 font-bold">$</span>
-                  <span id="pip-command">pip install codebeat</span>
-                  <button onclick="copyToClipboard('pip install codebeat', 'Command copied to clipboard!')" class="text-slate-400 hover:text-white p-1" title="Copy Command">
-                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                  </button>
-                </div>
+          <div>
+            <!-- Top bar: badge left, action buttons right -->
+            <div class="flex items-center justify-between gap-4 mb-3">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold">Open-Source Python Package &bull; PyPI</span>
+              <div class="flex items-center gap-2 shrink-0">
+                <a href="https://pypi.org/project/codebeat/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-amber-500/40 transition-colors leading-none">
+                  <i data-lucide="package" class="w-3.5 h-3.5 text-amber-400"></i>
+                  <span>PyPI</span>
+                </a>
+                <a href="https://github.com/SKR18156592/CodeBeat" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-purple-500/40 transition-colors leading-none">
+                  <svg class="w-3.5 h-3.5 fill-current text-purple-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>GitHub</span>
+                </a>
               </div>
             </div>
 
-            <div class="flex items-center gap-2 shrink-0">
-              <a href="https://pypi.org/project/codebeat/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm font-mono text-white flex items-center gap-2 shadow-md">
-                <i data-lucide="package" class="w-4 h-4 text-amber-400"></i>
-                <span>PyPI</span>
-              </a>
-              <a href="https://github.com/SKR18156592/CodeBeat" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm font-mono text-white flex items-center gap-2 shadow-md">
-                <i data-lucide="github" class="w-4 h-4 text-purple-400"></i>
-                <span>GitHub</span>
-              </a>
+            <h3 class="text-xl font-bold text-white mb-2">CodeBeat</h3>
+            <p class="text-sm text-slate-300 leading-relaxed w-full">
+              Created and published an open-source Python profiling package leveraging Object-Oriented Programming (OOPs) principles for modular line-by-line function tracing and runtime statistics.
+            </p>
+
+            <div class="pt-4 mb-4">
+              <div class="inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300">
+                <span class="text-amber-400 font-bold">$</span>
+                <span id="pip-command">pip install codebeat</span>
+                <button onclick="copyToClipboard('pip install codebeat', 'Command copied to clipboard!')" class="text-slate-400 hover:text-white p-1" title="Copy Command">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
             </div>
           </div>
+
           <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">Python</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">OOPs</span>
@@ -612,7 +621,7 @@
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">CGPA: 8.12</span>
               </div>
               <p class="text-sm text-slate-300">Dual Degree (B.Tech + M.Tech) in Ocean Eng. & Naval Architecture</p>
-              <p class="text-xs text-slate-500 font-mono mt-2">2020 – 2025</p>
+              <p class="text-xs text-slate-400 font-mono mt-2">2020 – 2025</p>
             </div>
 
             <div class="p-6 rounded-3xl glass-card">
@@ -621,7 +630,7 @@
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">92%</span>
               </div>
               <p class="text-sm text-slate-300">Class XII (CBSE)</p>
-              <p class="text-xs text-slate-500 font-mono mt-2">2020</p>
+              <p class="text-xs text-slate-400 font-mono mt-2">2020</p>
             </div>
 
             <div class="p-6 rounded-3xl glass-card">
@@ -630,7 +639,7 @@
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">10 CGPA</span>
               </div>
               <p class="text-sm text-slate-300">Class X (CBSE)</p>
-              <p class="text-xs text-slate-500 font-mono mt-2">2018</p>
+              <p class="text-xs text-slate-400 font-mono mt-2">2018</p>
             </div>
           </div>
         </div>
@@ -880,7 +889,7 @@
                 <i data-lucide="mail" class="w-5 h-5"></i>
               </div>
               <div class="text-left truncate">
-                <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">Email</span>
+                <span class="block text-[11px] font-mono text-slate-400 uppercase tracking-wider">Email</span>
                 <span class="text-sm font-semibold text-slate-200 truncate">sumanraj4176@gmail.com</span>
               </div>
             </a>
@@ -895,7 +904,7 @@
                 <i data-lucide="phone" class="w-5 h-5"></i>
               </div>
               <div class="text-left truncate">
-                <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">Phone</span>
+                <span class="block text-[11px] font-mono text-slate-400 uppercase tracking-wider">Phone</span>
                 <span class="text-sm font-semibold text-slate-200">+91-9798196180</span>
               </div>
             </a>
@@ -904,32 +913,32 @@
             </button>
           </div>
 
-          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5">
+          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 hover:border-purple-500/40 transition-colors">
             <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 shrink-0">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </div>
             <div class="text-left">
-              <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">GitHub</span>
+              <span class="block text-[11px] font-mono text-slate-400 uppercase tracking-wider">GitHub</span>
               <span class="text-sm font-semibold text-slate-200 truncate">SKR18156592</span>
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5">
+          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 hover:border-cyan-500/40 transition-colors">
             <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </div>
             <div class="text-left">
-              <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">LinkedIn</span>
+              <span class="block text-[11px] font-mono text-slate-400 uppercase tracking-wider">LinkedIn</span>
               <span class="text-sm font-semibold text-slate-200 truncate">sumanraj11</span>
             </div>
           </a>
 
-          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5">
+          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 hover:border-amber-500/40 transition-colors">
             <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400 shrink-0">
               <i data-lucide="code" class="w-5 h-5"></i>
             </div>
             <div class="text-left">
-              <span class="block text-[11px] font-mono text-slate-500 uppercase tracking-wider">LeetCode</span>
+              <span class="block text-[11px] font-mono text-slate-400 uppercase tracking-wider">LeetCode</span>
               <span class="text-sm font-semibold text-slate-200 truncate">sumanraj112002</span>
             </div>
           </a>
@@ -975,7 +984,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-900 py-8 text-center text-sm text-slate-500">
+  <footer class="border-t border-slate-900 py-8 text-center text-sm text-slate-400">
     <p>&copy; 2026 Suman Kumar Raj. IIT Kharagpur.</p>
   </footer>
 
@@ -1003,7 +1012,7 @@
     const typewriterEl = document.getElementById('typewriter-text');
 
     function typeEffect() {
-      if (document.hidden) return; // Do not execute in background
+      if (document.hidden) return;
 
       const currentPhrase = phrases[phraseIndex];
       if (isDeleting) {
@@ -1029,7 +1038,6 @@
     }
     typewriterTimer = setTimeout(typeEffect, 1800);
 
-    // Instant Resume on Tab Focus
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         if (typewriterTimer) clearTimeout(typewriterTimer);
@@ -1189,7 +1197,7 @@
       ) : '';
     }
 
-    // Repository Cards
+    // Repository Cards with Safe URL Validation
     function renderRepos(repos, container) {
       if (!repos || repos.length === 0) {
         container.innerHTML = `
@@ -1200,40 +1208,46 @@
         return;
       }
 
-      container.innerHTML = repos.map(repo => `
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="p-6 rounded-3xl glass-card flex flex-col justify-between shadow-md">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm">
-                <i data-lucide="folder-git-2" class="w-4 h-4 shrink-0"></i>
-                <span class="font-bold text-white truncate max-w-[180px]">${escapeHTML(repo.name)}</span>
-              </div>
-              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 shrink-0"></i>
-            </div>
-            <p class="text-sm text-slate-300 line-clamp-2 leading-relaxed mb-6">
-              ${escapeHTML(repo.description) || 'Public repository on GitHub.'}
-            </p>
-          </div>
+      container.innerHTML = repos.map(repo => {
+        const safeUrl = (repo.html_url && repo.html_url.startsWith('https://github.com/')) 
+          ? repo.html_url 
+          : `https://github.com/SKR18156592/${encodeURIComponent(repo.name)}`;
 
-          <div class="flex items-center justify-between text-xs font-mono text-slate-400 pt-4 border-t border-slate-800/60">
-            <div class="flex items-center gap-3">
-              ${repo.language ? `
-                <span class="flex items-center gap-1.5 text-slate-200">
-                  <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-                  ${escapeHTML(repo.language)}
-                </span>
-              ` : ''}
-              <span class="flex items-center gap-1">
-                <i data-lucide="star" class="w-3.5 h-3.5"></i> ${repo.stargazers_count}
-              </span>
-              <span class="flex items-center gap-1">
-                <i data-lucide="git-fork" class="w-3.5 h-3.5"></i> ${repo.forks_count}
-              </span>
+        return `
+          <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="p-6 rounded-3xl glass-card flex flex-col justify-between shadow-md">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm">
+                  <i data-lucide="folder-git-2" class="w-4 h-4 shrink-0"></i>
+                  <span class="font-bold text-white truncate max-w-[180px]">${escapeHTML(repo.name)}</span>
+                </div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 shrink-0"></i>
+              </div>
+              <p class="text-sm text-slate-300 line-clamp-2 leading-relaxed mb-6">
+                ${escapeHTML(repo.description) || 'Public repository on GitHub.'}
+              </p>
             </div>
-            <span>${new Date(repo.updated_at).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}</span>
-          </div>
-        </a>
-      `).join('');
+
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 pt-4 border-t border-slate-800/60">
+              <div class="flex items-center gap-3">
+                ${repo.language ? `
+                  <span class="flex items-center gap-1.5 text-slate-200">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                    ${escapeHTML(repo.language)}
+                  </span>
+                ` : ''}
+                <span class="flex items-center gap-1">
+                  <i data-lucide="star" class="w-3.5 h-3.5"></i> ${repo.stargazers_count}
+                </span>
+                <span class="flex items-center gap-1">
+                  <i data-lucide="git-fork" class="w-3.5 h-3.5"></i> ${repo.forks_count}
+                </span>
+              </div>
+              <span>${new Date(repo.updated_at).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}</span>
+            </div>
+          </a>
+        `;
+      }).join('');
 
       lucide.createIcons();
     }
