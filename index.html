@@ -103,8 +103,8 @@
 </head>
 <body class="selection:bg-indigo-500 selection:text-white text-[15px] relative overflow-x-hidden">
 
-  <!-- Desktop Dynamic Glow Orb -->
-  <div id="cursor-glow" class="fixed w-[350px] h-[350px] bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none -z-10 transition-transform duration-200 ease-out hidden lg:block"></div>
+  <!-- Desktop Dynamic Glow Orb (Hardware accelerated with translate3d) -->
+  <div id="cursor-glow" class="fixed w-[350px] h-[350px] bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none -z-10 will-change-transform hidden lg:block"></div>
 
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 z-[70] w-0 transition-all duration-75"></div>
@@ -188,7 +188,7 @@
           </h1>
           <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold min-h-[44px] flex items-center gap-2">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400" id="typewriter-text">GenAI & Machine Learning Engineer</span>
-            <span class="w-1.5 h-8 bg-cyan-400 inline-block"></span>
+            <span class="w-1.5 h-8 bg-cyan-400 inline-block animate-pulse"></span>
           </div>
         </div>
 
@@ -468,7 +468,6 @@
         <!-- 5. CodeBeat -->
         <article class="p-7 rounded-3xl glass-card flex flex-col justify-between md:col-span-2">
           <div>
-            <!-- Top bar: badge left, action buttons right -->
             <div class="flex items-center justify-between gap-4 mb-3">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold">Open-Source Python Package &bull; PyPI</span>
               <div class="flex items-center gap-2 shrink-0">
@@ -992,11 +991,20 @@
   <script>
     lucide.createIcons();
 
-    // Mouse Move Glow (Only fine desktop pointers)
+    // 1. Mouse Move Glow (Hardware-accelerated with requestAnimationFrame & translate3d)
     const cursorGlow = document.getElementById('cursor-glow');
     if (window.matchMedia('(pointer: fine)').matches && cursorGlow) {
+      let mouseX = 0, mouseY = 0, glowTicking = false;
       window.addEventListener('mousemove', (e) => {
-        cursorGlow.style.transform = `translate(${e.clientX - 175}px, ${e.clientY - 175}px)`;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!glowTicking) {
+          requestAnimationFrame(() => {
+            cursorGlow.style.transform = `translate3d(${mouseX - 175}px, ${mouseY - 175}px, 0)`;
+            glowTicking = false;
+          });
+          glowTicking = true;
+        }
       }, { passive: true });
     }
 
@@ -1252,7 +1260,7 @@
       lucide.createIcons();
     }
 
-    // Repository fetch with localStorage caching
+    // Repository fetch with localStorage caching & rate-limit handling
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
@@ -1269,7 +1277,13 @@
       
       try {
         const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=30`);
-        if (!response.ok) throw new Error('Failed to fetch repositories');
+        
+        if (response.status === 403) {
+          throw new Error('GitHub API rate limit exceeded (HTTP 403).');
+        }
+        if (!response.ok) {
+          throw new Error(`GitHub API error: ${response.status}`);
+        }
         
         let repos = await response.json();
         repos = repos.filter(repo => {
@@ -1282,12 +1296,13 @@
         
         renderRepos(repos, container);
       } catch (err) {
+        console.warn(err.message);
         if (cachedData) {
           renderRepos(JSON.parse(cachedData), container);
         } else {
           container.innerHTML = `
             <div class="col-span-full p-6 text-center glass-card rounded-3xl border border-slate-800 text-slate-400 text-sm font-mono">
-              Unable to fetch repositories dynamically. Please visit <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline">github.com/SKR18156592</a> directly.
+              Unable to fetch repositories dynamically (${err.message.includes('403') ? 'API rate limit reached' : 'temporary network issue'}). Please visit <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline">github.com/SKR18156592</a> directly.
             </div>
           `;
         }
