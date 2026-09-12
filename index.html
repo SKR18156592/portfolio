@@ -138,29 +138,27 @@
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Segmented Filter Active State */
+    /* Segmented Filter Control Container & Active Pill State */
     .filter-btn {
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .filter-btn.active-filter {
-      background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #7c3aed 100%) !important;
+      background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #8b5cf6 100%) !important;
       color: #ffffff !important;
-      font-weight: 600;
-      box-shadow: 0 4px 14px -2px rgba(99, 102, 241, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      box-shadow: 0 4px 16px -2px rgba(99, 102, 241, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3) !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
     }
 
     .filter-btn.active-filter .filter-count {
       background: rgba(255, 255, 255, 0.25) !important;
       color: #ffffff !important;
-      border-color: rgba(255, 255, 255, 0.35) !important;
+      border-color: rgba(255, 255, 255, 0.4) !important;
     }
 
     .filter-btn:not(.active-filter):hover {
-      background: rgba(30, 41, 59, 0.75);
       color: #ffffff;
-      border-color: rgba(99, 102, 241, 0.25);
+      background: rgba(30, 41, 59, 0.6);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -427,42 +425,43 @@
 
     <!-- Featured Projects -->
     <section id="featured-projects" class="py-16 border-t border-slate-900 reveal-on-scroll">
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10">
-        <div class="max-w-xl">
-          <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Featured Projects</h2>
-          <p class="text-slate-400 text-sm">Deep-dive implementations in Agentic AI, Computer Vision, Deep Learning, and Open-Source Software.</p>
-        </div>
+      <div class="mb-8">
+        <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Featured Projects</h2>
+        <p class="text-slate-400 text-sm">Deep-dive implementations in Agentic AI, Computer Vision, Deep Learning, and Open-Source Software.</p>
+      </div>
 
-        <!-- Single-Row Responsive Segmented Glass Control Pill -->
-        <div class="p-1 rounded-2xl bg-[#090f20]/90 border border-slate-800/90 shadow-xl shadow-black/40 backdrop-blur-md inline-flex items-center gap-1 overflow-x-auto no-scrollbar max-w-full shrink-0" role="tablist" aria-label="Filter projects by domain">
+      <!-- Segmented Control Bar Placed in the Next Line -->
+      <div class="mb-10 overflow-x-auto no-scrollbar pb-2">
+        <div class="p-1.5 rounded-2xl bg-[#080e1d]/95 border border-slate-800/90 shadow-2xl shadow-black/50 backdrop-blur-xl inline-flex items-center gap-1.5 shrink-0" role="tablist" aria-label="Filter projects by domain">
           
-          <!-- All -->
-          <button data-filter="all" role="tab" aria-selected="true" class="filter-btn active-filter whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-tight border border-transparent">
-            <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
-            <span>All</span>
-            <span class="filter-count px-1.5 py-0.5 rounded-md text-[10px] font-mono leading-none bg-slate-800 text-slate-300 border border-slate-700">5</span>
+          <!-- All Projects -->
+          <button data-filter="all" role="tab" aria-selected="true" class="filter-btn active-filter whitespace-nowrap inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-xs font-mono font-bold tracking-wider transition-all duration-300">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>All Projects</span>
+            <span class="filter-count ml-1 px-2 py-0.5 rounded-md text-[11px] font-mono leading-none bg-white/20 text-white border border-white/20">5</span>
           </button>
 
           <!-- GenAI & Agents -->
-          <button data-filter="genai" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-tight text-slate-300 border border-transparent">
-            <i data-lucide="bot" class="w-3.5 h-3.5 text-indigo-400"></i>
+          <button data-filter="genai" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-medium tracking-wider text-slate-300 transition-all duration-300 border border-transparent">
+            <i data-lucide="bot" class="w-4 h-4 text-indigo-400"></i>
             <span>GenAI & Agents</span>
-            <span class="filter-count px-1.5 py-0.5 rounded-md text-[10px] font-mono leading-none bg-slate-800 text-slate-400 border border-slate-700/60">2</span>
+            <span class="filter-count ml-1 px-2 py-0.5 rounded-md text-[11px] font-mono leading-none bg-slate-900/90 text-slate-400 border border-slate-700/80">2</span>
           </button>
 
-          <!-- Deep Learning / CV -->
-          <button data-filter="dl-cv" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-tight text-slate-300 border border-transparent">
-            <i data-lucide="brain-circuit" class="w-3.5 h-3.5 text-cyan-400"></i>
-            <span>Deep Learning / CV</span>
-            <span class="filter-count px-1.5 py-0.5 rounded-md text-[10px] font-mono leading-none bg-slate-800 text-slate-400 border border-slate-700/60">2</span>
+          <!-- CV & Deep Learning -->
+          <button data-filter="dl-cv" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-medium tracking-wider text-slate-300 transition-all duration-300 border border-transparent">
+            <i data-lucide="brain-circuit" class="w-4 h-4 text-cyan-400"></i>
+            <span>CV & Deep Learning</span>
+            <span class="filter-count ml-1 px-2 py-0.5 rounded-md text-[11px] font-mono leading-none bg-slate-900/90 text-slate-400 border border-slate-700/80">2</span>
           </button>
 
           <!-- Developer Tools -->
-          <button data-filter="tools" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-tight text-slate-300 border border-transparent">
-            <i data-lucide="wrench" class="w-3.5 h-3.5 text-amber-400"></i>
+          <button data-filter="tools" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-medium tracking-wider text-slate-300 transition-all duration-300 border border-transparent">
+            <i data-lucide="terminal-square" class="w-4 h-4 text-amber-400"></i>
             <span>Developer Tools</span>
-            <span class="filter-count px-1.5 py-0.5 rounded-md text-[10px] font-mono leading-none bg-slate-800 text-slate-400 border border-slate-700/60">1</span>
+            <span class="filter-count ml-1 px-2 py-0.5 rounded-md text-[11px] font-mono leading-none bg-slate-900/90 text-slate-400 border border-slate-700/80">1</span>
           </button>
+
         </div>
       </div>
 
@@ -1154,9 +1153,11 @@
         // Toggle active button styling
         filterButtons.forEach(b => {
           b.classList.remove('active-filter');
+          b.classList.add('text-slate-300');
           b.setAttribute('aria-selected', 'false');
         });
         btn.classList.add('active-filter');
+        btn.classList.remove('text-slate-300');
         btn.setAttribute('aria-selected', 'true');
 
         // Filter cards with smooth fade transitions
