@@ -13,6 +13,10 @@
   <meta property="og:url" content="https://github.com/SKR18156592" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- Preload Critical Assets -->
+  <link rel="preload" as="image" href="20NA30027.jpeg" fetchpriority="high" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
+
   <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -36,7 +40,7 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
@@ -50,7 +54,7 @@
           },
           animation: {
             'spin-slow': 'spin 12s linear infinite',
-            'scale-in': 'scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'scale-in': 'scaleIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards',
           },
           keyframes: {
             scaleIn: {
@@ -90,6 +94,14 @@
       background: #4f46e5;
     }
 
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
     .glass-card {
       background-color: #0b1329;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -108,7 +120,7 @@
       }
     }
 
-    /* Scroll Reveal Engine via IntersectionObserver */
+    /* Scroll Reveal Engine */
     .reveal-init {
       opacity: 0;
       transform: translateY(28px);
@@ -119,6 +131,36 @@
     .reveal-active {
       opacity: 1 !important;
       transform: translateY(0) !important;
+    }
+
+    /* Project Filter Transitions */
+    .project-card-item {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Segmented Filter Active State */
+    .filter-btn {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .filter-btn.active-filter {
+      background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #7c3aed 100%) !important;
+      color: #ffffff !important;
+      font-weight: 600;
+      box-shadow: 0 4px 14px -2px rgba(99, 102, 241, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .filter-btn.active-filter .filter-count {
+      background: rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.35) !important;
+    }
+
+    .filter-btn:not(.active-filter):hover {
+      background: rgba(30, 41, 59, 0.75);
+      color: #ffffff;
+      border-color: rgba(99, 102, 241, 0.25);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -230,7 +272,7 @@
             <span>Explore Projects</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
-          <a href="suman_resume_1.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/90 text-slate-200 text-sm font-medium flex items-center gap-2 hover:border-indigo-500/40 hover:bg-slate-800 transition-all active:scale-95">
+          <a href="suman_resume_1.pdf" download="Suman_Kumar_Raj_Resume.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/90 text-slate-200 text-sm font-medium flex items-center gap-2 hover:border-indigo-500/40 hover:bg-slate-800 transition-all active:scale-95">
             <i data-lucide="eye" class="w-4 h-4 text-indigo-400"></i>
             <span>View Resume</span>
           </a>
@@ -385,14 +427,48 @@
 
     <!-- Featured Projects -->
     <section id="featured-projects" class="py-16 border-t border-slate-900 reveal-on-scroll">
-      <div class="mb-10">
-        <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Featured Projects</h2>
-        <p class="text-slate-400 text-sm">Deep-dive implementations in Agentic AI, Computer Vision, Deep Learning, and Open-Source Software.</p>
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10">
+        <div class="max-w-xl">
+          <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Featured Projects</h2>
+          <p class="text-slate-400 text-sm">Deep-dive implementations in Agentic AI, Computer Vision, Deep Learning, and Open-Source Software.</p>
+        </div>
+
+        <!-- Single-Row Responsive Segmented Glass Control Pill -->
+        <div class="p-1 rounded-2xl bg-[#090f20]/90 border border-slate-800/90 shadow-xl shadow-black/40 backdrop-blur-md inline-flex items-center gap-1 overflow-x-auto no-scrollbar max-w-full shrink-0" role="tablist" aria-label="Filter projects by domain">
+          
+          <!-- All -->
+          <button data-filter="all" role="tab" aria-selected="true" class="filter-btn active-filter whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-tight border border-transparent">
+            <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+            <span>All</span>
+            <span class="filter-count px-1.5 py-0.5 rounded-md text-[10px] font-mono leading-none bg-slate-800 text-slate-300 border border-slate-700">5</span>
+          </button>
+
+          <!-- GenAI & Agents -->
+          <button data-filter="genai" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-tight text-slate-300 border border-transparent">
+            <i data-lucide="bot" class="w-3.5 h-3.5 text-indigo-400"></i>
+            <span>GenAI & Agents</span>
+            <span class="filter-count px-1.5 py-0.5 rounded-md text-[10px] font-mono leading-none bg-slate-800 text-slate-400 border border-slate-700/60">2</span>
+          </button>
+
+          <!-- Deep Learning / CV -->
+          <button data-filter="dl-cv" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-tight text-slate-300 border border-transparent">
+            <i data-lucide="brain-circuit" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>Deep Learning / CV</span>
+            <span class="filter-count px-1.5 py-0.5 rounded-md text-[10px] font-mono leading-none bg-slate-800 text-slate-400 border border-slate-700/60">2</span>
+          </button>
+
+          <!-- Developer Tools -->
+          <button data-filter="tools" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-tight text-slate-300 border border-transparent">
+            <i data-lucide="wrench" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>Developer Tools</span>
+            <span class="filter-count px-1.5 py-0.5 rounded-md text-[10px] font-mono leading-none bg-slate-800 text-slate-400 border border-slate-700/60">1</span>
+          </button>
+        </div>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- 1. Multi-Agent Research Assistant -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
+      <div id="projects-grid" class="grid md:grid-cols-2 gap-6">
+        <!-- 1. Multi-Agent Research Assistant (GenAI) -->
+        <article data-category="genai" class="project-card-item group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold">LangGraph &bull; Multi-Agent</span>
@@ -418,8 +494,8 @@
           </div>
         </article>
 
-        <!-- 2. MyTaskManager -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
+        <!-- 2. MyTaskManager (GenAI) -->
+        <article data-category="genai" class="project-card-item group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold">Stateful Memory &bull; Routing</span>
@@ -444,8 +520,8 @@
           </div>
         </article>
 
-        <!-- 3. Fingerprint Liveness Detection -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
+        <!-- 3. Fingerprint Liveness Detection (DL / CV) -->
+        <article data-category="dl-cv" class="project-card-item group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30 font-semibold">Computer Vision &bull; PAD</span>
@@ -469,8 +545,8 @@
           </div>
         </article>
 
-        <!-- 4. LendingClub Risk Prediction -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
+        <!-- 4. LendingClub Risk Prediction (DL / CV) -->
+        <article data-category="dl-cv" class="project-card-item group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">Deep Learning &bull; 0.93 F1-Score</span>
@@ -494,8 +570,8 @@
           </div>
         </article>
 
-        <!-- 5. CodeBeat -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between md:col-span-2 hover:-translate-y-1.5 duration-300 reveal-child">
+        <!-- 5. CodeBeat (Tools) -->
+        <article data-category="tools" class="project-card-item group p-7 rounded-3xl glass-card flex flex-col justify-between md:col-span-2 hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between gap-4 mb-3">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold">Open-Source Python Package &bull; PyPI</span>
@@ -1040,7 +1116,6 @@
           if (entry.isIntersecting) {
             const target = entry.target;
 
-            // Apply staggered delays to child grids
             if (target.classList.contains('reveal-child')) {
               const parent = target.parentElement;
               if (parent) {
@@ -1051,7 +1126,7 @@
             }
 
             target.classList.add('reveal-active');
-            obs.unobserve(target); // Unobserve immediately to free memory
+            obs.unobserve(target);
           }
         });
       }, {
@@ -1068,7 +1143,41 @@
       initScrollReveal();
     }
 
-    // 2. Hardware-Accelerated Mouse Move Glow
+    // 2. Interactive Project Category Filter Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Toggle active button styling
+        filterButtons.forEach(b => {
+          b.classList.remove('active-filter');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active-filter');
+        btn.setAttribute('aria-selected', 'true');
+
+        // Filter cards with smooth fade transitions
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('hidden');
+            requestAnimationFrame(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0) scale(1)';
+            });
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(12px) scale(0.97)';
+            setTimeout(() => card.classList.add('hidden'), 250);
+          }
+        });
+      });
+    });
+
+    // 3. Hardware-Accelerated Mouse Move Glow
     const cursorGlow = document.getElementById('cursor-glow');
     if (window.matchMedia('(pointer: fine)').matches && cursorGlow) {
       let mouseX = 0, mouseY = 0, glowTicking = false;
@@ -1085,7 +1194,7 @@
       }, { passive: true });
     }
 
-    // 3. Typewriter Effect
+    // 4. Typewriter Effect
     const phrases = [
       "GenAI & Machine Learning Engineer",
       "IIT Kharagpur Alumnus"
@@ -1131,7 +1240,7 @@
       }
     });
 
-    // 4. Toast Notifications
+    // 5. Toast Notifications
     function showToast(message) {
       const toast = document.getElementById('toast');
       const toastMessage = document.getElementById('toast-message');
@@ -1144,7 +1253,7 @@
       }, 2500);
     }
 
-    // 5. Copy to Clipboard
+    // 6. Copy to Clipboard
     function copyToClipboard(text, successMsg = 'Copied to clipboard!') {
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => showToast(successMsg));
@@ -1159,7 +1268,7 @@
       }
     }
 
-    // 6. Scroll Progress & Active Nav Indicators
+    // 7. Scroll Progress & Active Nav Indicators
     const scrollProgress = document.getElementById('scroll-progress');
     const backToTopBtn = document.getElementById('back-to-top');
     const sections = document.querySelectorAll('section[id]');
@@ -1207,7 +1316,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // 7. Mobile Menu Drawer
+    // 8. Mobile Menu Drawer
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -1233,7 +1342,7 @@
       });
     });
 
-    // 8. Form Handling
+    // 9. Form Handling
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
     const submitBtn = document.getElementById('form-submit-btn');
@@ -1288,7 +1397,7 @@
       ) : '';
     }
 
-    // 9. Render GitHub Repositories with Jitter Prevention & Card Transitions
+    // 10. Render GitHub Repositories
     function renderRepos(repos, container) {
       if (!repos || repos.length === 0) {
         container.innerHTML = `
@@ -1299,7 +1408,7 @@
         return;
       }
 
-      container.innerHTML = repos.map((repo, idx) => {
+      container.innerHTML = repos.map((repo) => {
         const safeUrl = (repo.html_url && repo.html_url.startsWith('https://github.com/')) 
           ? repo.html_url 
           : `https://github.com/SKR18156592/${encodeURIComponent(repo.name)}`;
@@ -1352,7 +1461,6 @@
 
       lucide.createIcons();
 
-      // Observe dynamically injected repos
       const dynamicRepos = container.querySelectorAll('.reveal-child');
       dynamicRepos.forEach((el, idx) => {
         el.classList.add('reveal-init');
@@ -1361,7 +1469,7 @@
       });
     }
 
-    // 10. Fetch GitHub Repositories
+    // 11. Fetch GitHub Repositories
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
