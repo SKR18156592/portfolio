@@ -944,7 +944,7 @@
         </div>
 
         <!-- Direct Backend Email Form (Web3Forms) -->
-        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+        <form id="contact-form" class="space-y-4">
           <input type="hidden" name="access_key" value="8f9683c9-ede3-4df9-bb3e-0e1b879f5725" />
           
           <div>
@@ -1156,7 +1156,7 @@
       });
     });
 
-    // Form submission
+    // Form submission (Payload captured before disabling inputs)
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
     const submitBtn = document.getElementById('form-submit-btn');
@@ -1164,21 +1164,30 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // 1. Capture data BEFORE disabling elements
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData);
+
+      // 2. Disable UI
       submitBtn.disabled = true;
       formInputs.forEach(input => input.disabled = true);
       submitBtn.innerHTML = '<span>Sending...</span>';
       statusDiv.classList.add('hidden');
 
       try {
-        const response = await fetch(form.action, {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
         });
 
         const result = await response.json();
 
-        if (response.status === 200) {
+        if (response.status === 200 && result.success) {
           statusDiv.className = 'p-3 rounded-xl text-center text-sm font-mono bg-emerald-500/10 border border-emerald-500/30 text-emerald-400';
           statusDiv.innerHTML = 'Message sent successfully! Thank you for reaching out.';
           statusDiv.classList.remove('hidden');
