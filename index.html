@@ -36,7 +36,7 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
@@ -50,19 +50,9 @@
           },
           animation: {
             'spin-slow': 'spin 12s linear infinite',
-            'fade-up': 'fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-            'fade-in': 'fadeIn 0.5s ease-out forwards',
             'scale-in': 'scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
           },
           keyframes: {
-            fadeUp: {
-              '0%': { opacity: '0', transform: 'translateY(24px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
             scaleIn: {
               '0%': { opacity: '0', transform: 'scale(0.96)' },
               '100%': { opacity: '1', transform: 'scale(1)' },
@@ -115,6 +105,27 @@
       .glass-card:hover {
         border-color: rgba(99, 102, 241, 0.4);
         box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.2);
+      }
+    }
+
+    /* Scroll Reveal Engine via IntersectionObserver */
+    .reveal-init {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-active {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-init {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
       }
     }
   </style>
@@ -189,7 +200,7 @@
 
   <main class="max-w-6xl mx-auto px-6">
     <!-- Hero Section -->
-    <section class="pt-20 pb-16 md:pt-32 md:pb-24 animate-fade-up">
+    <section class="pt-20 pb-16 md:pt-32 md:pb-24 reveal-on-scroll">
       <div class="space-y-6">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs font-semibold">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -240,7 +251,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 border-t border-slate-900">
+    <section id="about" class="py-16 border-t border-slate-900 reveal-on-scroll">
       <div class="grid md:grid-cols-12 gap-8 p-7 sm:p-10 rounded-3xl glass-card items-center hover:border-indigo-500/30">
         <div class="md:col-span-4 flex justify-center">
           <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-3xl p-1 bg-slate-950 border border-slate-700 shadow-xl overflow-hidden aspect-square group">
@@ -267,14 +278,14 @@
     </section>
 
     <!-- Technical Arsenal -->
-    <section id="skills" class="py-16 border-t border-slate-900">
+    <section id="skills" class="py-16 border-t border-slate-900 reveal-on-scroll">
       <div class="mb-10">
         <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Technical Arsenal</h2>
         <p class="text-slate-400 text-sm">Core languages, frameworks, and production tools powering my AI & engineering projects.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1 reveal-child">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="bot" class="w-6 h-6"></i>
@@ -292,7 +303,7 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1 reveal-child">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="brain-circuit" class="w-6 h-6"></i>
@@ -309,7 +320,7 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1 reveal-child">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="code-2" class="w-6 h-6"></i>
@@ -322,7 +333,7 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1 reveal-child">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="layers" class="w-6 h-6"></i>
@@ -339,7 +350,7 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1 reveal-child">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="terminal" class="w-6 h-6"></i>
@@ -355,7 +366,7 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1 reveal-child">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="cpu" class="w-6 h-6"></i>
@@ -373,7 +384,7 @@
     </section>
 
     <!-- Featured Projects -->
-    <section id="featured-projects" class="py-16 border-t border-slate-900">
+    <section id="featured-projects" class="py-16 border-t border-slate-900 reveal-on-scroll">
       <div class="mb-10">
         <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Featured Projects</h2>
         <p class="text-slate-400 text-sm">Deep-dive implementations in Agentic AI, Computer Vision, Deep Learning, and Open-Source Software.</p>
@@ -381,7 +392,7 @@
 
       <div class="grid md:grid-cols-2 gap-6">
         <!-- 1. Multi-Agent Research Assistant -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold">LangGraph &bull; Multi-Agent</span>
@@ -408,7 +419,7 @@
         </article>
 
         <!-- 2. MyTaskManager -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold">Stateful Memory &bull; Routing</span>
@@ -434,7 +445,7 @@
         </article>
 
         <!-- 3. Fingerprint Liveness Detection -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30 font-semibold">Computer Vision &bull; PAD</span>
@@ -459,7 +470,7 @@
         </article>
 
         <!-- 4. LendingClub Risk Prediction -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">Deep Learning &bull; 0.93 F1-Score</span>
@@ -484,7 +495,7 @@
         </article>
 
         <!-- 5. CodeBeat -->
-        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between md:col-span-2 hover:-translate-y-1.5 duration-300">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between md:col-span-2 hover:-translate-y-1.5 duration-300 reveal-child">
           <div>
             <div class="flex items-center justify-between gap-4 mb-3">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold">Open-Source Python Package &bull; PyPI</span>
@@ -527,7 +538,7 @@
     </section>
 
     <!-- Live GitHub Repositories Section -->
-    <section id="github-repos" class="py-16 border-t border-slate-900">
+    <section id="github-repos" class="py-16 border-t border-slate-900 reveal-on-scroll">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
         <div>
           <div class="flex items-center gap-2.5 mb-2">
@@ -559,7 +570,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-16 border-t border-slate-900">
+    <section id="experience" class="py-16 border-t border-slate-900 reveal-on-scroll">
       <div class="mb-10">
         <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Experience & Mentorship</h2>
         <p class="text-slate-400 text-sm">Professional roles, academic positions, and teaching experience.</p>
@@ -567,7 +578,7 @@
 
       <div class="space-y-5">
         <!-- 1. AI/ML Engineer Intern • MakeMyBrain -->
-        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1 reveal-child">
           <div class="flex items-start gap-4">
             <div class="p-3 rounded-2xl bg-purple-500/10 text-purple-400 shrink-0 mt-1">
               <i data-lucide="brain-circuit" class="w-6 h-6"></i>
@@ -586,7 +597,7 @@
         </div>
 
         <!-- 2. DSA Mentor • AlgoZenith -->
-        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1 reveal-child">
           <div class="flex items-start gap-4">
             <div class="p-3 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0 mt-1">
               <i data-lucide="users" class="w-6 h-6"></i>
@@ -604,7 +615,7 @@
         </div>
 
         <!-- 3. Teaching Assistant • IIT Kharagpur -->
-        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1 reveal-child">
           <div class="flex items-start gap-4">
             <div class="p-3 rounded-2xl bg-cyan-500/10 text-cyan-400 shrink-0 mt-1">
               <i data-lucide="graduation-cap" class="w-6 h-6"></i>
@@ -624,7 +635,7 @@
     </section>
 
     <!-- Education & Achievements Section -->
-    <section id="education" class="py-16 border-t border-slate-900">
+    <section id="education" class="py-16 border-t border-slate-900 reveal-on-scroll">
       <div class="grid md:grid-cols-2 gap-8">
         <div>
           <h2 class="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2.5">
@@ -632,7 +643,7 @@
             <span>Education</span>
           </h2>
           <div class="space-y-4">
-            <div class="p-6 rounded-3xl glass-card hover:-translate-y-1">
+            <div class="p-6 rounded-3xl glass-card hover:-translate-y-1 reveal-child">
               <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">IIT Kharagpur</h3>
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">CGPA: 8.12</span>
@@ -641,7 +652,7 @@
               <p class="text-xs text-slate-400 font-mono mt-2">2020 – 2025</p>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card hover:-translate-y-1">
+            <div class="p-6 rounded-3xl glass-card hover:-translate-y-1 reveal-child">
               <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">S K P Vidya Vihar, Bhagalpur</h3>
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">92%</span>
@@ -650,7 +661,7 @@
               <p class="text-xs text-slate-400 font-mono mt-2">2020</p>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card hover:-translate-y-1">
+            <div class="p-6 rounded-3xl glass-card hover:-translate-y-1 reveal-child">
               <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">D P S Sabour, Bhagalpur</h3>
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">10 CGPA</span>
@@ -667,7 +678,7 @@
             <span>Awards & Achievements</span>
           </h2>
           <div class="space-y-4">
-            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 hover:-translate-y-1">
+            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 hover:-translate-y-1 reveal-child">
               <div class="p-2.5 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
                 <i data-lucide="trophy" class="w-5 h-5"></i>
               </div>
@@ -677,7 +688,7 @@
               </div>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 hover:-translate-y-1">
+            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 hover:-translate-y-1 reveal-child">
               <div class="p-2.5 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0">
                 <i data-lucide="star" class="w-5 h-5"></i>
               </div>
@@ -687,7 +698,7 @@
               </div>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 hover:-translate-y-1">
+            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 hover:-translate-y-1 reveal-child">
               <div class="p-2.5 rounded-2xl bg-purple-500/10 text-purple-400 shrink-0">
                 <i data-lucide="medal" class="w-5 h-5"></i>
               </div>
@@ -702,7 +713,7 @@
     </section>
 
     <!-- Licenses & Certifications Section -->
-    <section id="certificates" class="py-16 border-t border-slate-900">
+    <section id="certificates" class="py-16 border-t border-slate-900 reveal-on-scroll">
       <div class="mb-10">
         <span class="text-blue-400 font-semibold text-xs tracking-widest uppercase bg-blue-950/80 px-3 py-1 rounded-full border border-blue-800/40">Verified Credentials</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-3">Licenses & Certifications</h2>
@@ -711,7 +722,7 @@
 
       <div class="space-y-6">
         <!-- 1. RAG -->
-        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-blue-500/30 hover:border-blue-500/60 hover:-translate-y-1">
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-blue-500/30 hover:border-blue-500/60 hover:-translate-y-1 reveal-child">
           <div>
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded-full">
@@ -750,7 +761,7 @@
         </div>
 
         <!-- 2. LangGraph -->
-        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-purple-500/30 hover:border-purple-500/60 hover:-translate-y-1">
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-purple-500/30 hover:border-purple-500/60 hover:-translate-y-1 reveal-child">
           <div>
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-slate-100/10 text-slate-200 border border-slate-100/20 rounded-full">
@@ -789,7 +800,7 @@
         </div>
 
         <!-- 3. DSA Udemy -->
-        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-violet-500/30 hover:border-violet-500/60 hover:-translate-y-1">
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-violet-500/30 hover:border-violet-500/60 hover:-translate-y-1 reveal-child">
           <div>
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
@@ -827,7 +838,7 @@
         </div>
 
         <!-- 4. Data Science Jose Portilla -->
-        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-indigo-500/30 hover:border-indigo-500/60 hover:-translate-y-1">
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-indigo-500/30 hover:border-indigo-500/60 hover:-translate-y-1 reveal-child">
           <div>
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
@@ -867,14 +878,14 @@
     </section>
 
     <!-- Extra-Curricular Activities Section -->
-    <section id="extracurricular" class="py-16 border-t border-slate-900">
+    <section id="extracurricular" class="py-16 border-t border-slate-900 reveal-on-scroll">
       <div class="mb-10">
         <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">Extra-Curricular Activities</h2>
         <p class="text-slate-400 text-sm">Community engagement, social service, and campus involvement.</p>
       </div>
 
       <div class="space-y-4">
-        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1 reveal-child">
           <div class="flex items-start gap-4">
             <div class="p-3 rounded-2xl bg-emerald-500/10 text-emerald-400 shrink-0 mt-1">
               <i data-lucide="heart-handshake" class="w-6 h-6"></i>
@@ -894,7 +905,7 @@
     </section>
 
     <!-- Get in Touch Section -->
-    <section id="contact" class="py-20 border-t border-slate-900">
+    <section id="contact" class="py-20 border-t border-slate-900 reveal-on-scroll">
       <div class="max-w-2xl mx-auto text-center mb-10">
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">Get in Touch</h2>
         <p class="text-slate-300 text-base">
@@ -1013,7 +1024,51 @@
   <script>
     lucide.createIcons();
 
-    // 1. Mouse Move Glow
+    // 1. IntersectionObserver Scroll Reveal Engine
+    function initScrollReveal() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-child');
+
+      revealElements.forEach(el => {
+        el.classList.add('reveal-init');
+      });
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+
+            // Apply staggered delays to child grids
+            if (target.classList.contains('reveal-child')) {
+              const parent = target.parentElement;
+              if (parent) {
+                const siblings = Array.from(parent.querySelectorAll('.reveal-child'));
+                const index = siblings.indexOf(target);
+                target.style.transitionDelay = `${(index % 4) * 90}ms`;
+              }
+            }
+
+            target.classList.add('reveal-active');
+            obs.unobserve(target); // Unobserve immediately to free memory
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      revealElements.forEach(el => observer.observe(el));
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollReveal);
+    } else {
+      initScrollReveal();
+    }
+
+    // 2. Hardware-Accelerated Mouse Move Glow
     const cursorGlow = document.getElementById('cursor-glow');
     if (window.matchMedia('(pointer: fine)').matches && cursorGlow) {
       let mouseX = 0, mouseY = 0, glowTicking = false;
@@ -1030,7 +1085,7 @@
       }, { passive: true });
     }
 
-    // 2. Typewriter Effect
+    // 3. Typewriter Effect
     const phrases = [
       "GenAI & Machine Learning Engineer",
       "IIT Kharagpur Alumnus"
@@ -1076,7 +1131,7 @@
       }
     });
 
-    // 3. Toast Notifications
+    // 4. Toast Notifications
     function showToast(message) {
       const toast = document.getElementById('toast');
       const toastMessage = document.getElementById('toast-message');
@@ -1089,7 +1144,7 @@
       }, 2500);
     }
 
-    // 4. Copy to Clipboard
+    // 5. Copy to Clipboard
     function copyToClipboard(text, successMsg = 'Copied to clipboard!') {
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => showToast(successMsg));
@@ -1104,7 +1159,7 @@
       }
     }
 
-    // 5. Scroll Progress & Active Nav Indicators
+    // 6. Scroll Progress & Active Nav Indicators
     const scrollProgress = document.getElementById('scroll-progress');
     const backToTopBtn = document.getElementById('back-to-top');
     const sections = document.querySelectorAll('section[id]');
@@ -1152,7 +1207,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // 6. Mobile Menu Drawer
+    // 7. Mobile Menu Drawer
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -1178,7 +1233,7 @@
       });
     });
 
-    // 7. Form Handling
+    // 8. Form Handling
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
     const submitBtn = document.getElementById('form-submit-btn');
@@ -1233,7 +1288,7 @@
       ) : '';
     }
 
-    // 8. Render GitHub Repositories with Jitter Prevention & Card Transitions
+    // 9. Render GitHub Repositories with Jitter Prevention & Card Transitions
     function renderRepos(repos, container) {
       if (!repos || repos.length === 0) {
         container.innerHTML = `
@@ -1250,7 +1305,7 @@
           : `https://github.com/SKR18156592/${encodeURIComponent(repo.name)}`;
 
         return `
-          <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" aria-label="View repository ${escapeHTML(repo.name)} on GitHub" class="group p-6 rounded-3xl glass-card flex flex-col justify-between shadow-md hover:-translate-y-1.5 duration-300">
+          <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" aria-label="View repository ${escapeHTML(repo.name)} on GitHub" class="group p-6 rounded-3xl glass-card flex flex-col justify-between shadow-md hover:-translate-y-1.5 duration-300 reveal-child">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm">
@@ -1296,9 +1351,17 @@
       }).join('');
 
       lucide.createIcons();
+
+      // Observe dynamically injected repos
+      const dynamicRepos = container.querySelectorAll('.reveal-child');
+      dynamicRepos.forEach((el, idx) => {
+        el.classList.add('reveal-init');
+        el.style.transitionDelay = `${(idx % 3) * 100}ms`;
+        setTimeout(() => el.classList.add('reveal-active'), 50);
+      });
     }
 
-    // 9. Fetch GitHub Repositories
+    // 10. Fetch GitHub Repositories
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
