@@ -50,6 +50,23 @@
           },
           animation: {
             'spin-slow': 'spin 12s linear infinite',
+            'fade-up': 'fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
+            'scale-in': 'scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.96)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            }
           }
         }
       }
@@ -86,6 +103,7 @@
     .glass-card {
       background-color: #0b1329;
       border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     @media (min-width: 1024px) {
@@ -103,20 +121,20 @@
 </head>
 <body class="selection:bg-indigo-500 selection:text-white text-[15px] relative overflow-x-hidden">
 
-  <!-- Desktop Dynamic Glow Orb (Hardware accelerated with translate3d) -->
+  <!-- Desktop Dynamic Glow Orb -->
   <div id="cursor-glow" class="fixed w-[350px] h-[350px] bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none -z-10 will-change-transform hidden lg:block"></div>
 
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 z-[70] w-0 transition-all duration-75"></div>
 
-  <!-- Ambient Glow -->
+  <!-- Ambient Background Glow -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[350px] bg-indigo-600/10 blur-[100px] pointer-events-none -z-10"></div>
 
   <!-- Navigation Bar -->
-  <header class="sticky top-0 z-50 bg-[#030712]/95 border-b border-slate-800/80 shadow-md">
+  <header class="sticky top-0 z-50 bg-[#030712]/95 border-b border-slate-800/80 shadow-md backdrop-blur-md">
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
       <a href="#" class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2.5 shrink-0 group">
-        <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-400 p-[1.5px] flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-transform">
+        <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-400 p-[1.5px] flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
           <span class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center font-mono text-xs font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300">SK</span>
         </span>
         <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 font-extrabold tracking-tight">Suman Kumar Raj</span>
@@ -124,24 +142,24 @@
 
       <!-- Desktop Navigation Links -->
       <div class="hidden lg:flex items-center gap-3.5 xl:gap-5 text-xs xl:text-sm font-medium text-slate-300 shrink-0" id="desktop-nav">
-        <a href="#about" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">About</a>
-        <a href="#skills" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">Skills</a>
-        <a href="#featured-projects" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">Featured Projects</a>
-        <a href="#github-repos" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">Repositories</a>
-        <a href="#experience" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">Experience</a>
-        <a href="#education" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">Education</a>
-        <a href="#certificates" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">Certificates</a>
-        <a href="#extracurricular" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors">Activities</a>
+        <a href="#about" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors py-1">About</a>
+        <a href="#skills" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors py-1">Skills</a>
+        <a href="#featured-projects" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors py-1">Featured Projects</a>
+        <a href="#github-repos" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors py-1">Repositories</a>
+        <a href="#experience" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors py-1">Experience</a>
+        <a href="#education" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors py-1">Education</a>
+        <a href="#certificates" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors py-1">Certificates</a>
+        <a href="#extracurricular" class="nav-link whitespace-nowrap hover:text-indigo-400 transition-colors py-1">Activities</a>
       </div>
 
       <!-- Right Actions & Mobile Hamburger Toggle -->
       <div class="flex items-center gap-3 shrink-0">
-        <a href="#contact" class="hidden sm:flex relative group overflow-hidden px-4 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 hover:from-indigo-500 hover:to-cyan-500 text-white transition-all shadow-lg shadow-indigo-600/30 items-center gap-1.5 hover:scale-105 whitespace-nowrap">
+        <a href="#contact" class="hidden sm:flex relative group overflow-hidden px-4 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 hover:from-indigo-500 hover:to-cyan-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/30 items-center gap-1.5 hover:scale-105 active:scale-95 whitespace-nowrap">
           <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-200 animate-spin-slow"></i>
           <span>Get in Touch</span>
         </a>
 
-        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-300 hover:text-white transition-all">
+        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-300 hover:text-white transition-all active:scale-95">
           <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
           <i data-lucide="x" id="close-icon" class="w-5 h-5 hidden"></i>
         </button>
@@ -149,7 +167,7 @@
     </nav>
 
     <!-- Mobile Drawer Menu Dropdown -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950 px-6 py-6 shadow-2xl transition-all">
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-6 shadow-2xl transition-all">
       <div class="flex flex-col space-y-4 text-base font-medium text-slate-300">
         <a href="#about" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="user" class="w-4 h-4 text-indigo-400"></i> About</a>
         <a href="#skills" class="mobile-link hover:text-indigo-400 transition-colors flex items-center gap-3 py-1"><i data-lucide="cpu" class="w-4 h-4 text-indigo-400"></i> Skills</a>
@@ -171,10 +189,10 @@
 
   <main class="max-w-6xl mx-auto px-6">
     <!-- Hero Section -->
-    <section class="pt-20 pb-16 md:pt-32 md:pb-24">
+    <section class="pt-20 pb-16 md:pt-32 md:pb-24 animate-fade-up">
       <div class="space-y-6">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs font-semibold">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
           <span>Available for Full-Time Roles & Collaborations</span>
         </div>
 
@@ -197,23 +215,23 @@
         </p>
 
         <div class="flex flex-wrap items-center gap-3.5 pt-2">
-          <a href="#featured-projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-indigo-600/30">
+          <a href="#featured-projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-indigo-600/30 hover:scale-105 active:scale-95 transition-all">
             <span>Explore Projects</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
-          <a href="suman_resume_1.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-200 text-sm font-medium flex items-center gap-2">
+          <a href="suman_resume_1.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/90 text-slate-200 text-sm font-medium flex items-center gap-2 hover:border-indigo-500/40 hover:bg-slate-800 transition-all active:scale-95">
             <i data-lucide="eye" class="w-4 h-4 text-indigo-400"></i>
             <span>View Resume</span>
           </a>
-          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-200 text-sm font-medium flex items-center gap-2">
+          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/90 text-slate-200 text-sm font-medium flex items-center gap-2 hover:border-purple-500/40 hover:bg-slate-800 transition-all active:scale-95">
             <svg class="w-4 h-4 fill-current text-purple-400" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub</span>
           </a>
-          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-200 text-sm font-medium flex items-center gap-2">
+          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/90 text-slate-200 text-sm font-medium flex items-center gap-2 hover:border-cyan-500/40 hover:bg-slate-800 transition-all active:scale-95">
             <svg class="w-4 h-4 fill-current text-cyan-400" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             <span>LinkedIn</span>
           </a>
-          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-200 text-sm font-medium flex items-center gap-2">
+          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-900/90 text-slate-200 text-sm font-medium flex items-center gap-2 hover:border-amber-500/40 hover:bg-slate-800 transition-all active:scale-95">
             <i data-lucide="code" class="w-4 h-4 text-amber-400"></i>
             <span>LeetCode</span>
           </a>
@@ -223,10 +241,10 @@
 
     <!-- About Section -->
     <section id="about" class="py-16 border-t border-slate-900">
-      <div class="grid md:grid-cols-12 gap-8 p-7 sm:p-10 rounded-3xl glass-card items-center">
+      <div class="grid md:grid-cols-12 gap-8 p-7 sm:p-10 rounded-3xl glass-card items-center hover:border-indigo-500/30">
         <div class="md:col-span-4 flex justify-center">
-          <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-3xl p-1 bg-slate-950 border border-slate-700 shadow-xl overflow-hidden">
-            <img src="20NA30027.jpeg" alt="Suman Kumar Raj" width="240" height="240" loading="lazy" class="w-full h-full object-cover rounded-2xl" />
+          <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-3xl p-1 bg-slate-950 border border-slate-700 shadow-xl overflow-hidden aspect-square group">
+            <img src="20NA30027.jpeg" alt="Suman Kumar Raj" width="240" height="240" fetchpriority="high" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500" />
             <div class="absolute bottom-2 right-2 px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700 text-[10px] font-mono font-bold text-indigo-300">
               IIT KGP
             </div>
@@ -256,9 +274,9 @@
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="bot" class="w-6 h-6"></i>
             </div>
             <h3 class="font-bold text-white mb-3 text-lg">Generative AI & LLMs</h3>
@@ -274,9 +292,9 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="brain-circuit" class="w-6 h-6"></i>
             </div>
             <h3 class="font-bold text-white mb-3 text-lg">Machine & Deep Learning</h3>
@@ -291,9 +309,9 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="code-2" class="w-6 h-6"></i>
             </div>
             <h3 class="font-bold text-white mb-3 text-lg">Programming Languages</h3>
@@ -304,9 +322,9 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="layers" class="w-6 h-6"></i>
             </div>
             <h3 class="font-bold text-white mb-3 text-lg">Frameworks & Libraries</h3>
@@ -321,9 +339,9 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="terminal" class="w-6 h-6"></i>
             </div>
             <h3 class="font-bold text-white mb-3 text-lg">Platforms & Tools</h3>
@@ -337,9 +355,9 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between">
+        <div class="p-6 rounded-3xl glass-card flex flex-col justify-between group hover:-translate-y-1">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <i data-lucide="cpu" class="w-6 h-6"></i>
             </div>
             <h3 class="font-bold text-white mb-3 text-lg">Core Engineering & Math</h3>
@@ -363,16 +381,16 @@
 
       <div class="grid md:grid-cols-2 gap-6">
         <!-- 1. Multi-Agent Research Assistant -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold">LangGraph &bull; Multi-Agent</span>
-              <a href="https://github.com/SKR18156592/Multi-Agent-Research-Assistant" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-indigo-500/40 transition-colors leading-none">
+              <a href="https://github.com/SKR18156592/Multi-Agent-Research-Assistant" target="_blank" rel="noopener noreferrer" aria-label="View Multi-Agent Research Assistant on GitHub" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-indigo-500/40 hover:bg-slate-800 transition-colors leading-none active:scale-95">
                 <svg class="w-3.5 h-3.5 fill-current text-indigo-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 <span>GitHub</span>
               </a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">Multi-Agent Research Assistant</h3>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">Multi-Agent Research Assistant</h3>
             <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
               <li>Built a multi-agent research system in LangGraph that decomposes complex topics into specialized analyst perspectives with human-in-the-loop refinement.</li>
               <li>Implemented parallel information retrieval using Tavily and Wikipedia to synthesize context across diverse domains.</li>
@@ -390,16 +408,16 @@
         </article>
 
         <!-- 2. MyTaskManager -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold">Stateful Memory &bull; Routing</span>
-              <a href="https://github.com/SKR18156592/MyTaskManager" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-cyan-500/40 transition-colors leading-none">
+              <a href="https://github.com/SKR18156592/MyTaskManager" target="_blank" rel="noopener noreferrer" aria-label="View MyTaskManager on GitHub" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-cyan-500/40 hover:bg-slate-800 transition-colors leading-none active:scale-95">
                 <svg class="w-3.5 h-3.5 fill-current text-cyan-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 <span>GitHub</span>
               </a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">MyTaskManager</h3>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">MyTaskManager</h3>
             <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
               <li>Engineered a stateful task-management AI agent in LangGraph maintaining short-term conversational context and structured long-term memory.</li>
               <li>Architected distinct Profile, To-Do, and Instruction memories using Pydantic schemas for precise extraction and adaptive execution.</li>
@@ -416,16 +434,16 @@
         </article>
 
         <!-- 3. Fingerprint Liveness Detection -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30 font-semibold">Computer Vision &bull; PAD</span>
-              <a href="https://github.com/SKR18156592/Fingerprint-Liveness-Detection" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-purple-500/40 transition-colors leading-none">
+              <a href="https://github.com/SKR18156592/Fingerprint-Liveness-Detection" target="_blank" rel="noopener noreferrer" aria-label="View Fingerprint Liveness Detection on GitHub" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-purple-500/40 hover:bg-slate-800 transition-colors leading-none active:scale-95">
                 <svg class="w-3.5 h-3.5 fill-current text-purple-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 <span>GitHub</span>
               </a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">Fingerprint Liveness Detection (PAD)</h3>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">Fingerprint Liveness Detection (PAD)</h3>
             <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
               <li>Created a Presentation Attack Detection (PAD) biometric verification pipeline using MobileNetV3-Small transfer learning.</li>
               <li>Developed an end-to-end processing pipeline: 70/15/15 split, image augmentation, ImageNet normalization, and single-image inference.</li>
@@ -441,16 +459,16 @@
         </article>
 
         <!-- 4. LendingClub Risk Prediction -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between hover:-translate-y-1.5 duration-300">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">Deep Learning &bull; 0.93 F1-Score</span>
-              <a href="https://github.com/SKR18156592/Credit-Risk-Prediction" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-emerald-500/40 transition-colors leading-none">
+              <a href="https://github.com/SKR18156592/Credit-Risk-Prediction" target="_blank" rel="noopener noreferrer" aria-label="View Credit Risk Prediction on GitHub" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-emerald-500/40 hover:bg-slate-800 transition-colors leading-none active:scale-95">
                 <svg class="w-3.5 h-3.5 fill-current text-emerald-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 <span>GitHub</span>
               </a>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">LendingClub Risk Prediction</h3>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-300 transition-colors">LendingClub Risk Prediction</h3>
             <ul class="text-sm text-slate-300 space-y-2 leading-relaxed mb-6 list-disc list-inside">
               <li>Built an end-to-end credit risk classification system on 396K+ loan records with missing value handling, categorical encoding, and MinMax scaling.</li>
               <li>Trained a deep neural network with ReLU activations, dropout regularization, and sigmoid output to classify loan default risk.</li>
@@ -466,23 +484,23 @@
         </article>
 
         <!-- 5. CodeBeat -->
-        <article class="p-7 rounded-3xl glass-card flex flex-col justify-between md:col-span-2">
+        <article class="group p-7 rounded-3xl glass-card flex flex-col justify-between md:col-span-2 hover:-translate-y-1.5 duration-300">
           <div>
             <div class="flex items-center justify-between gap-4 mb-3">
               <span class="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold">Open-Source Python Package &bull; PyPI</span>
               <div class="flex items-center gap-2 shrink-0">
-                <a href="https://pypi.org/project/codebeat/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-amber-500/40 transition-colors leading-none">
+                <a href="https://pypi.org/project/codebeat/" target="_blank" rel="noopener noreferrer" aria-label="View CodeBeat package on PyPI" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-amber-500/40 hover:bg-slate-800 transition-colors leading-none active:scale-95">
                   <i data-lucide="package" class="w-3.5 h-3.5 text-amber-400"></i>
                   <span>PyPI</span>
                 </a>
-                <a href="https://github.com/SKR18156592/CodeBeat" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-purple-500/40 transition-colors leading-none">
+                <a href="https://github.com/SKR18156592/CodeBeat" target="_blank" rel="noopener noreferrer" aria-label="View CodeBeat repository on GitHub" class="px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white inline-flex items-center justify-center gap-2 shadow-md hover:border-purple-500/40 hover:bg-slate-800 transition-colors leading-none active:scale-95">
                   <svg class="w-3.5 h-3.5 fill-current text-purple-400 shrink-0" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                   <span>GitHub</span>
                 </a>
               </div>
             </div>
 
-            <h3 class="text-xl font-bold text-white mb-2">CodeBeat</h3>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">CodeBeat</h3>
             <p class="text-sm text-slate-300 leading-relaxed w-full">
               Created and published an open-source Python profiling package leveraging Object-Oriented Programming (OOPs) principles for modular line-by-line function tracing and runtime statistics.
             </p>
@@ -491,7 +509,7 @@
               <div class="inline-flex items-center justify-between gap-3 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300">
                 <span class="text-amber-400 font-bold">$</span>
                 <span id="pip-command">pip install codebeat</span>
-                <button onclick="copyToClipboard('pip install codebeat', 'Command copied to clipboard!')" class="text-slate-400 hover:text-white p-1" title="Copy Command">
+                <button onclick="copyToClipboard('pip install codebeat', 'Command copied to clipboard!')" class="text-slate-400 hover:text-white p-1 rounded-md hover:bg-slate-800 transition-colors" title="Copy Command" aria-label="Copy pip install command to clipboard">
                   <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                 </button>
               </div>
@@ -516,9 +534,9 @@
             <h2 class="text-3xl font-extrabold tracking-tight text-white">All GitHub Repositories</h2>
             <span class="px-3 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-semibold">Live API</span>
           </div>
-          <p class="text-slate-400 text-sm">Dynamically synchronized with <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline">@SKR18156592</a>.</p>
+          <p class="text-slate-400 text-sm">Dynamically synchronized with <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline hover:text-indigo-300">@SKR18156592</a>.</p>
         </div>
-        <a href="https://github.com/SKR18156592?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-sm font-mono flex items-center gap-2 w-fit">
+        <a href="https://github.com/SKR18156592?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="View all public repositories on GitHub" class="px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-sm font-mono flex items-center gap-2 w-fit hover:border-indigo-500/40 hover:bg-slate-800 hover:text-white transition-all active:scale-95">
           <i data-lucide="github" class="w-4 h-4"></i>
           <span>View on GitHub</span>
         </a>
@@ -549,7 +567,7 @@
 
       <div class="space-y-5">
         <!-- 1. AI/ML Engineer Intern • MakeMyBrain -->
-        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1">
           <div class="flex items-start gap-4">
             <div class="p-3 rounded-2xl bg-purple-500/10 text-purple-400 shrink-0 mt-1">
               <i data-lucide="brain-circuit" class="w-6 h-6"></i>
@@ -557,7 +575,7 @@
             <div>
               <h3 class="font-bold text-white text-lg">AI/ML Engineer Intern &bull; MakeMyBrain</h3>
               <p class="text-sm text-purple-400 font-mono mb-3 font-semibold">May 2024 – Jul 2024</p>
-              <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
+              <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
                 <li>Built an end-to-end mood-based music recommendation RAG system, processing structured metadata, acoustic features, and textual profiles across audio catalogs.</li>
                 <li>Engineered a hybrid search pipeline combining BM25 keyword matching and dense vector embeddings (&alpha; = 0.4), boosting retrieval Recall@10 from 0.61 to 0.79 compared to lexical search alone.</li>
                 <li>Implemented a cross-encoder re-ranking stage to filter top 100 retrieved candidates down to top 10–20 tracks before LLM generation, ensuring personalized and context-aware recommendations.</li>
@@ -568,7 +586,7 @@
         </div>
 
         <!-- 2. DSA Mentor • AlgoZenith -->
-        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1">
           <div class="flex items-start gap-4">
             <div class="p-3 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0 mt-1">
               <i data-lucide="users" class="w-6 h-6"></i>
@@ -576,7 +594,7 @@
             <div>
               <h3 class="font-bold text-white text-lg">DSA Mentor &bull; AlgoZenith</h3>
               <p class="text-sm text-indigo-400 font-mono mb-3 font-semibold">Oct 2022 – May 2024</p>
-              <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
+              <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
                 <li>Mentored 500+ students in Data Structures and Algorithms, directly improving their problem-solving capabilities and interview success rates.</li>
                 <li>Guided participants through rigorous coding challenges, time-complexity optimization techniques, and structured interview-focused problem-solving frameworks.</li>
               </ul>
@@ -586,7 +604,7 @@
         </div>
 
         <!-- 3. Teaching Assistant • IIT Kharagpur -->
-        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1">
           <div class="flex items-start gap-4">
             <div class="p-3 rounded-2xl bg-cyan-500/10 text-cyan-400 shrink-0 mt-1">
               <i data-lucide="graduation-cap" class="w-6 h-6"></i>
@@ -594,7 +612,7 @@
             <div>
               <h3 class="font-bold text-white text-lg">Teaching Assistant &bull; Indian Institute of Technology, Kharagpur</h3>
               <p class="text-sm text-cyan-400 font-mono mb-3 font-semibold">Aug 2023 – May 2025</p>
-              <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
+              <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
                 <li>Assisted in conducting tutorials and evaluating assignments for undergraduate courses at IIT Kharagpur.</li>
                 <li>Facilitated doubt-clearing sessions, helping students build stronger understanding of core concepts and analytical techniques.</li>
               </ul>
@@ -614,7 +632,7 @@
             <span>Education</span>
           </h2>
           <div class="space-y-4">
-            <div class="p-6 rounded-3xl glass-card">
+            <div class="p-6 rounded-3xl glass-card hover:-translate-y-1">
               <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">IIT Kharagpur</h3>
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">CGPA: 8.12</span>
@@ -623,7 +641,7 @@
               <p class="text-xs text-slate-400 font-mono mt-2">2020 – 2025</p>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card">
+            <div class="p-6 rounded-3xl glass-card hover:-translate-y-1">
               <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">S K P Vidya Vihar, Bhagalpur</h3>
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">92%</span>
@@ -632,7 +650,7 @@
               <p class="text-xs text-slate-400 font-mono mt-2">2020</p>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card">
+            <div class="p-6 rounded-3xl glass-card hover:-translate-y-1">
               <div class="flex justify-between items-start mb-1.5">
                 <h3 class="font-bold text-white text-base">D P S Sabour, Bhagalpur</h3>
                 <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 font-bold border border-indigo-500/30">10 CGPA</span>
@@ -649,7 +667,7 @@
             <span>Awards & Achievements</span>
           </h2>
           <div class="space-y-4">
-            <div class="p-6 rounded-3xl glass-card flex items-start gap-4">
+            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 hover:-translate-y-1">
               <div class="p-2.5 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
                 <i data-lucide="trophy" class="w-5 h-5"></i>
               </div>
@@ -659,7 +677,7 @@
               </div>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card flex items-start gap-4">
+            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 hover:-translate-y-1">
               <div class="p-2.5 rounded-2xl bg-indigo-500/10 text-indigo-400 shrink-0">
                 <i data-lucide="star" class="w-5 h-5"></i>
               </div>
@@ -669,7 +687,7 @@
               </div>
             </div>
 
-            <div class="p-6 rounded-3xl glass-card flex items-start gap-4">
+            <div class="p-6 rounded-3xl glass-card flex items-start gap-4 hover:-translate-y-1">
               <div class="p-2.5 rounded-2xl bg-purple-500/10 text-purple-400 shrink-0">
                 <i data-lucide="medal" class="w-5 h-5"></i>
               </div>
@@ -693,7 +711,7 @@
 
       <div class="space-y-6">
         <!-- 1. RAG -->
-        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-blue-500/30">
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-blue-500/30 hover:border-blue-500/60 hover:-translate-y-1">
           <div>
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded-full">
@@ -723,7 +741,8 @@
             <a href="https://coursera.org/verify/22QSGZ7M96PX" 
                target="_blank" 
                rel="noopener noreferrer" 
-               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-600/30">
+               aria-label="Verify Retrieval-Augmented Generation certificate on Coursera"
+               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-600/30 hover:scale-105 active:scale-95 transition-all">
               Verify Certificate
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
@@ -731,7 +750,7 @@
         </div>
 
         <!-- 2. LangGraph -->
-        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-purple-500/30">
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-purple-500/30 hover:border-purple-500/60 hover:-translate-y-1">
           <div>
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-slate-100/10 text-slate-200 border border-slate-100/20 rounded-full">
@@ -761,7 +780,8 @@
             <a href="https://academy.langchain.com/certificates/nfy9ggg3ez" 
                target="_blank" 
                rel="noopener noreferrer" 
-               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-purple-600/30">
+               aria-label="Verify LangGraph Foundation certificate on LangChain Academy"
+               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-purple-600/30 hover:scale-105 active:scale-95 transition-all">
               Verify Certificate
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
@@ -769,7 +789,7 @@
         </div>
 
         <!-- 3. DSA Udemy -->
-        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-violet-500/30">
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-violet-500/30 hover:border-violet-500/60 hover:-translate-y-1">
           <div>
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
@@ -798,7 +818,8 @@
             <a href="https://www.udemy.com/certificate/UC-c5f7586c-19c1-4972-b47c-030660a70e86/" 
                target="_blank" 
                rel="noopener noreferrer" 
-               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-violet-600/30">
+               aria-label="Verify Python and DSA certificate on Udemy"
+               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-violet-600/30 hover:scale-105 active:scale-95 transition-all">
               Verify Certificate
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
@@ -806,7 +827,7 @@
         </div>
 
         <!-- 4. Data Science Jose Portilla -->
-        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-indigo-500/30">
+        <div class="p-6 sm:p-8 rounded-3xl glass-card flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-indigo-500/30 hover:border-indigo-500/60 hover:-translate-y-1">
           <div>
             <div class="flex flex-wrap items-center gap-3">
               <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full">
@@ -835,7 +856,8 @@
             <a href="https://www.udemy.com/certificate/UC-3b8d8e1f-47ed-4c5b-868c-ddcc75480a96/" 
                target="_blank" 
                rel="noopener noreferrer" 
-               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-violet-600/30">
+               aria-label="Verify Python for Data Science and Machine Learning certificate on Udemy"
+               class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-violet-600/30 hover:scale-105 active:scale-95 transition-all">
               Verify Certificate
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
@@ -852,7 +874,7 @@
       </div>
 
       <div class="space-y-4">
-        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4">
+        <div class="p-6 rounded-3xl glass-card flex flex-col md:flex-row md:items-start justify-between gap-4 hover:-translate-y-1">
           <div class="flex items-start gap-4">
             <div class="p-3 rounded-2xl bg-emerald-500/10 text-emerald-400 shrink-0 mt-1">
               <i data-lucide="heart-handshake" class="w-6 h-6"></i>
@@ -860,7 +882,7 @@
             <div>
               <h3 class="font-bold text-white text-lg">NSS Volunteer &bull; Unit 9, IIT Kharagpur</h3>
               <p class="text-sm text-emerald-400 font-mono mb-3 font-semibold">2+ Years of Community Service</p>
-              <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside">
+              <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
                 <li>Served as a dedicated volunteer for over 2 years in NSS, Unit 9, IIT Kharagpur.</li>
                 <li>Contributed to social welfare initiatives, community development campaigns, and campus outreach programs.</li>
               </ul>
@@ -882,8 +904,8 @@
 
       <div class="max-w-xl mx-auto p-7 sm:p-10 rounded-3xl glass-card shadow-2xl">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between sm:col-span-2">
-            <a href="mailto:sumanraj4176@gmail.com" class="flex items-center gap-3.5 min-w-0">
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between sm:col-span-2 hover:border-indigo-500/40 transition-colors">
+            <a href="mailto:sumanraj4176@gmail.com" class="flex items-center gap-3.5 min-w-0" aria-label="Send email to sumanraj4176@gmail.com">
               <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 shrink-0">
                 <i data-lucide="mail" class="w-5 h-5"></i>
               </div>
@@ -892,28 +914,28 @@
                 <span class="text-sm font-semibold text-slate-200 truncate">sumanraj4176@gmail.com</span>
               </div>
             </a>
-            <button onclick="copyToClipboard('sumanraj4176@gmail.com', 'Email copied to clipboard!')" class="p-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white ml-2 shrink-0" title="Copy Email">
+            <button onclick="copyToClipboard('sumanraj4176@gmail.com', 'Email copied to clipboard!')" class="p-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white ml-2 shrink-0 hover:bg-slate-800 transition-colors" title="Copy Email" aria-label="Copy email address to clipboard">
               <i data-lucide="copy" class="w-4 h-4"></i>
             </button>
           </div>
 
-          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between">
-            <a href="tel:+919798196180" class="flex items-center gap-3.5 min-w-0">
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between hover:border-emerald-500/40 transition-colors">
+            <a href="tel:+919798196180" class="flex items-center gap-3.5 min-w-0" aria-label="Call +91 9798196180">
               <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0">
                 <i data-lucide="phone" class="w-5 h-5"></i>
               </div>
               <div class="text-left truncate">
                 <span class="block text-[11px] font-mono text-slate-400 uppercase tracking-wider">Phone</span>
-                <span class="text-sm font-semibold text-slate-200">+91-9798196180</span>
+                <span class="text-sm font-semibold text-slate-200 truncate">+91-9798196180</span>
               </div>
             </a>
-            <button onclick="copyToClipboard('+919798196180', 'Phone number copied!')" class="p-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white ml-2 shrink-0" title="Copy Phone">
+            <button onclick="copyToClipboard('+919798196180', 'Phone number copied!')" class="p-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white ml-2 shrink-0 hover:bg-slate-800 transition-colors" title="Copy Phone" aria-label="Copy phone number to clipboard">
               <i data-lucide="copy" class="w-4 h-4"></i>
             </button>
           </div>
 
-          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 hover:border-purple-500/40 transition-colors">
-            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 shrink-0">
+          <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" aria-label="Visit Suman Kumar Raj GitHub profile" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 hover:border-purple-500/40 transition-colors group">
+            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 shrink-0 group-hover:scale-110 transition-transform">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </div>
             <div class="text-left">
@@ -922,8 +944,8 @@
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 hover:border-cyan-500/40 transition-colors">
-            <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0">
+          <a href="https://www.linkedin.com/in/sumanraj11" target="_blank" rel="noopener noreferrer" aria-label="Visit Suman Kumar Raj LinkedIn profile" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 hover:border-cyan-500/40 transition-colors group">
+            <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0 group-hover:scale-110 transition-transform">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </div>
             <div class="text-left">
@@ -932,8 +954,8 @@
             </div>
           </a>
 
-          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 hover:border-amber-500/40 transition-colors">
-            <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400 shrink-0">
+          <a href="https://leetcode.com/u/sumanraj112002/" target="_blank" rel="noopener noreferrer" aria-label="Visit Suman Kumar Raj LeetCode profile" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center gap-3.5 hover:border-amber-500/40 transition-colors group">
+            <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400 shrink-0 group-hover:scale-110 transition-transform">
               <i data-lucide="code" class="w-5 h-5"></i>
             </div>
             <div class="text-left">
@@ -949,18 +971,18 @@
           
           <div>
             <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5 font-semibold">Name</label>
-            <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm" />
+            <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-colors" />
           </div>
           <div>
             <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5 font-semibold">Email</label>
-            <input type="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm" />
+            <input type="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-colors" />
           </div>
           <div>
             <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5 font-semibold">Message</label>
-            <textarea name="message" rows="3" required placeholder="Let's build something great..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm"></textarea>
+            <textarea name="message" rows="3" required placeholder="Let's build something great..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 text-sm transition-colors"></textarea>
           </div>
           
-          <button id="form-submit-btn" type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+          <button id="form-submit-btn" type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all">
             <span>Send Direct Message</span>
             <i data-lucide="send" class="w-4 h-4"></i>
           </button>
@@ -972,12 +994,12 @@
   </main>
 
   <!-- Floating Back to Top Button -->
-  <button id="back-to-top" aria-label="Back to Top" class="fixed bottom-6 right-6 p-3 rounded-2xl bg-indigo-600 text-white shadow-xl border border-indigo-400/30 transition-all duration-200 opacity-0 pointer-events-none z-40">
+  <button id="back-to-top" aria-label="Back to Top" class="fixed bottom-6 right-6 p-3 rounded-2xl bg-indigo-600 text-white shadow-xl border border-indigo-400/30 transition-all duration-300 opacity-0 pointer-events-none z-40 hover:bg-indigo-500 hover:scale-110 active:scale-95">
     <i data-lucide="arrow-up" class="w-5 h-5"></i>
   </button>
 
   <!-- Global Floating Toast Notification -->
-  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-2xl bg-slate-900 border border-indigo-500/40 text-slate-100 text-xs font-mono shadow-2xl transition-all duration-200 opacity-0 pointer-events-none z-50 flex items-center gap-2">
+  <div id="toast" role="status" aria-live="polite" class="fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-2.5 rounded-2xl bg-slate-900 border border-indigo-500/40 text-slate-100 text-xs font-mono shadow-2xl transition-all duration-300 opacity-0 pointer-events-none z-50 flex items-center gap-2">
     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
     <span id="toast-message">Copied to clipboard!</span>
   </div>
@@ -991,7 +1013,7 @@
   <script>
     lucide.createIcons();
 
-    // 1. Mouse Move Glow (Hardware-accelerated with requestAnimationFrame & translate3d)
+    // 1. Mouse Move Glow
     const cursorGlow = document.getElementById('cursor-glow');
     if (window.matchMedia('(pointer: fine)').matches && cursorGlow) {
       let mouseX = 0, mouseY = 0, glowTicking = false;
@@ -1008,7 +1030,7 @@
       }, { passive: true });
     }
 
-    // Typewriter with Visibility Lifecycle Management
+    // 2. Typewriter Effect
     const phrases = [
       "GenAI & Machine Learning Engineer",
       "IIT Kharagpur Alumnus"
@@ -1054,7 +1076,7 @@
       }
     });
 
-    // Toast Notification
+    // 3. Toast Notifications
     function showToast(message) {
       const toast = document.getElementById('toast');
       const toastMessage = document.getElementById('toast-message');
@@ -1067,7 +1089,7 @@
       }, 2500);
     }
 
-    // Copy to Clipboard
+    // 4. Copy to Clipboard
     function copyToClipboard(text, successMsg = 'Copied to clipboard!') {
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => showToast(successMsg));
@@ -1082,7 +1104,7 @@
       }
     }
 
-    // Passive Scroll Handler
+    // 5. Scroll Progress & Active Nav Indicators
     const scrollProgress = document.getElementById('scroll-progress');
     const backToTopBtn = document.getElementById('back-to-top');
     const sections = document.querySelectorAll('section[id]');
@@ -1130,7 +1152,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Mobile Hamburger
+    // 6. Mobile Menu Drawer
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -1156,7 +1178,7 @@
       });
     });
 
-    // Form submission (Payload captured before disabling inputs)
+    // 7. Form Handling
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
     const submitBtn = document.getElementById('form-submit-btn');
@@ -1165,11 +1187,9 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // 1. Capture data BEFORE disabling elements
       const formData = new FormData(form);
       const payload = Object.fromEntries(formData);
 
-      // 2. Disable UI
       submitBtn.disabled = true;
       formInputs.forEach(input => input.disabled = true);
       submitBtn.innerHTML = '<span>Sending...</span>';
@@ -1188,7 +1208,7 @@
         const result = await response.json();
 
         if (response.status === 200 && result.success) {
-          statusDiv.className = 'p-3 rounded-xl text-center text-sm font-mono bg-emerald-500/10 border border-emerald-500/30 text-emerald-400';
+          statusDiv.className = 'p-3 rounded-xl text-center text-sm font-mono bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 animate-scale-in';
           statusDiv.innerHTML = 'Message sent successfully! Thank you for reaching out.';
           statusDiv.classList.remove('hidden');
           form.reset();
@@ -1196,7 +1216,7 @@
           throw new Error(result.message || 'Submission failed');
         }
       } catch (error) {
-        statusDiv.className = 'p-3 rounded-xl text-center text-sm font-mono bg-rose-500/10 border border-rose-500/30 text-rose-400';
+        statusDiv.className = 'p-3 rounded-xl text-center text-sm font-mono bg-rose-500/10 border border-rose-500/30 text-rose-400 animate-scale-in';
         statusDiv.innerHTML = 'Error sending message. Please try emailing directly.';
         statusDiv.classList.remove('hidden');
       } finally {
@@ -1207,14 +1227,13 @@
       }
     });
 
-    // Safe HTML Escaping for dynamic content
     function escapeHTML(str) {
       return str ? str.replace(/[&<>'"]/g, 
         tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
       ) : '';
     }
 
-    // Repository Cards with Safe URL Validation
+    // 8. Render GitHub Repositories with Jitter Prevention & Card Transitions
     function renderRepos(repos, container) {
       if (!repos || repos.length === 0) {
         container.innerHTML = `
@@ -1225,20 +1244,24 @@
         return;
       }
 
-      container.innerHTML = repos.map(repo => {
+      container.innerHTML = repos.map((repo, idx) => {
         const safeUrl = (repo.html_url && repo.html_url.startsWith('https://github.com/')) 
           ? repo.html_url 
           : `https://github.com/SKR18156592/${encodeURIComponent(repo.name)}`;
 
         return `
-          <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="p-6 rounded-3xl glass-card flex flex-col justify-between shadow-md">
+          <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" aria-label="View repository ${escapeHTML(repo.name)} on GitHub" class="group p-6 rounded-3xl glass-card flex flex-col justify-between shadow-md hover:-translate-y-1.5 duration-300">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center gap-2 text-indigo-400 font-mono text-sm">
-                  <i data-lucide="folder-git-2" class="w-4 h-4 shrink-0"></i>
-                  <span class="font-bold text-white truncate max-w-[180px]">${escapeHTML(repo.name)}</span>
+                  <span class="w-4 h-4 flex items-center justify-center shrink-0">
+                    <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+                  </span>
+                  <span class="font-bold text-white truncate max-w-[180px] group-hover:text-indigo-300 transition-colors">${escapeHTML(repo.name)}</span>
                 </div>
-                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 shrink-0"></i>
+                <span class="w-4 h-4 flex items-center justify-center shrink-0">
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+                </span>
               </div>
               <p class="text-sm text-slate-300 line-clamp-2 leading-relaxed mb-6">
                 ${escapeHTML(repo.description) || 'Public repository on GitHub.'}
@@ -1254,10 +1277,16 @@
                   </span>
                 ` : ''}
                 <span class="flex items-center gap-1">
-                  <i data-lucide="star" class="w-3.5 h-3.5"></i> ${repo.stargazers_count}
+                  <span class="w-3.5 h-3.5 flex items-center justify-center shrink-0">
+                    <i data-lucide="star" class="w-3.5 h-3.5"></i>
+                  </span>
+                  ${repo.stargazers_count}
                 </span>
                 <span class="flex items-center gap-1">
-                  <i data-lucide="git-fork" class="w-3.5 h-3.5"></i> ${repo.forks_count}
+                  <span class="w-3.5 h-3.5 flex items-center justify-center shrink-0">
+                    <i data-lucide="git-fork" class="w-3.5 h-3.5"></i>
+                  </span>
+                  ${repo.forks_count}
                 </span>
               </div>
               <span>${new Date(repo.updated_at).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}</span>
@@ -1269,7 +1298,7 @@
       lucide.createIcons();
     }
 
-    // Repository fetch with localStorage caching & rate-limit handling
+    // 9. Fetch GitHub Repositories
     async function fetchGitHubRepos() {
       const username = 'SKR18156592';
       const container = document.getElementById('repos-container');
