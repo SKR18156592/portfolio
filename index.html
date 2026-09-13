@@ -337,10 +337,11 @@
                             <span>Explore Projects</span>
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
-                        <a href="suman_resume_1.pdf" download="Suman_Kumar_Raj_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2.5 text-base">
+                        <!-- Trigger Resume Preview Modal -->
+                        <button onclick="openResumeModal()" class="btn-secondary flex items-center gap-2.5 text-base cursor-pointer">
                             <i data-lucide="eye" class="w-4 h-4 text-studio-ink"></i>
                             <span>View Resume</span>
-                        </a>
+                        </button>
                         <div class="flex items-center gap-2 pt-2 sm:pt-0">
                             <a href="https://github.com/SKR18156592" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="p-3 rounded-xl border-[2px] border-studio-ink bg-banana-50 text-studio-ink shadow-[3px_3px_0_#191A17] hover:bg-banana-200 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0_#191A17] transition-all">
                                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -1138,6 +1139,34 @@
         </section>
     </main>
 
+    <!-- Resume Preview Modal -->
+    <div id="resume-modal" class="fixed inset-0 z-[100] bg-studio-ink/80 backdrop-blur-sm hidden items-center justify-center p-4 sm:p-6">
+        <div class="hard-card bg-banana-50 w-full max-w-4xl h-[85vh] flex flex-col shadow-[12px_12px_0_#191A17] animate-scale-in overflow-hidden">
+            <!-- Modal Header -->
+            <div class="p-4 sm:p-5 border-b-[2px] border-studio-ink flex items-center justify-between bg-banana-200">
+                <div class="flex items-center gap-3">
+                    <span class="p-2 rounded-lg bg-studio-ink text-banana-400 border-[1.5px] border-studio-ink">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                    </span>
+                    <h3 class="font-display font-bold text-lg text-studio-ink">Suman Kumar Raj - Resume Preview</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="suman_resume_1.pdf" download="Suman_Kumar_Raj_Resume.pdf" class="px-3.5 py-1.5 rounded-lg bg-banana-400 border-[1.5px] border-studio-ink text-xs font-mono font-bold text-studio-ink flex items-center gap-1.5 shadow-[2px_2px_0_#191A17] hover:bg-banana-500 transition-all">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                        <span>Download PDF</span>
+                    </a>
+                    <button onclick="closeResumeModal()" aria-label="Close Resume Preview" class="p-2 rounded-lg bg-studio-ripe text-white border-[1.5px] border-studio-ink hover:bg-red-600 transition-colors shadow-[2px_2px_0_#191A17]">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Modal Body (PDF Embed/Iframe) -->
+            <div class="flex-1 bg-white p-2">
+                <iframe src="suman_resume_1.pdf" class="w-full h-full rounded-md border border-slate-300" title="Resume PDF Viewer"></iframe>
+            </div>
+        </div>
+    </div>
+
     <!-- Floating Back to Top Button -->
     <button id="back-to-top" aria-label="Back to Top" class="fixed bottom-6 right-6 p-3.5 rounded-xl bg-banana-400 text-studio-ink shadow-[4px_4px_0_#191A17] border-[2px] border-studio-ink transition-all duration-300 opacity-0 pointer-events-none z-40 hover:bg-banana-500 hover:scale-110 active:scale-95">
         <i data-lucide="arrow-up" class="w-5 h-5"></i>
@@ -1157,6 +1186,35 @@
     <!-- Scripts -->
     <script>
         lucide.createIcons();
+
+        // Resume Modal Control Functions
+        function openResumeModal() {
+            const modal = document.getElementById('resume-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeResumeModal() {
+            const modal = document.getElementById('resume-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on click outside content
+        document.getElementById('resume-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'resume-modal') {
+                closeResumeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeResumeModal();
+            }
+        });
 
         // 1. IntersectionObserver Scroll Reveal Engine
         function initScrollReveal() {
