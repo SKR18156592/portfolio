@@ -137,6 +137,18 @@
             box-shadow: 8px 8px 0 #191A17;
         }
 
+        .polaroid-card {
+            background-color: #FFFDF5;
+            border: 2.5px solid #191A17;
+            box-shadow: 8px 8px 0 #191A17;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .polaroid-card:hover {
+            transform: translate(-4px, -4px) rotate(-1deg);
+            box-shadow: 12px 12px 0 #191A17;
+        }
+
         .hard-card-sm {
             border: 1.5px solid #191A17;
             box-shadow: 3px 3px 0 #191A17;
@@ -355,11 +367,14 @@
                     </div>
                 </div>
 
+                <!-- Option 3: Polaroid-Style Frame Layout -->
                 <div class="lg:col-span-4 flex justify-center">
-                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl p-2 bg-vine-200 border-[2px] border-studio-ink shadow-[8px_8px_0_#191A17] overflow-hidden aspect-square group rotate-2 hover:rotate-0 transition-transform duration-300">
-                        <img src="20NA30027.jpeg" alt="Suman Kumar Raj" width="320" height="320" fetchpriority="high" class="w-full h-full object-cover rounded-xl border border-studio-ink group-hover:scale-105 transition-transform duration-500" />
-                        <div class="absolute bottom-4 left-4 right-4 px-4 py-2 rounded-xl bg-banana-400 text-studio-ink border-[2px] border-studio-ink text-xs font-mono font-bold text-center shadow-[3px_3px_0_#191A17]">
-                            IIT Kharagpur Alumnus
+                    <div class="polaroid-card p-4 pb-6 w-72 sm:w-80 group">
+                        <div class="w-full aspect-square rounded-lg overflow-hidden border-[1.5px] border-studio-ink bg-vine-200 mb-4">
+                            <img src="20NA30027.jpeg" alt="Suman Kumar Raj" width="300" height="300" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div class="text-center font-mono font-bold text-studio-ink text-sm tracking-tight flex items-center justify-center gap-2">
+                            <span>⚡ IIT Kharagpur Alumnus</span>
                         </div>
                     </div>
                 </div>
