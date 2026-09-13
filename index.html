@@ -137,12 +137,6 @@
             box-shadow: 8px 8px 0 #191A17;
         }
 
-        .hard-card-sm {
-            border: 1.5px solid #191A17;
-            box-shadow: 3px 3px 0 #191A17;
-            border-radius: 8px;
-        }
-
         .banana-gradient-text {
             background: linear-gradient(135deg, #E2542A 0%, #C49A00 50%, #2C7466 100%);
             -webkit-background-clip: text;
@@ -210,7 +204,6 @@
             transform: translateY(0) !important;
         }
 
-        /* Project Filter Transitions */
         .project-card-item {
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -305,7 +298,7 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-3 sm:px-5">
-        <!-- Hero Section (Full Page Width & Two-Line Description Paragraph) -->
+        <!-- Hero Section -->
         <section class="pt-24 pb-20 md:pt-36 md:pb-28 reveal-on-scroll">
             <div class="w-full space-y-6">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border-[2px] border-studio-ink bg-vine-200 text-studio-ink text-xs font-mono font-bold shadow-[3px_3px_0_#191A17] animate-float">
@@ -327,7 +320,6 @@
                     </div>
                 </div>
 
-                <!-- Expanded Full Page Width Paragraph explicitly structured into two clean lines -->
                 <p class="text-base sm:text-lg text-studio-ink/80 leading-relaxed w-full font-normal">
                     Dual Degree graduate from <strong class="text-studio-ink font-semibold bg-banana-300 px-1.5 py-0.5 rounded border border-studio-ink">IIT Kharagpur</strong> building production-grade <strong class="text-studio-ink font-semibold">GenAI and machine learning systems</strong>.<br class="hidden sm:inline">
                     Experienced in architecting stateful multi-agent workflows with <strong class="text-studio-ink font-semibold">LangGraph</strong> and production <strong class="text-studio-ink font-semibold">RAG pipelines</strong>.
@@ -338,7 +330,6 @@
                         <span>Explore Projects</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
-                    <!-- Trigger Resume Preview Modal -->
                     <button onclick="openResumeModal()" class="btn-secondary flex items-center gap-2.5 text-base cursor-pointer">
                         <i data-lucide="eye" class="w-4 h-4 text-studio-ink"></i>
                         <span>View Resume</span>
@@ -358,13 +349,13 @@
             </div>
         </section>
 
-        <!-- About Section (Full Page Width with Integrated Image) -->
+        <!-- About Section (Minimalist Photo Frame) -->
         <section id="about" class="py-20 border-t-[2px] border-studio-ink/20 reveal-on-scroll">
             <div class="hard-card p-8 sm:p-12 bg-banana-50 w-full relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-48 h-48 bg-banana-300 rounded-bl-full border-b-[2px] border-l-[2px] border-studio-ink opacity-30 pointer-events-none"></div>
                 
-                <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
-                    <!-- Text Info Column (Expanded Full Width) -->
+                <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
+                    <!-- Text Info Column -->
                     <div class="lg:col-span-8 space-y-6">
                         <div>
                             <span class="eyebrow text-vine-600 bg-vine-100 px-3 py-1 rounded-md border border-studio-ink/30 font-bold inline-block mb-3">Background</span>
@@ -378,12 +369,12 @@
                         </p>
                     </div>
 
-                    <!-- Photo Column Inside About Section -->
+                    <!-- Minimalist Photo Frame Column -->
                     <div class="lg:col-span-4 flex justify-center">
-                        <div class="relative w-60 h-60 sm:w-[260px] sm:h-[260px] rounded-2xl p-2.5 bg-banana-300 border-[2px] border-studio-ink shadow-[6px_6px_0_#191A17] overflow-hidden aspect-square group -rotate-1 hover:rotate-0 transition-all duration-300">
-                            <div class="w-full h-full rounded-xl border-[1.5px] border-studio-ink overflow-hidden bg-banana-50 relative">
-                                <img src="20NA30027.jpeg" alt="Suman Kumar Raj" width="260" height="260" fetchpriority="high" class="w-full h-full object-cover filter contrast-[1.05] saturate-[1.05] group-hover:scale-105 transition-transform duration-500" />
-                                <div class="absolute inset-0 bg-gradient-to-t from-studio-ink/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+                        <div class="relative w-56 h-56 sm:w-[240px] sm:h-[240px] rounded-2xl p-3 bg-white border border-studio-ink/20 shadow-xl overflow-hidden aspect-square group transition-all duration-300 hover:shadow-2xl">
+                            <div class="w-full h-full rounded-xl border border-studio-ink/10 overflow-hidden bg-banana-50 relative">
+                                <img src="20NA30027.jpeg" alt="Suman Kumar Raj" width="240" height="240" fetchpriority="high" class="w-full h-full object-cover filter contrast-[1.05] saturate-[1.05] group-hover:scale-105 transition-transform duration-500" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-studio-ink/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
                             </div>
                         </div>
                     </div>
@@ -509,25 +500,21 @@
                 <!-- Segmented Filter Control Bar -->
                 <div class="overflow-x-auto no-scrollbar pb-1">
                     <div class="p-1.5 rounded-xl bg-banana-200 border-[2px] border-studio-ink shadow-[3px_3px_0_#191A17] inline-flex items-center gap-1.5 shrink-0" role="tablist" aria-label="Filter projects by domain">
-                        
                         <button data-filter="all" role="tab" aria-selected="true" class="filter-btn active-filter whitespace-nowrap inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-mono font-bold tracking-wider transition-all duration-300">
                             <i data-lucide="layers" class="w-4 h-4"></i>
                             <span>All Projects</span>
                             <span class="filter-count ml-1 px-2 py-0.5 rounded text-[10px] font-mono leading-none bg-studio-ink text-banana-400">5</span>
                         </button>
-
                         <button data-filter="genai" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg text-xs font-mono font-bold tracking-wider text-studio-ink transition-all duration-300">
                             <i data-lucide="bot" class="w-4 h-4 text-vine-600"></i>
                             <span>GenAI & Agents</span>
                             <span class="filter-count ml-1 px-2 py-0.5 rounded text-[10px] font-mono leading-none bg-banana-300 text-studio-ink border-[1px] border-studio-ink">2</span>
                         </button>
-
                         <button data-filter="dl-cv" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg text-xs font-mono font-bold tracking-wider text-studio-ink transition-all duration-300">
                             <i data-lucide="brain-circuit" class="w-4 h-4 text-studio-ripe"></i>
                             <span>CV & Deep Learning</span>
                             <span class="filter-count ml-1 px-2 py-0.5 rounded text-[10px] font-mono leading-none bg-banana-300 text-studio-ink border-[1px] border-studio-ink">2</span>
                         </button>
-
                         <button data-filter="tools" role="tab" aria-selected="false" class="filter-btn whitespace-nowrap inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg text-xs font-mono font-bold tracking-wider text-studio-ink transition-all duration-300">
                             <i data-lucide="terminal-square" class="w-4 h-4 text-studio-ink"></i>
                             <span>Developer Tools</span>
@@ -538,7 +525,7 @@
             </div>
 
             <div id="projects-grid" class="grid md:grid-cols-2 gap-8">
-                <!-- 1. Multi-Agent Research Assistant (GenAI) -->
+                <!-- 1. Multi-Agent Research Assistant -->
                 <article data-category="genai" class="project-card-item group hard-card p-8 flex flex-col justify-between bg-banana-300 reveal-child">
                     <div>
                         <div class="flex items-center justify-between mb-5">
@@ -565,7 +552,7 @@
                     </div>
                 </article>
 
-                <!-- 2. MyTaskManager (GenAI) -->
+                <!-- 2. MyTaskManager -->
                 <article data-category="genai" class="project-card-item group hard-card p-8 flex flex-col justify-between bg-vine-200 reveal-child">
                     <div>
                         <div class="flex items-center justify-between mb-5">
@@ -591,7 +578,7 @@
                     </div>
                 </article>
 
-                <!-- 3. Fingerprint Liveness Detection (DL / CV) -->
+                <!-- 3. Fingerprint Liveness Detection -->
                 <article data-category="dl-cv" class="project-card-item group hard-card p-8 flex flex-col justify-between bg-banana-200 reveal-child">
                     <div>
                         <div class="flex items-center justify-between mb-5">
@@ -616,7 +603,7 @@
                     </div>
                 </article>
 
-                <!-- 4. LendingClub Risk Prediction (DL / CV) -->
+                <!-- 4. LendingClub Risk Prediction -->
                 <article data-category="dl-cv" class="project-card-item group hard-card p-8 flex flex-col justify-between bg-banana-50 reveal-child">
                     <div>
                         <div class="flex items-center justify-between mb-5">
@@ -641,7 +628,7 @@
                     </div>
                 </article>
 
-                <!-- 5. CodeBeat (Tools) -->
+                <!-- 5. CodeBeat -->
                 <article data-category="tools" class="project-card-item group hard-card p-8 flex flex-col justify-between md:col-span-2 bg-banana-300 reveal-child">
                     <div>
                         <div class="flex items-center justify-between gap-4 mb-4">
@@ -725,7 +712,7 @@
             </div>
 
             <div class="space-y-6">
-                <!-- 1. AI/ML Engineer Intern • MakeMyBrain -->
+                <!-- 1. MakeMyBrain -->
                 <div class="hard-card p-8 flex flex-col md:flex-row md:items-start justify-between gap-6 bg-banana-200 reveal-child">
                     <div class="flex items-start gap-5">
                         <div class="p-3.5 rounded-xl bg-studio-ink text-banana-400 shrink-0 mt-1 border-[2px] border-studio-ink shadow-[3px_3px_0_#191A17]">
@@ -744,7 +731,7 @@
                     <span class="text-xs font-mono font-bold text-studio-ink self-start md:self-center px-4 py-2 rounded-full bg-banana-400 border-[2px] border-studio-ink shrink-0 shadow-[3px_3px_0_#191A17]">Internship</span>
                 </div>
 
-                <!-- 2. DSA Mentor • AlgoZenith -->
+                <!-- 2. AlgoZenith -->
                 <div class="hard-card p-8 flex flex-col md:flex-row md:items-start justify-between gap-6 bg-vine-200 reveal-child">
                     <div class="flex items-start gap-5">
                         <div class="p-3.5 rounded-xl bg-studio-ink text-banana-400 shrink-0 mt-1 border-[2px] border-studio-ink shadow-[3px_3px_0_#191A17]">
@@ -762,7 +749,7 @@
                     <span class="text-xs font-mono font-bold text-studio-ink self-start md:self-center px-4 py-2 rounded-full bg-banana-400 border-[2px] border-studio-ink shrink-0 shadow-[3px_3px_0_#191A17]">500+ Students</span>
                 </div>
 
-                <!-- 3. Teaching Assistant • IIT Kharagpur -->
+                <!-- 3. IIT Kharagpur -->
                 <div class="hard-card p-8 flex flex-col md:flex-row md:items-start justify-between gap-6 bg-banana-50 reveal-child">
                     <div class="flex items-start gap-5">
                         <div class="p-3.5 rounded-xl bg-studio-ink text-banana-400 shrink-0 mt-1 border-[2px] border-studio-ink shadow-[3px_3px_0_#191A17]">
@@ -897,11 +884,7 @@
                     </div>
 
                     <div class="w-full md:w-auto shrink-0">
-                        <a href="https://coursera.org/verify/22QSGZ7M96PX" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           aria-label="Verify Retrieval-Augmented Generation certificate on Coursera"
-                           class="btn-primary w-full md:w-auto inline-flex justify-center items-center gap-2 text-base">
+                        <a href="https://coursera.org/verify/22QSGZ7M96PX" target="_blank" rel="noopener noreferrer" aria-label="Verify Retrieval-Augmented Generation certificate on Coursera" class="btn-primary w-full md:w-auto inline-flex justify-center items-center gap-2 text-base">
                             <span>Verify Certificate</span>
                             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
@@ -936,11 +919,7 @@
                     </div>
 
                     <div class="w-full md:w-auto shrink-0">
-                        <a href="https://academy.langchain.com/certificates/nfy9ggg3ez" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           aria-label="Verify LangGraph Foundation certificate on LangChain Academy"
-                           class="btn-primary w-full md:w-auto inline-flex justify-center items-center gap-2 text-base">
+                        <a href="https://academy.langchain.com/certificates/nfy9ggg3ez" target="_blank" rel="noopener noreferrer" aria-label="Verify LangGraph Foundation certificate on LangChain Academy" class="btn-primary w-full md:w-auto inline-flex justify-center items-center gap-2 text-base">
                             <span>Verify Certificate</span>
                             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
@@ -974,11 +953,7 @@
                     </div>
 
                     <div class="w-full md:w-auto shrink-0">
-                        <a href="https://www.udemy.com/certificate/UC-c5f7586c-19c1-4972-b47c-030660a70e86/" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           aria-label="Verify Python and DSA certificate on Udemy"
-                           class="btn-primary w-full md:w-auto inline-flex justify-center items-center gap-2 text-base">
+                        <a href="https://www.udemy.com/certificate/UC-c5f7586c-19c1-4972-b47c-030660a70e86/" target="_blank" rel="noopener noreferrer" aria-label="Verify Python and DSA certificate on Udemy" class="btn-primary w-full md:w-auto inline-flex justify-center items-center gap-2 text-base">
                             <span>Verify Certificate</span>
                             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
@@ -1012,11 +987,7 @@
                     </div>
 
                     <div class="w-full md:w-auto shrink-0">
-                        <a href="https://www.udemy.com/certificate/UC-3b8d8e1f-47ed-4c5b-868c-ddcc75480a96/" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           aria-label="Verify Python for Data Science and Machine Learning certificate on Udemy"
-                           class="btn-primary w-full md:w-auto inline-flex justify-center items-center gap-2 text-base">
+                        <a href="https://www.udemy.com/certificate/UC-3b8d8e1f-47ed-4c5b-868c-ddcc75480a96/" target="_blank" rel="noopener noreferrer" aria-label="Verify Python for Data Science and Machine Learning certificate on Udemy" class="btn-primary w-full md:w-auto inline-flex justify-center items-center gap-2 text-base">
                             <span>Verify Certificate</span>
                             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
@@ -1147,7 +1118,6 @@
     <!-- Resume Preview Modal -->
     <div id="resume-modal" class="fixed inset-0 z-[100] bg-studio-ink/80 backdrop-blur-sm hidden items-center justify-center p-4 sm:p-6">
         <div class="hard-card bg-banana-50 w-full max-w-4xl h-[85vh] flex flex-col shadow-[12px_12px_0_#191A17] animate-scale-in overflow-hidden">
-            <!-- Modal Header -->
             <div class="p-4 sm:p-5 border-b-[2px] border-studio-ink flex items-center justify-between bg-banana-200">
                 <div class="flex items-center gap-3">
                     <span class="p-2 rounded-lg bg-studio-ink text-banana-400 border-[1.5px] border-studio-ink">
@@ -1165,7 +1135,6 @@
                     </button>
                 </div>
             </div>
-            <!-- Modal Body (PDF Embed/Iframe) -->
             <div class="flex-1 bg-white p-2">
                 <iframe src="suman_resume_1.pdf" class="w-full h-full rounded-md border border-slate-300" title="Resume PDF Viewer"></iframe>
             </div>
@@ -1192,7 +1161,6 @@
     <script>
         lucide.createIcons();
 
-        // Resume Modal Control Functions
         function openResumeModal() {
             const modal = document.getElementById('resume-modal');
             modal.classList.remove('hidden');
@@ -1207,21 +1175,18 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Close modal on click outside content
         document.getElementById('resume-modal').addEventListener('click', (e) => {
             if (e.target.id === 'resume-modal') {
                 closeResumeModal();
             }
         });
 
-        // Close modal on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeResumeModal();
             }
         });
 
-        // 1. IntersectionObserver Scroll Reveal Engine
         function initScrollReveal() {
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (prefersReducedMotion) return;
@@ -1264,7 +1229,6 @@
             initScrollReveal();
         }
 
-        // 2. Interactive Project Category Filter Logic
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card-item');
 
@@ -1296,7 +1260,6 @@
             });
         });
 
-        // 3. Typewriter Effect
         const phrases = [
             "GenAI & Machine Learning Engineer",
             "IIT Kharagpur Alumnus"
@@ -1342,7 +1305,6 @@
             }
         });
 
-        // 4. Toast Notifications
         function showToast(message) {
             const toast = document.getElementById('toast');
             const toastMessage = document.getElementById('toast-message');
@@ -1355,7 +1317,6 @@
             }, 2500);
         }
 
-        // 5. Copy to Clipboard
         function copyToClipboard(text, successMsg = 'Copied to clipboard!') {
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(text).then(() => showToast(successMsg));
@@ -1370,7 +1331,6 @@
             }
         }
 
-        // 6. Scroll Progress & Active Nav Indicators
         const scrollProgress = document.getElementById('scroll-progress');
         const backToTopBtn = document.getElementById('back-to-top');
         const sections = document.querySelectorAll('section[id]');
@@ -1418,7 +1378,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // 7. Mobile Menu Drawer
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -1444,7 +1403,6 @@
             });
         });
 
-        // 8. Form Handling
         const form = document.getElementById('contact-form');
         const statusDiv = document.getElementById('form-status');
         const submitBtn = document.getElementById('form-submit-btn');
@@ -1499,7 +1457,6 @@
             ) : '';
         }
 
-        // 9. Render GitHub Repositories
         function renderRepos(repos, container) {
             if (!repos || repos.length === 0) {
                 container.innerHTML = `
@@ -1571,7 +1528,6 @@
             });
         }
 
-        // 10. Fetch GitHub Repositories
         async function fetchGitHubRepos() {
             const username = 'SKR18156592';
             const container = document.getElementById('repos-container');
